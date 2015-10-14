@@ -1,8 +1,11 @@
 # ShowMustGoOn
 
-Show Must Go on va a ser un buscador de conciertos, relacionando tus gustos y la zona que deeses. 
+Show Must Go on is going to be a seeker of concerts, in relation with your preferences and zones.
 
-Los conciertos se asignaran segun tus gustus, y la zona que hayas elegido previamente.
 
-Habra confirmacion de asistencia.
+The Shows will be asigned by your preferences, and the zones previously choose.
+
+
+There will  be assistance conffirmation.
+
 

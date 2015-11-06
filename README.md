@@ -1,4 +1,4 @@
-ShowMustGoOn
+ShowMustGoOn!!
 
 This app it is going to be a seeker of concerts, in relation with your preferences and zones.
 

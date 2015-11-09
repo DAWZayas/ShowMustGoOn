@@ -48,10 +48,10 @@ function matching(next) {
   return function (options) {
     return function (createStore) {
       return function (reducer, initialState) {
-        var store = _redux.compose(_redux.applyMiddleware(_matchMiddleware2['default'](function () {
-          var _store$history;
+        var store = _redux.compose(_redux.applyMiddleware(_matchMiddleware2['default'](function (url, callback) {
+          var location = store.history.createLocation(url);
 
-          return (_store$history = store.history).match.apply(_store$history, arguments);
+          store.history.match(location, callback);
         })), next(_extends({}, options, {
           createHistory: options.createHistory || _historyLibCreateMemoryHistory2['default']
         })))(createStore)(reducer, initialState);

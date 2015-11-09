@@ -199,14 +199,26 @@ describe('<ReduxRouter>', function () {
       });
 
       var store = server.reduxReactRouter({ routes: routes })(_redux.createStore)(reducer);
-      store.dispatch(server.match('/parent/child/850', function () {
+      store.dispatch(server.match('/parent/child/850?key=value', function (err, redirectLocation, routerState) {
         var output = _reactDomServer.renderToString(_react2['default'].createElement(
           _reactRedux.Provider,
           { store: store },
           _react2['default'].createElement(_.ReduxRouter, null)
         ));
         expect(output).to.match(/Pathname: \/parent\/child\/850/);
+        expect(routerState.location.query).to.eql({ key: 'value' });
       }));
+    });
+
+    it('should gracefully handle 404s', function () {
+      var reducer = _redux.combineReducers({
+        router: _.routerStateReducer
+      });
+
+      var store = server.reduxReactRouter({ routes: routes })(_redux.createStore)(reducer);
+      expect(function () {
+        return store.dispatch(server.match('/404', function () {}));
+      }).to.not['throw']();
     });
 
     it('throws if routes are not passed to store enhancer', function () {

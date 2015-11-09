@@ -59,8 +59,12 @@ function historyAPI(method) {
 
 var pushState = historyAPI('pushState');
 exports.pushState = pushState;
+var push = historyAPI('push');
+exports.push = push;
 var replaceState = historyAPI('replaceState');
 exports.replaceState = replaceState;
+var replace = historyAPI('replace');
+exports.replace = replace;
 var setState = historyAPI('setState');
 exports.setState = setState;
 var go = historyAPI('go');

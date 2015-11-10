@@ -5,10 +5,12 @@ import Indie from './Indie';
 import Metal from './Metal';
 
 
-export default combineReducers({
+const  ShowMustGoOnApp = combineReducers({
   Rock,
   Indie,
   Metal,
   router
  
 });
+
+export default ShowMustGoOnApp;

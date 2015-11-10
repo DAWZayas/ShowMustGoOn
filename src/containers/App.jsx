@@ -11,13 +11,13 @@ export default class App extends Component {
     return (
       <div>
         <h1>Show Must Go On!</h1>
-       <nav className="navbar navbar-default">
+       <nav className="navbar navbar-inverse">
           <div className="container">
             <div className="navbar-header">
-              <span className="icon-bar"></span>
-              <span className="icon-bar"></span>
-              <span className="icon-bar"></span>
-              <span className="icon-bar"></span>
+              <span className="presentation"></span>
+              <span className="presentation"></span>
+              <span className="presentation"></span>
+              <span className="presentation"></span>
             </div>
             <ul className="nav navbar-nav">
               <li><Link to="/">Home</Link></li>

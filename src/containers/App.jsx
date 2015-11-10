@@ -10,14 +10,14 @@ export default class App extends Component {
   render() {
     return (
       <div>
-        <h1>Show Must Go On!</h1>
+        <h1 class="bg-primary">Show Must Go On!</h1>
        <nav className="navbar navbar-inverse">
           <div className="container">
             <div className="navbar-header">
-              <span className="presentation"></span>
-              <span className="presentation"></span>
-              <span className="presentation"></span>
-              <span className="presentation"></span>
+              <span className="icon-bar"></span>
+              <span className="icon-bar"></span>
+              <span className="icon-bar"></span>
+              <span className="icon-bar"></span>
             </div>
             <ul className="nav navbar-nav">
               <li><Link to="/">Home</Link></li>
@@ -27,6 +27,7 @@ export default class App extends Component {
             </ul>
           </div>
         </nav>
+        {this.props.children}
       </div>
     );
   }

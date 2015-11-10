@@ -5,7 +5,7 @@ import Indie from './Indie';
 import Metal from './Metal';
 
 
-const  ShowMustGoOnApp = combineReducers({
+ const ShowMustGoOn = combineReducers({
   Rock,
   Indie,
   Metal,
@@ -13,4 +13,4 @@ const  ShowMustGoOnApp = combineReducers({
  
 });
 
-export default ShowMustGoOnApp;
+export default ShowMustGoOn;

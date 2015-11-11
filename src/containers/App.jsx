@@ -1,4 +1,5 @@
 import React, { Component, PropTypes } from 'react';
+import { Link } from 'react-router';
 
 export default class App extends Component {
 
@@ -9,8 +10,24 @@ export default class App extends Component {
   render() {
     return (
       <div>
-        <h1>Welcome to my App</h1>z
-        {this.props.children}
+       <h1>Show Must Go On!</h1>
+      <nav className="navbar navbar-inverse">
+          <div className="container">
+            <div className="navbar-header">
+              <span className="icon-bar"></span>
+              <span className="icon-bar"></span>
+              <span className="icon-bar"></span>
+              <span className="icon-bar"></span>
+            </div>
+            <ul className="nav navbar-nav">
+              <li><Link to="/">Home</Link></li>
+              <li><Link to="#">Rock</Link></li>
+              <li><Link to="#">Metal</Link></li>
+              <li><Link to="#">Indie</Link></li>
+            </ul>
+          </div>
+        </nav>
+      {this.props.children}
       </div>
     );
   }

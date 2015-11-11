@@ -21,9 +21,9 @@ export default class App extends Component {
             </div>
             <ul className="nav navbar-nav">
               <li><Link to="/">Home</Link></li>
-              <li><Link to="#">Rock</Link></li>
-              <li><Link to="#">Metal</Link></li>
-              <li><Link to="#">Indie</Link></li>
+              <li><Link to="rock">Rock</Link></li>
+              <li><Link to="metal">Metal</Link></li>
+              <li><Link to="indie">Indie</Link></li>
             </ul>
           </div>
         </nav>

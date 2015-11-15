@@ -1,4 +1,4 @@
-import React, { Component, PropTypes } from 'react';
+import React, { Component } from 'react';
 import { Link } from 'react-router';
 
 export default class App extends Component {
@@ -10,8 +10,8 @@ export default class App extends Component {
   render() {
     return (
       <div>
-       <h1>Show Must Go On!</h1>
-      <nav className="navbar navbar-inverse">
+      	<h1>Show Must Go on</h1>
+      	<nav className="navbar navbar-inverse">
           <div className="container">
             <div className="navbar-header">
               <span className="icon-bar"></span>
@@ -21,19 +21,15 @@ export default class App extends Component {
             </div>
             <ul className="nav navbar-nav">
               <li><Link to="/">Home</Link></li>
-              <li><Link to="rock">Rock</Link></li>
-              <li><Link to="metal">Metal</Link></li>
-              <li><Link to="indie">Indie</Link></li>
+              <li><Link to="/preferences">Preferences</Link></li>
+          
             </ul>
           </div>
         </nav>
-      {this.props.children}
+  	    {this.props.children}
       </div>
+
+
     );
   }
 }
-
-App.propTypes = {
-  // Injected by React Router
-  children: PropTypes.node
-};

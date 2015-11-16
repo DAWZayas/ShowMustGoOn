@@ -15,7 +15,7 @@ export const concerts = [
   }
 ];
 
-export const places = {
+export const bands = {
 	0: {
     id: '0',
 		idConcert: concerts[0].id,
@@ -51,5 +51,5 @@ export const places = {
 
 
 export const initialState = {
-  concerts, places
+  concerts, bands
 };

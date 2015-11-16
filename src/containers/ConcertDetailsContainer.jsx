@@ -2,9 +2,8 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
 import ConcertDetails from '../components/ConcertDetails';
-import PlaceList from '../components/PlaceList';
+import BandList from '../components/BandList';
 
-import { addPlace } from '../actions';
 
 class ConcertDetailsContainer extends Component {
 
@@ -18,7 +17,7 @@ class ConcertDetailsContainer extends Component {
         <div className="col-md-6">
     		  <div className="panel panel-default">
     			 <ConcertDetails { ...this.props } />
-    			 <PlaceList { ...this.props }/>
+    			 <BandList { ...this.props }/>
     		  </div>
         </div>
       </div>
@@ -29,8 +28,8 @@ class ConcertDetailsContainer extends Component {
 function mapStateToProps(state) {
   const idConcert = state.router.params.idConcert;
   const concert = state.concerts.filter( concert => idConcert === concert.id)[0] || {};
-  const places = Object.values(state.places).filter( place =>  place.idConcert === concert.id );
-  return { concert, places };
+  const bands = Object.values(state.bands).filter( band =>  band.idConcert === concert.id );
+  return { concert, bands };
 }
 
 function mapDispatchToProps(dispatch) {

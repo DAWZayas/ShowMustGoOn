@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-export default class ConcertDetails extends Component {
+export default class BandDetails extends Component {
 
   constructor(props) {
     super(props);
@@ -8,12 +8,12 @@ export default class ConcertDetails extends Component {
 
 
   render() {
-  	const { concert } = this.props;
+  	const { band } = this.props;
     return (
       <div className="panel-heading">
       	   <h3>
             <span>
-              { concert.title }
+              { band.title }
             </span>
           </h3>
       </div>

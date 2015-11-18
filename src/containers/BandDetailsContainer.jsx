@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
-import ConcertDetails from '../components/ConcertDetails';
-import BandList from '../components/BandList';
+import BandDetails from '../components/BandDetails';
+import InfoList from '../components/InfoList';
 
 
 
-class ConcertDetailsContainer extends Component {
 
+class BandDetailsContainer extends Component {
   constructor(props) {
     super(props);
   }
@@ -17,8 +17,8 @@ class ConcertDetailsContainer extends Component {
       <div className="row">
         <div className="col-md-6">
     		  <div className="panel panel-default">
-    			 <ConcertDetails { ...this.props } />
-           <BandList {...this.props}/>
+    			 <BandDetails { ...this.props } />
+           <InfoList { ...this.props } />
     		  </div>
         </div>
       </div>
@@ -27,10 +27,10 @@ class ConcertDetailsContainer extends Component {
 }
 
 function mapStateToProps(state) {
-  const idConcert = state.router.params.idConcert;
-  const concert = state.concerts.filter( concert => idConcert === concert.id)[0] || {};
-  const bands = Object.values(state.bands).filter( band =>  band.idConcert === concert.id );
-  return { concert, bands };
+  const id = state.router.params.id;
+  const band = state.bands.filter( bands => id === bands.id) || {};
+  const informations = Object.values(state.informations).filter( informations =>  informations.idBand === id );
+  return { band, informations };
 }
 
 function mapDispatchToProps(dispatch) {
@@ -42,4 +42,4 @@ function mapDispatchToProps(dispatch) {
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(ConcertDetailsContainer);
+)(BandDetailsContainer);

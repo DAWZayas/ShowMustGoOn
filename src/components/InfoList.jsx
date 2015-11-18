@@ -1,21 +1,19 @@
 import React, { Component } from 'react';
-import BandItem from './BandItem';
 
-export default class BandList extends Component {
+export default class InfoList extends Component {
 
   constructor(props) {
     super(props);
   }
 
   render() {
-    const { bands } = this.props;
-
+    const { informations } = this.props;
     return (
       <div className="container">
-          <h3>Bands</h3>
+          <h3>Information</h3>
           <ul className="col-lg-12 hero">
             {
-              bands.map( (band, index) =>  <BandItem key={index} band={band} /> )
+            informations.map( (information, index) => <li key={index}>{information.title}</li> )
             }
          </ul>
       </div>

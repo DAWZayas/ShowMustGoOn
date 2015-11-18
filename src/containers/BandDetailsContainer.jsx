@@ -27,8 +27,11 @@ class BandDetailsContainer extends Component {
 }
 
 function mapStateToProps(state) {
+  let band = {};
   const id = state.router.params.id;
-  const band = state.bands.filter( bands => id === bands.id) || {};
+  for (var i = state.bands.length - 1; i >= 0; i--) {
+    if (state.bands[i].id === id){band = state.bands[i];}
+  }
   const informations = Object.values(state.informations).filter( informations =>  informations.idBand === id );
   return { band, informations };
 }

@@ -8,11 +8,7 @@ export default class BandItem extends Component {
   	const { band } = this.props;
     return (
     	<li>
-    		<div className="container">
-    			<div className="col-lg-6">
-            	<Link to={`/band/${band.id}`}>{band.title}</Link>    
-         </div>
-        </div>
+    		<Link to={`/band/${band.id}`}>{band.title}</Link>   
     	</li>
     );
   }

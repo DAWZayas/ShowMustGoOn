@@ -1,5 +1,5 @@
 
-export default function bandsReducer(state = {}) {
+export default function informationsReducer(state = {}) {
 	
   		return state;
 }

@@ -4,42 +4,42 @@
  * action types
  */
 export const SET_CONCERTS = 'SET_CONCERTS';
+export const SET_COMMENTS = 'SET_COMMENTS';
 export const ADD_CONCERT = 'ADD_CONCERT';
+export const ADD_COMMENT = 'ADD_COMMENT';
+
+
 
 /*
  * other constants
  */
-
-export const NotifyLevels = {
-	DEBUG: 'DEBUG',
-	INFO: 'INFO',
-	WARNING: 'WARNING',
-	ERROR: 'ERROR'
-};
 
 /*
  * Concerts action creators
  */
 
 export function setConcerts(concerts) {
-  return { type: SET_CONCERTS, concerts, 
-  	meta: {
-  	  notify: { level: NotifyLevels.INFO }
-  	}
-  };
+  return { type: SET_CONCERTS, concerts};
 }
 
 export function addConcert(title) {
-  return { type: ADD_CONCERT, title, 
-  	meta: {
-  	  notify: { level: NotifyLevels.INFO }
-  	}
-  };
+  return { type: ADD_CONCERT, title};
 }
 
 /*
  * Band action creators
  */
+
+ /*
+ * Coment action creators
+ */
+ export function setComments(comment) {
+  return { type: SET_COMMENTS, comment };
+}
+
+export function addComment(idBand, comment) {
+  return { type: ADD_COMMENT, idBand, comment };
+}
 
 
 /*

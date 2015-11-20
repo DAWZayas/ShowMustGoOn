@@ -35,7 +35,7 @@ function mapStateToProps(state) {
 
 function mapDispatchToProps(dispatch) {
   return {
-  	onAddPlaceClick: (idConcert, title) => dispatch(addPlace(idConcert, title)),
+  	onAddConcertClick: (idConcert, title) => dispatch(addConcert(idConcert, title)),
   };
 }
 

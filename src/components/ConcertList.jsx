@@ -21,6 +21,7 @@ export default class ConcertList extends Component {
     });
   }
 
+
   handleOnChangeTitle() {
 
     const node = this.refs.title;

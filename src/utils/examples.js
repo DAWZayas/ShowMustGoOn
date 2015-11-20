@@ -19,64 +19,74 @@ export const bands = [
 	{
     id: '0',
 		idConcert: concerts[0].id,
-		title: 'marea'	
+		title: 'Marea'
 	},
    {
     id: '1',
     idConcert: concerts[0].id,
-    title: 'extremo' 
+    title: 'Extremo'
   },
   {
     id: '2',
     idConcert: concerts[1].id,
-    title: 'swan' 
+    title: 'Swan'
   },
   {
     id: '3',
     idConcert: concerts[1].id,
-    title: 'bob' 
+    title: 'Bob'
   },
   {
     id: '4',
     idConcert: concerts[2].id,
-    title: 'marilyn' 
+    title: 'Marilyn'
   },
   {
     id: '5',
     idConcert: concerts[2].id,
-    title: 'cristian' 
+    title: 'Cristian'
   }
 ];
 
 export const informations = {
   0: {
     idBand: '0',
-    title: 'Madrid' 
+    title: 'Madrid',
+    price: '56'
   },
   1: {
     idBand: '1',
-    title: 'Barcelona' 
+    title: 'Barcelona',
+    price: '65' 
   },
   2: {
     idBand: '2',
-    title: 'Sevilla' 
+    title: 'Sevilla',
+    price: '63245'  
   },
   3: {
     idBand: '3',
-    title: 'Malaga' 
+    title: 'Malaga',
+    price: '63245'  
+
   },
   4: {
     idBand: '4',
-    title: 'Boadilla' 
+    title: 'Boadilla',
+    price: '63245'  
+
   },
   5: {
     idBand: '0',
-    title: 'Majadahonda' 
+    title: 'Majadahonda',
+    price: '63245'  
+
   }
 };
 
-
+export const comments = {
+};
 
 export const initialState = {
-  concerts, bands, informations
+  concerts, bands, informations, comments
 };

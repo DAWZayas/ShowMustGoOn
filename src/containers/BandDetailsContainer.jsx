@@ -3,6 +3,8 @@ import { connect } from 'react-redux';
 
 import BandDetails from '../components/BandDetails';
 import InfoList from '../components/InfoList';
+import CommentList from '../components/CommentList';
+import { addComment } from '../actions';
 
 
 
@@ -19,6 +21,7 @@ class BandDetailsContainer extends Component {
     		  <div className="panel panel-default">
     			 <BandDetails { ...this.props } />
            <InfoList { ...this.props } />
+           <CommentList { ...this.props} />
     		  </div>
         </div>
       </div>
@@ -33,12 +36,14 @@ function mapStateToProps(state) {
     if (state.bands[i].id === id){band = state.bands[i];}
   }
   const informations = Object.values(state.informations).filter( informations =>  informations.idBand === id );
-  return { band, informations };
+  const comments =  Object.values(state.comments).filter( comment =>  comment.idBand === band.id);
+
+  return { band, informations, comments };
 }
 
 function mapDispatchToProps(dispatch) {
   return {
-  	onAddPlaceClick: (idConcert, title) => dispatch(addPlace(idConcert, title)),
+  	onAddComment: (idBand, comment) => dispatch(addComment(idBand, comment)),
   };
 }
 

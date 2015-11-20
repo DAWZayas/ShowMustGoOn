@@ -28,8 +28,6 @@ export default class App extends Component {
         </nav>
   	    {this.props.children}
       </div>
-
-
     );
   }
 }

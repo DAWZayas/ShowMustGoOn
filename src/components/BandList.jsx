@@ -18,6 +18,7 @@ export default class BandList extends Component {
               bands.map( (band, index) =>  <BandItem key={index} band={band} /> )
             }
          </ul>
+         
       </div>
     );
   }

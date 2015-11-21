@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, PropTypes } from 'react';
 
 export default class ConcertDetails extends Component {
 
@@ -20,3 +20,7 @@ export default class ConcertDetails extends Component {
     );
   }
 }
+
+ConcertDetails.propTypes = {
+  concert: PropTypes.object.isRequired
+ };

@@ -4,7 +4,7 @@ import { getId } from '../utils';
 
 function addComment(state, idBand, comment) {
   const idComment = getId();
-  const date = Date.parse2();
+  const date = Date();
   const comments = {
     [idComment]: {
       idComment,

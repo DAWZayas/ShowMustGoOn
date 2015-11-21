@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, PropTypes } from 'react';
 
 export default class CommentList extends Component {
 
@@ -39,3 +39,12 @@ export default class CommentList extends Component {
     );
   }
 }
+
+CommentList.propTypes = {
+  comments: PropTypes.array,
+  onAddComment: PropTypes.func.isRequired
+};
+
+CommentList.defaultProps = { 
+  comments: []
+};

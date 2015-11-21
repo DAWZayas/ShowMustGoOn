@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, PropTypes } from 'react';
 import { Link } from 'react-router';
 
 export default class ConcertItem extends Component {
@@ -17,3 +17,7 @@ export default class ConcertItem extends Component {
   }
 
 }
+
+ConcertItem.propTypes = {
+  concert: PropTypes.object.isRequired
+};

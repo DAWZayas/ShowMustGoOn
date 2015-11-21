@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, PropTypes } from 'react';
 import { Link } from 'react-router';
 
 export default class App extends Component {
@@ -31,3 +31,8 @@ export default class App extends Component {
     );
   }
 }
+
+App.propTypes = {
+  // Injected by React RouterConfirmDialog
+  children: PropTypes.node
+};

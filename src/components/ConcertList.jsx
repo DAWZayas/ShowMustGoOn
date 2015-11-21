@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, PropTypes } from 'react';
 import ConcertItem from './ConcertItem';
 
 export default class ConcertList extends Component {
@@ -63,3 +63,12 @@ export default class ConcertList extends Component {
     );
   }
 }
+
+ConcertList.propTypes = {
+  concerts: PropTypes.array,
+  onAddConcert: PropTypes.func.isRequired
+};
+
+ConcertList.defaultProps = { 
+  concerts: []
+};

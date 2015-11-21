@@ -85,6 +85,12 @@ export const informations = {
 };
 
 export const comments = {
+  0: {
+    idComment: '0',
+    idBand: bands[0].id,
+    date: Date(),
+    comment:' Escribe aqui tu comentario'
+  }
 };
 
 export const initialState = {

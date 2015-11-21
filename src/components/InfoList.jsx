@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, PropTypes } from 'react';
 
 export default class InfoList extends Component {
 
@@ -23,3 +23,11 @@ export default class InfoList extends Component {
     );
   }
 }
+
+InfoList.propTypes = {
+  informations: PropTypes.array
+};
+
+InfoList.defaultProps = { 
+  informations: []
+};

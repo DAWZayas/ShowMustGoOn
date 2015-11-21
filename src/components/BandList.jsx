@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, PropTypes } from 'react';
 import BandItem from './BandItem';
 
 export default class BandList extends Component {
@@ -23,3 +23,11 @@ export default class BandList extends Component {
     );
   }
 }
+
+BandList.propTypes = {
+  bands: PropTypes.array
+};
+
+BandList.defaultProps = { 
+  bands: []
+};

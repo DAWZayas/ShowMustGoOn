@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, PropTypes } from 'react';
 
 export default class BandDetails extends Component {
 
@@ -21,3 +21,7 @@ export default class BandDetails extends Component {
   }
 }
 
+BandDetails.propTypes = {
+  band: PropTypes.object.isRequired
+  
+ };

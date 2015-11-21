@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, PropTypes } from 'react';
 import { Link } from 'react-router';
 
 
@@ -14,3 +14,7 @@ export default class BandItem extends Component {
   }
 
 }
+
+BandItem.propTypes = {
+  band: PropTypes.object.isRequired
+};

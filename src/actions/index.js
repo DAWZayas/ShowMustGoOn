@@ -4,9 +4,9 @@
  * action types
  */
 export const SET_CONCERTS = 'SET_CONCERTS';
-export const SET_COMMENTS = 'SET_COMMENTS';
 export const ADD_CONCERT = 'ADD_CONCERT';
 export const ADD_COMMENT = 'ADD_COMMENT';
+export const REMOVE_COMMENT = 'REMOVE_COMMENT';
 
 
 
@@ -33,12 +33,13 @@ export function addConcert(title) {
  /*
  * Coment action creators
  */
- export function setComments(comment) {
-  return { type: SET_COMMENTS, comment };
-}
 
 export function addComment(idBand, comment) {
   return { type: ADD_COMMENT, idBand, comment };
+}
+
+export function removeComment(idComment){
+  return { type: REMOVE_COMMENT, idComment};
 }
 
 

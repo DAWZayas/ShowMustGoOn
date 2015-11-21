@@ -14,6 +14,9 @@ export default class CommentList extends Component {
     node.value = '';
   }
   
+  handleRemoveComment(idComment){
+    this.props.onRemoveComment(idComment);
+  }  
 
   render() {
     const { comments } = this.props;
@@ -22,11 +25,11 @@ export default class CommentList extends Component {
     return (
       <div className="container">
           <h3>Comments</h3>
-          <ul className="col-lg-12 hero">
+          <table className="col-lg-12 hero">
             {
-              comments.map( (comment, index) => <li key={index}>{comment.comment} {comment.date}</li> )
+              comments.map( (comment, index) => <tr><td key={index}>{comment.comment} {comment.date}<button className="btn btn-danger" type="button" onClick={ () => this.handleRemoveComment(comment.idComment)}><span className="glyphicon glyphicon-remove-circle" /></button></td></tr> )
             }
-         </ul>
+         </table>
          <div className="input-group">
             <textarea type="text" className="form-control" placeholder="Add Comments" ref="comment"/>
           </div>
@@ -42,7 +45,8 @@ export default class CommentList extends Component {
 
 CommentList.propTypes = {
   comments: PropTypes.array,
-  onAddComment: PropTypes.func.isRequired
+  onAddComment: PropTypes.func.isRequired,
+  onRemoveComment: PropTypes.func.isRequired
 };
 
 CommentList.defaultProps = { 

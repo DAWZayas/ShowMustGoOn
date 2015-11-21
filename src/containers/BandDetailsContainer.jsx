@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import BandDetails from '../components/BandDetails';
 import InfoList from '../components/InfoList';
 import CommentList from '../components/CommentList';
-import { addComment } from '../actions';
+import { addComment, removeComment } from '../actions';
 
 
 
@@ -44,6 +44,7 @@ function mapStateToProps(state) {
 function mapDispatchToProps(dispatch) {
   return {
   	onAddComment: (idBand, comment) => dispatch(addComment(idBand, comment)),
+    onRemoveComment: (idComment) => dispatch(removeComment(idComment))
   };
 }
 

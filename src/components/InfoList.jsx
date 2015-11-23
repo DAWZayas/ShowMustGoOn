@@ -7,11 +7,11 @@ export default class InfoList extends Component {
   }
   
  handleAsistButtonClick(e, index) {
-   const { informations } = this.props;
+   const { informations, onSelectedConcert } = this.props;
    let msg='';
    for (var i = informations.length - 1; i >= 0; i--) {
      if(informations[i].id===index){
-      informations[i].asistir=!informations[i].asistir; 
+      onSelectedConcert(index);
       if(informations[i].asistir){msg='Confirmada asistencia';}else{msg='Cancelada asistencia';}
     }
    }

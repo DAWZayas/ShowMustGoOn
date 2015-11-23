@@ -5,7 +5,7 @@ import BandDetails from '../components/BandDetails';
 import InfoList from '../components/InfoList';
 import CommentList from '../components/CommentList';
 import ConcertsSelected from '../components/ConcertsSelected';
-import { addComment, removeComment} from '../actions';
+import { addComment, removeComment, selectedConcert} from '../actions';
 
 
 
@@ -51,6 +51,7 @@ function mapStateToProps(state) {
 
 function mapDispatchToProps(dispatch) {
   return {
+    onSelectedConcert: (index) => dispatch(selectedConcert(index)),
   	onAddComment: (idBand, comment) => dispatch(addComment(idBand, comment)),
     onRemoveComment: (idComment) => dispatch(removeComment(idComment))
   };

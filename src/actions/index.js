@@ -11,6 +11,7 @@ export const SELECTED_CONCERT = 'SELECTED_CONCERT';
 
 
 
+
 /*
  * other constants
  */
@@ -25,6 +26,10 @@ export function setConcerts(concerts) {
 
 export function addConcert(title) {
   return { type: ADD_CONCERT, title};
+}
+
+export function selectedConcert(index) {
+  return { type: SELECTED_CONCERT, index};
 }
 
 /*

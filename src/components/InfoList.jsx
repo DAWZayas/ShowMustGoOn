@@ -39,6 +39,7 @@ export default class InfoList extends Component {
 InfoList.propTypes = {
   informations: PropTypes.array,
   band: PropTypes.object.isRequired,
+  onSelectedConcert: PropTypes.func.isRequired
 };
 
 InfoList.defaultProps = {

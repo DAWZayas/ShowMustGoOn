@@ -5,7 +5,6 @@ import bands from './band';
 import informations from './information';
 import comments from './comment';
 
-
 const concertApp = combineReducers({
   concerts,
   bands,

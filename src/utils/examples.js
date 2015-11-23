@@ -54,7 +54,7 @@ export const informations = [
     idBand: '0',
     title: 'Madrid',
     price: '234',
-    asistir: false
+    asistir: true
   },
   {
     id:'1',
@@ -101,6 +101,7 @@ export const comments = {
     comment:' Escribe aqui tu comentario'
   }
 };
+
 
 export const initialState = {
   concerts, bands, informations, comments

@@ -46,7 +46,8 @@ export default class CommentList extends Component {
 CommentList.propTypes = {
   comments: PropTypes.array,
   onAddComment: PropTypes.func.isRequired,
-  onRemoveComment: PropTypes.func.isRequired
+  onRemoveComment: PropTypes.func.isRequired,
+  band: PropTypes.object.isRequired
 };
 
 CommentList.defaultProps = { 

@@ -7,6 +7,7 @@ export const SET_CONCERTS = 'SET_CONCERTS';
 export const ADD_CONCERT = 'ADD_CONCERT';
 export const ADD_COMMENT = 'ADD_COMMENT';
 export const REMOVE_COMMENT = 'REMOVE_COMMENT';
+export const SELECTED_CONCERT = 'SELECTED_CONCERT';
 
 
 
@@ -33,6 +34,7 @@ export function addConcert(title) {
  /*
  * Coment action creators
  */
+
 
 export function addComment(idBand, comment) {
   return { type: ADD_COMMENT, idBand, comment };

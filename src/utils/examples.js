@@ -48,41 +48,50 @@ export const bands = [
   }
 ];
 
-export const informations = {
-  0: {
+export const informations = [
+  {
+    id:'0',
     idBand: '0',
     title: 'Madrid',
-    price: '56'
+    price: '234',
+    asistir: false
   },
-  1: {
+  {
+    id:'1',
     idBand: '1',
     title: 'Barcelona',
-    price: '65' 
+    price: '234',
+    asistir: false
   },
-  2: {
+  {
+    id:'2',
     idBand: '2',
     title: 'Sevilla',
-    price: '63245'  
+    price: '234',
+    asistir: false
   },
-  3: {
+  {
+    id:'3',
     idBand: '3',
     title: 'Malaga',
-    price: '63245'  
-
+    price: '234',
+    asistir: false
   },
-  4: {
+  {
+    id:'4',
     idBand: '4',
     title: 'Boadilla',
-    price: '63245'  
-
+    price: '234',
+    asistir: false
   },
-  5: {
+  {
+    id:'5',
     idBand: '0',
     title: 'Majadahonda',
-    price: '63245'  
-
+    price: '234',
+    asistir: false
   }
-};
+];
 
 export const comments = {
   0: {

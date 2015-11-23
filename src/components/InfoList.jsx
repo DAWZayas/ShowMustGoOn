@@ -6,6 +6,17 @@ export default class InfoList extends Component {
     super(props);
   }
   
+ handleAsistButtonClick(e, index) {
+   const { informations } = this.props;
+   let msg='';
+   for (var i = informations.length - 1; i >= 0; i--) {
+     if(informations[i].id===index){
+      informations[i].asistir=!informations[i].asistir; 
+      if(informations[i].asistir){msg='Confirmada asistencia';}else{msg='Cancelada asistencia';}
+    }
+   }
+   alert(msg);
+}
 
   render() {
     const { informations } = this.props;
@@ -14,9 +25,10 @@ export default class InfoList extends Component {
     return (
       <div className="container">
           <h3>Information</h3>
+          <h5>Click on a concert to confirm you are going</h5>
           <ul className="col-lg-12 hero">
             {
-              informations.map( (information, index) => <li key={index}>{information.title} {information.price}€</li> )
+              informations.map( (information, index) => <button key={index} className={information.asistir?'btn btn-success':'btn btn-info'} type="button" onClick={e => this.handleAsistButtonClick(e, information.id)}>{information.title}</button> )
             }
          </ul>
       </div>
@@ -25,9 +37,11 @@ export default class InfoList extends Component {
 }
 
 InfoList.propTypes = {
-  informations: PropTypes.array
+  informations: PropTypes.array,
+  band: PropTypes.object.isRequired,
 };
 
-InfoList.defaultProps = { 
-  informations: []
+InfoList.defaultProps = {
+  informations: [],
+  band: {}
 };

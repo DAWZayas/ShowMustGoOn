@@ -1,10 +1,7 @@
 import { SELECTED_CONCERT } from '../actions';
 
 function selectedConcert(state, index){
-	for (var i = state.length - 1; i >= 0; i--) {
-		if(state[i].id === index){state[i].asistir=!state[i].asistir;}
-	}
-	return state;
+	return state.map( information => information.id === index ? Object.assign({},  information, {asistir: !information.asistir}) : information);
 
 }
 

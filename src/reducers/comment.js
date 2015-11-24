@@ -1,33 +1,47 @@
-import {  ADD_COMMENT, REMOVE_COMMENT } from '../actions';
+import {  ADD_COMMENT, REMOVE_COMMENT, EDIT_COMMENT } from '../actions';
 import { getId } from '../utils';
+import clone from 'clone';
 
 
 function addComment(state, idBand, comment) {
+ 
   const idComment = getId();
   const date = Date();
   const commentary = {
-    [idComment]: {
       idComment,
       idBand,
       date,
       comment
-    }
   };
-return Object.assign({}, state, commentary);
+
+
+   return state.concat(
+    commentary
+  );
 }
 
 function removeComment(state, idComment){
-  return Object.values(state).reduce( (comments, commentary) =>  commentary.idComment === idComment ? comments : Object.assign(comments, {[commentary.idComment]: commentary}), {});
-
+ return state.filter( commentary => idComment !== commentary.idComment);
 }
 
+function editComment(state, idComment, comment) {
+let newstate=clone(state);
+for (var i = newstate.length - 1; i >= 0; i--) {
+  if(newstate[i].idComment===idComment){newstate[i].comment=comment;}
+};
+return newstate;
+} 
+
+
 export default function commentReducer(state = [], action) {
-	switch (action.type) {
-  	case ADD_COMMENT:
-  		return addComment(state, action.idBand, action.comment);
+  switch (action.type) {
+    case ADD_COMMENT:
+      return addComment(state, action.idBand, action.comment);
     case REMOVE_COMMENT:
       return removeComment(state, action.idComment);
-  	default:
-  		return state;
-  	}
+    case EDIT_COMMENT:
+      return editComment(state, action.idComment, action.comment);
+    default:
+      return state;
+    }
 }

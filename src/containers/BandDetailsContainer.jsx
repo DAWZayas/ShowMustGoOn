@@ -5,7 +5,7 @@ import BandDetails from '../components/BandDetails';
 import InfoList from '../components/InfoList';
 import CommentList from '../components/CommentList';
 import ConcertsSelected from '../components/ConcertsSelected';
-import { addComment, removeComment, selectedConcert} from '../actions';
+import { addComment, removeComment, selectedConcert, editComment } from '../actions';
 
 
 
@@ -16,21 +16,21 @@ class BandDetailsContainer extends Component {
   }
 
   render() {
-  	return (
+    return (
       <div className="row">
         <div className="col-md-6">
         <div className="selected">
            <ConcertsSelected { ...this.props }/>
         </div>
-    		  <div className="panel panel-default">
-    			 <BandDetails { ...this.props } />
+          <div className="panel panel-default">
+           <BandDetails { ...this.props } />
            <InfoList { ...this.props } />
            <CommentList { ...this.props} />
-    		  </div>
+          </div>
         </div>
       </div>
-  	);
-  }	
+    );
+  } 
 }
 
 function mapStateToProps(state) {
@@ -52,8 +52,9 @@ function mapStateToProps(state) {
 function mapDispatchToProps(dispatch) {
   return {
     onSelectedConcert: (index) => dispatch(selectedConcert(index)),
-  	onAddComment: (idBand, comment) => dispatch(addComment(idBand, comment)),
-    onRemoveComment: (idComment) => dispatch(removeComment(idComment))
+    onAddComment: (idBand, comment) => dispatch(addComment(idBand, comment)),
+    onRemoveComment: (idComment) => dispatch(removeComment(idComment)),
+    onEditComment: (idComment, newComment) => dispatch(editComment(idComment, newComment))
   };
 }
 

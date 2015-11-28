@@ -13,6 +13,7 @@ export const EDIT_COMMENT = 'EDIT_COMMENT';
 
 
 
+
 /*
  * other constants
  */
@@ -32,6 +33,8 @@ export function addConcert(title) {
 export function selectedConcert(index) {
   return { type: SELECTED_CONCERT, index};
 }
+
+
 
 /*
  * Band action creators

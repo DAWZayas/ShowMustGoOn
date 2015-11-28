@@ -1,6 +1,5 @@
 import React, { Component, PropTypes } from 'react';
 import { Link } from 'react-router';
-
 export default class App extends Component {
 
   constructor(props) {
@@ -10,7 +9,7 @@ export default class App extends Component {
   render() {
     return (
       <div>
-      	<h1>Show Must Go on</h1>
+      	<h1 className>Show Must Go on</h1>
       	<nav className="navbar navbar-inverse">
           <div className="container">
             <div className="navbar-header">

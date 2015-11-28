@@ -66,7 +66,7 @@ export default class CommentList extends Component {
                 </div>
           </ul>
           <div className={`input-group ${this.state.editing ? 'hidden' : ''}`}>
-            <input type="text" className="form-control" placeholder="Add Comments" ref="comment"/>
+            <input  type="text"  className="form-control" placeholder="Add Comments" ref="comment"/>
             <span className="input-group-btn">
               <button className="btn btn-info" type="button" onClick={e => this.handleAddButtonClick(e)}><span className="glyphicon glyphicon-plus" /></button>
             </span>

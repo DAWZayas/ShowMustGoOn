@@ -1,7 +1,8 @@
 import { connect } from 'react-redux';
 
 import ConcertList from '../components/ConcertList';
-import { addConcert } from '../actions';
+import { pushState } from 'redux-router';
+
 
 function mapStateToProps(state) {
   return {
@@ -11,7 +12,8 @@ function mapStateToProps(state) {
 
 function mapActionsToProps(dispatch) {
   return {
-    onAddConcert: title => dispatch(addConcert(title)),
+  
+    pushState: path => dispatch(pushState(null, path))
   };
 }
 

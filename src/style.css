@@ -16,3 +16,44 @@
 .list-group-item:hover .action-icon {
   display: inherit;
 }
+
+body{
+  
+  background-image: url("http://applesound.com.br/wp-content/uploads/2015/04/novo-fundo-apple.jpg");
+}
+
+
+ 
+
+.navbar-header{
+  color: white;
+  
+}
+
+
+.col-md-6{
+  text-align: center;
+  background-color: white;
+  opacity: 0.6;
+}
+
+.panel-heading{
+  text-align: center;
+}
+
+.container{
+  text-align: left;
+}
+
+
+div .row{
+
+  text-align: center;
+ /* margin-left: 550px;*/
+  color: black;
+  opacity: 0.9;
+
+}
+
+
+

@@ -19,12 +19,15 @@
 
 body{
   
-  background-image: url("http://applesound.com.br/wp-content/uploads/2015/04/novo-fundo-apple.jpg");
+  background-image: url('img/fondo.png');
 }
 
 
+.logo{
+  
+  opacity: 0.5;
  
-
+}
 .navbar-header{
   color: white;
   

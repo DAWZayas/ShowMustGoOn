@@ -14,16 +14,16 @@ export default class ConcertList extends Component {
   }
 
   handleSearchButtonClick(event) {
-  
+    const node = this.refs.text;
     let updateConcerts = this.props.concerts;
-    updateConcerts = updateConcerts.filter( concert => concert.title.toLowerCase().search(event.target.value.toLowerCase()) !== -1); 
-    this.setState({newConcerts: updateConcerts});
+    updateConcerts = updateConcerts.filter( concert => concert.title.toLowerCase().search(event.target.value.toLowerCase()) !== -1);
+    node.value === '' ? this.setState({newConcerts: [] }) : this.setState({newConcerts: updateConcerts});
   }
 
   handleVisibility(){
-    this.refs.text.value='';
-    this.state.isVisible ? this.setState({ isVisible: false }) : this.setState({ isVisible: true });
-    this.setState({newConcerts: []});
+    //this.refs.text.value='';
+    this.setState({ isVisible: true });
+    //this.setState({newConcerts: []});
   }
 
 // QUE HACE ESTA MIERDA?
@@ -63,18 +63,16 @@ export default class ConcertList extends Component {
          </ul>
           <div className="search">
               <div className="search-btn-input">
-                <button className="btn btn-info">
+                <button className={`${this.state.isVisible ? 'hidden' : 'btn btn-info' }`}>
                 <span className="biggerGlyphicon glyphicon glyphicon-search pull-left" aria-hidden="true" onClick={ () => this.handleVisibility()} />
                 </button>
                 <input ref="text" type="text" autoFocus className={`${this.state.isVisible ? 'form-control input-search' : 'hidden' }`} placeholder="Search your concert..." onChange={ (event) => this.handleSearchButtonClick(event)} /*onBlur={ () => this.handleOnBlur()}*//>
               </div>
-              <div className="search-ul">
-                <ul className={`${this.state.isVisible ? '' : 'hidden' }`}>
+                <ul className={`${this.state.isVisible ?  'list-group'  : 'hidden' }`}>
                   {
                     this.state.newConcerts.map( (concert, index) => <ConcertItem key={index} concert={concert} />  )
                   }
                 </ul>
-              </div>
           </div>
       </div>
       </div>

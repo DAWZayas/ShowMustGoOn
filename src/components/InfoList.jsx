@@ -12,7 +12,7 @@ export default class InfoList extends Component {
    for (var i = informations.length - 1; i >= 0; i--) {
      if(informations[i].id===index){
       onSelectedConcert(index);
-      if(informations[i].asistir){msg='Confirmada asistencia';}else{msg='Cancelada asistencia';}
+      if(informations[i].asistir){msg='Cancelada asistencia';}else{msg='Confirmada asistencia';}
     }
    }
    alert(msg);

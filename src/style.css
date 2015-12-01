@@ -1,21 +1,4 @@
-.action-element {
-	cursor: pointer;
-}
 
-.list-group-item .action-icon {
-  display: none;
-}
-
-.list-group-item:hover {
-  z-index: 2;
-  color: #fff;
-  background-color: #337ab7;
-  border-color: #337ab7;
-}
-
-.list-group-item:hover .action-icon {
-  display: inherit;
-}
 
 body{
   
@@ -28,16 +11,13 @@ body{
   opacity: 0.5;
  
 }
-.navbar-header{
-  color: white;
-  
-}
+
 
 
 .col-md-6{
   text-align: center;
   background-color: white;
-  opacity: 0.6;
+  opacity: 0.7;
 }
 
 .panel-heading{
@@ -55,15 +35,23 @@ div .row{
  /* margin-left: 550px;*/
   color: black;
   opacity: 0.9;
-
+  position: fixed; /* or absolute */
+  left: 40%;
 }
+
+.navbar-inv{
+  background-color: #6AB0D1;
+  color:#1023A4;
+}
+
+
 
 .selected{
     position: absolute;
     width: 220px;
     border: 3px solid #73AD21;
-    right: 12px;
-    top: 30px;
+    right: -250px;
+    color: white;
 }
 
 

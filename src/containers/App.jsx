@@ -13,8 +13,7 @@ export default class App extends Component {
   render() {
     return (
       <div>
-      	<h1 className>Show Must Go on</h1>
-      	<nav className="navbar navbar-inverse">
+      	<nav className="navbar navbar-inv">
           <div className="container">
             <div className="navbar-header">
               <span className="icon-bar"></span>

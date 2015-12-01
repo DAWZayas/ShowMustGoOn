@@ -24,7 +24,7 @@ export default class ConcertsSelected extends Component {
       <div className="container">
         <h3>Concerts Selected</h3>
         <ul className="col-lg-12 hero">
-          {
+          {selecteds.length===0? <li>none</li> :
             selecteds.map( (concert, index) =>  <li key={index}>{concert.band} {concert.place}</li> )
           }
          </ul>

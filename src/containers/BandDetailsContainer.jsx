@@ -35,7 +35,6 @@ class BandDetailsContainer extends Component {
 
 function mapStateToProps(state) {
   let band = {};
-  const selectedConcerts=state.selectedConcerts;
   const id = state.router.params.id;
   for (var i = state.bands.length - 1; i >= 0; i--) {
     if (state.bands[i].id === id){band = state.bands[i];}
@@ -46,7 +45,7 @@ function mapStateToProps(state) {
   const fullbands= state.bands;
 
 
-  return { band, informations, comments, selectedConcerts, fullinfo, fullbands};
+  return { band, informations, comments, fullinfo, fullbands};
 }
 
 function mapDispatchToProps(dispatch) {

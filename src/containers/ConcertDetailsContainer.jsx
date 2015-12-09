@@ -17,7 +17,7 @@ class ConcertDetailsContainer extends Component {
   	return (
       <div className="row">
         <div className="col-md-6">
-          <div className="selected">
+          <div className="container">
             <ConcertsSelected { ...this.props }/>
           </div>
     		  <div className="panel panel-default">

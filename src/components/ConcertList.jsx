@@ -21,12 +21,12 @@ export default class ConcertList extends Component {
   }
 
   handleVisibility(){
-    //this.refs.text.value='';
+    
     this.setState({ isVisible: true });
-    //this.setState({newConcerts: []});
+  
   }
 
-// QUE HACE ESTA MIERDA?
+
    handleOnBlur(){
     setTimeout(() => this.handleVisibility(), 300);
   }
@@ -53,9 +53,12 @@ export default class ConcertList extends Component {
     const { concerts } = this.props;
 
     return (
-      <div className="row">
-        <div className="col-md-6">
-          <h3>Concert</h3>
+      <div>
+      <div className="title">
+      <h3>Concert</h3>
+      </div>
+        <div className="col-lg-12 hero">
+          
           <ul className="list-group">
             {
               concerts.map( (concert, index) =>  <ConcertItem key={index} concert={concert} /> )

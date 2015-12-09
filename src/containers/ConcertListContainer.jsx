@@ -15,7 +15,7 @@ class ConcertListContainer extends Component {
   	return (
       <div className="row">
         <div className="col-md-6">
-          <div className="selectedinband">
+          <div className="container">
             <ConcertsSelected { ...this.props }/>
           </div>
 		  <div className="panel panel-default">

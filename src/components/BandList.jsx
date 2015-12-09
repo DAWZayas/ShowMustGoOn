@@ -13,7 +13,7 @@ export default class BandList extends Component {
     return (
       <div className="container">
           <h3>Bands</h3>
-          <ul className="col-lg-12 hero">
+          <ul className="band-item">
             {
               bands.map( (band, index) =>  <BandItem key={index} band={band} /> )
             }

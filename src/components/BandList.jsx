@@ -2,9 +2,16 @@ import React, { Component, PropTypes } from 'react';
 import BandItem from './BandItem';
 
 export default class BandList extends Component {
-
   constructor(props) {
     super(props);
+  }
+
+    handleAddButtonClick() {
+    const { onAddBand, idConcert } = this.props;
+    const node = this.refs.band;
+    const title =  node.value.trim();
+    onAddBand(title, idConcert);
+    node.value = '';
   }
 
   render() {
@@ -18,6 +25,12 @@ export default class BandList extends Component {
               bands.map( (band, index) =>  <BandItem key={index} band={band} /> )
             }
          </ul>
+         <div className="input-group col-xs-8">
+            <input  type="text"  className="form-control" placeholder="Add bands" ref="band" />
+            <span className="input-group-btn">
+              <button className="btn btn-info" type="button" onClick={e => this.handleAddButtonClick(e)}><span className="glyphicon glyphicon-plus" /></button>
+            </span>
+          </div>
          
       </div>
     );

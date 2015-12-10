@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import ConcertDetails from '../components/ConcertDetails';
 import BandList from '../components/BandList';
 import ConcertsSelected from '../components/ConcertsSelected';
+import { addBand } from '../actions';
 
 
 
@@ -37,12 +38,12 @@ function mapStateToProps(state) {
   const fullinfo= state.informations;
   const fullbands= state.bands;
 
-  return { concert, bands, fullinfo, fullbands };
+  return { concert, bands, fullinfo, fullbands, idConcert };
 }
 
-function mapDispatchToProps(dispatch) {
+function mapDispatchToProps(dispatch) { 
   return {
-  	onAddConcertClick: (idConcert, title) => dispatch(addConcert(idConcert, title)),
+        onAddBand: (title, idConcert) => dispatch(addBand(title, idConcert))
   };
 }
 

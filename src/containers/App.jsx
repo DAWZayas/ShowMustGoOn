@@ -12,25 +12,17 @@ export default class App extends Component {
 
   render() {
     return (
-      <div>
-      	<nav className="navbar navbar-inv">
-          <div className="container">
-            <div className="navbar-header">
-              <span className="icon-bar"></span>
-              <span className="icon-bar"></span>
-              <span className="icon-bar"></span>
-              <span className="icon-bar"></span>
-            </div>
+     <div>
+        <nav className="navbar navbar-inv">
             <ul className="nav navbar-nav">
-              <li> <img className="logo" style={{ height:'70' }}   src={image}/></li>
+              <li> <img className="logo" style={{ height:'50' }}   src={image}/></li>
               <li><Link to="/">Home</Link></li>
               <li><Link to="/preferences">Preferences</Link></li>
           
             </ul>
-          </div>
         </nav>
 
-  	    {this.props.children}
+        {this.props.children}
       </div>
     );
   }

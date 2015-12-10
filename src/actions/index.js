@@ -9,6 +9,7 @@ export const ADD_COMMENT = 'ADD_COMMENT';
 export const REMOVE_COMMENT = 'REMOVE_COMMENT';
 export const SELECTED_CONCERT = 'SELECTED_CONCERT';
 export const EDIT_COMMENT = 'EDIT_COMMENT';
+export const ADD_BAND = 'ADD_BAND';
 
 
 
@@ -32,6 +33,10 @@ export function addConcert(title) {
 
 export function selectedConcert(index) {
   return { type: SELECTED_CONCERT, index};
+}
+
+export function addBand(title, idConcert) {
+  return { type: ADD_BAND, title, idConcert};
 }
 
 

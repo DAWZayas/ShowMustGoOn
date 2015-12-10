@@ -17,7 +17,6 @@ body{
 .col-md-6{
   text-align: center;
   background-color: white;
-  opacity: 0.7;
 }
 
 .title{
@@ -36,7 +35,6 @@ div .row{
   text-align: center;
   margin-left: 50px;
   color: black;
-  opacity: 0.9;
   
 }
 
@@ -56,7 +54,6 @@ div .row{
     color: black;
     height: 341px;
     background-color: white;
-    opacity: 0.9;
 }
 
 .panel-control{
@@ -77,3 +74,22 @@ div .row{
   border-color: #337ab7;  
 }
 
+@media (max-width: 1000px){
+  div .row{
+
+    text-align: center;
+    color: black;
+  }
+
+  .navbar-inv{
+    background-color: #6AB0D1;
+    color:#1023A4;
+  }
+
+
+
+  .selected{
+    display: none;
+  }
+
+}

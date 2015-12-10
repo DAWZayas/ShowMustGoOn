@@ -15,13 +15,12 @@ export default class App extends Component {
      <div>
         <nav className="navbar navbar-inv">
             <ul className="nav navbar-nav">
-              <li> <img className="logo" style={{ height:'50' }}   src={image}/></li>
               <li><Link to="/">Home</Link></li>
               <li><Link to="/preferences">Preferences</Link></li>
           
             </ul>
         </nav>
-
+      <img className="logo"  src={image}/>
         {this.props.children}
       </div>
     );

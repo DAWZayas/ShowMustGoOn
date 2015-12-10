@@ -1,8 +1,9 @@
 import { connect } from 'react-redux';
 import React, { Component } from 'react';
 import ConcertList from '../components/ConcertList';
-import { pushState } from 'redux-router';
+//import { pushState } from 'redux-router';
 import ConcertsSelected from '../components/ConcertsSelected';
+import { addConcert } from '../actions';
 
 
 class ConcertListContainer extends Component {
@@ -12,19 +13,19 @@ class ConcertListContainer extends Component {
   }
 
   render() {
-  	return (
+    return (
       <div className="row">
         <div className="col-md-6">
           <div className="container">
             <ConcertsSelected { ...this.props }/>
           </div>
-		  <div className="panel panel-default">
-			 <ConcertList { ...this.props } />
-		  </div>
+          <div className="panel panel-default">
+             <ConcertList { ...this.props } />
+           </div>
         </div>
       </div>
-  	);
-  }	
+    );
+  } 
 }
 
 function mapStateToProps(state) {
@@ -36,8 +37,8 @@ function mapStateToProps(state) {
 
 function mapActionsToProps(dispatch) {
   return {
-  
-    pushState: path => dispatch(pushState(null, path))
+    onAddConcert: (title) => dispatch(addConcert(title))
+   // pushState: path => dispatch(pushState(null, path))
   };
 }
 

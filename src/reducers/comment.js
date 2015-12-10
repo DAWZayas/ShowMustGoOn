@@ -6,8 +6,7 @@ import clone from 'clone';
 function addComment(state, idBand, comment) {
  
   const idComment = getId();
-  const d = new Date();
-  const date = d.getDate() + '/' + (d.getMonth() +1) + '/' + d.getFullYear();
+  const date = Date();
   const commentary = {
       idComment,
       idBand,

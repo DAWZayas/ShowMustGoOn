@@ -31,7 +31,7 @@ export default class ConcertList extends Component {
 
   handleOnChangeTitle() {
 
-    const node = this.refs.title;
+    const node = this.refs.concert;
     const title =  node.value.trim();
 
     this.setState({
@@ -39,16 +39,23 @@ export default class ConcertList extends Component {
     });
   }
 
-  // Poner en el onclick del input de añadir...
+  
   handleOnTitleKeyDown(event) {
     const ENTER_KEY = 13;
     if (event.keyCode === ENTER_KEY && !this.state.addDisabled) {
       this.handleAddButtonClick();
     }
   }
- // terminar
-  handleAddButtonClick(){
 
+  handleAddButtonClick(){
+    const { onAddConcert } = this.props;
+    const node = this.refs.concert;
+    const title =  node.value.trim();
+    onAddConcert(title);
+    node.value = '';
+    this.setState({
+      addDisabled: true
+    });
   }
 
   handleChangeSearchToAdd(){
@@ -71,9 +78,9 @@ export default class ConcertList extends Component {
              }
           </ul>
          <div className={`input-group col-xs-12 ${this.state.isVisible ? 'hidden' : ''}`}>
-            <input  type="text"  className="form-control" placeholder="Add Concerts" ref="concert" />
+            <input  type="text"  className="form-control" placeholder="Add Concerts" ref="concert" onKeyDown={e => this.handleOnTitleKeyDown(e)} onChange={e => this.handleOnChangeTitle(e)} />
             <span className="input-group-btn">
-              <button className="btn btn-info glyphicon glyphicon-plus" type="button" onClick={e => this.handleAddButtonClick(e)}></button>
+              <button disabled={this.state.addDisabled} className="btn btn-info glyphicon glyphicon-plus" type="button" onClick={e => this.handleAddButtonClick(e)}></button>
             </span>
           </div>
            <div className="search">

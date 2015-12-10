@@ -21,9 +21,7 @@ export default class ConcertList extends Component {
   }
 
   handleVisibility(){
-    
     this.setState({ isVisible: true });
-  
   }
 
 
@@ -41,11 +39,20 @@ export default class ConcertList extends Component {
     });
   }
 
+  // Poner en el onclick del input de añadir...
   handleOnTitleKeyDown(event) {
     const ENTER_KEY = 13;
     if (event.keyCode === ENTER_KEY && !this.state.addDisabled) {
       this.handleAddButtonClick();
     }
+  }
+ // terminar
+  handleAddButtonClick(){
+
+  }
+
+  handleChangeSearchToAdd(){
+    this.setState({ isVisible: false });
   }
 
   render() {
@@ -54,30 +61,36 @@ export default class ConcertList extends Component {
 
     return (
       <div>
-      <div className="title">
-      <h3>Concert</h3>
-      </div>
-        <div className="col-lg-12 hero">
-          
+        <div className="title">
+          <h3>Concert</h3>
+        </div>
+        <div className="col-lg-12 hero">   
           <ul className="list-group">
-            {
-              concerts.map( (concert, index) =>  <ConcertItem key={index} concert={concert} /> )
-            }
-         </ul>
-          <div className="search">
-              <div className="search-btn-input">
-                <button className={`${this.state.isVisible ? 'hidden' : 'btn btn-info' }`}>
-                <span className="biggerGlyphicon glyphicon glyphicon-search pull-left" aria-hidden="true" onClick={ () => this.handleVisibility()} />
-                </button>
-                <input ref="text" type="text" autoFocus className={`${this.state.isVisible ? 'form-control input-search' : 'hidden' }`} placeholder="Search your concert..." onChange={ (event) => this.handleSearchButtonClick(event)} /*onBlur={ () => this.handleOnBlur()}*//>
-              </div>
-                <ul className={`${this.state.isVisible ?  'list-group'  : 'hidden' }`}>
-                  {
-                    this.state.newConcerts.map( (concert, index) => <ConcertItem key={index} concert={concert} />  )
-                  }
-                </ul>
+             {
+               concerts.map( (concert, index) =>  <ConcertItem key={index} concert={concert} /> )
+             }
+          </ul>
+         <div className={`input-group col-xs-12 ${this.state.isVisible ? 'hidden' : ''}`}>
+            <input  type="text"  className="form-control" placeholder="Add Concerts" ref="concert" />
+            <span className="input-group-btn">
+              <button className="btn btn-info glyphicon glyphicon-plus" type="button" onClick={e => this.handleAddButtonClick(e)}></button>
+            </span>
           </div>
-      </div>
+           <div className="search">
+              <div className="search-btn-input">
+                <button className={`${this.state.isVisible ? 'hidden' : 'btn btn-warning' }`}>
+                  <span className="biggerGlyphicon glyphicon glyphicon-search pull-left" aria-hidden="true" onClick={ () => this.handleVisibility()} />
+                </button>
+                <input ref="text" type="text" autoFocus className={`${this.state.isVisible ? 'form-control input-search' : 'hidden' }`} placeholder="Search your concert..." onChange={ (event) => this.handleSearchButtonClick(event)}/>
+                <button className={`${this.state.isVisible ? 'btn btn-success' : 'hidden' }`} onClick={() => this.handleChangeSearchToAdd()}> Add Concert </button>
+              </div>
+              <ul className={`${this.state.isVisible ?  'list-group'  : 'hidden' }`}>
+                  {
+                     this.state.newConcerts.map( (concert, index) => <ConcertItem key={index} concert={concert} />  )
+                  }
+              </ul>
+          </div>
+        </div>
       </div>
     );
   }
@@ -85,7 +98,7 @@ export default class ConcertList extends Component {
 
 ConcertList.propTypes = {
   concerts: PropTypes.array,
-  //onAddConcert: PropTypes.func.isRequired
+  onAddConcert: PropTypes.func.isRequired
 };
 
 ConcertList.defaultProps = { 

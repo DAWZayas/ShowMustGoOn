@@ -15,20 +15,20 @@ class ConcertDetailsContainer extends Component {
   }
 
   render() {
-  	return (
+    return (
       <div className="row">
         <div className="col-md-6">
           <div className="container">
             <ConcertsSelected { ...this.props }/>
           </div>
-    		  <div className="panel panel-default">
-      			 <ConcertDetails { ...this.props } />
+          <div className="panel panel-default">
+             <ConcertDetails { ...this.props } />
              <BandList {...this.props}/>
-    		  </div>
+          </div>
         </div>
       </div>
-  	);
-  }	
+    );
+  } 
 }
 
 function mapStateToProps(state) {

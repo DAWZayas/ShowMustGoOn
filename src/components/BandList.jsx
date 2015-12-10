@@ -25,7 +25,7 @@ export default class BandList extends Component {
               bands.map( (band, index) =>  <BandItem key={index} band={band} /> )
             }
          </ul>
-         <div className="input-group col-xs-8">
+         <div className="input-group col-xs-3">
             <input  type="text"  className="form-control" placeholder="Add bands" ref="band" />
             <span className="input-group-btn">
               <button className="btn btn-info" type="button" onClick={e => this.handleAddButtonClick(e)}><span className="glyphicon glyphicon-plus" /></button>
@@ -38,7 +38,9 @@ export default class BandList extends Component {
 }
 
 BandList.propTypes = {
-  bands: PropTypes.array
+  bands: PropTypes.array,
+  idConcert: PropTypes.string.isRequired,
+  onAddBand: PropTypes.func.isRequired
 };
 
 BandList.defaultProps = { 

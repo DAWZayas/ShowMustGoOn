@@ -3,15 +3,15 @@ import { getId } from './index';
 export const concerts = [ 
   {
     id: getId(),
-    title: 'Rock',
+    title: 'Rock'
   },
   {
     id: getId(),
-    title: 'Metal',
+    title: 'Metal'
   },
   {
     id: getId(),
-    title: 'Indie',
+    title: 'Indie'
   }
 ];
 

@@ -54,52 +54,53 @@ export const informations = [
     idBand: '0',
     title: 'Madrid',
     price: '234',
-    asistir: true
+    asistir: true,
+    date: '8/8/90'
   },
   {
     id:'1',
     idBand: '1',
     title: 'Barcelona',
     price: '234',
-    asistir: false
+    asistir: false,
+    date: '8/8/90'
   },
   {
     id:'2',
     idBand: '2',
     title: 'Sevilla',
     price: '234',
-    asistir: false
+    asistir: false,
+    date: '8/8/90'
   },
   {
     id:'3',
     idBand: '3',
     title: 'Malaga',
     price: '234',
-    asistir: false
+    asistir: false,
+    date: '8/8/90'
   },
   {
     id:'4',
     idBand: '4',
     title: 'Boadilla',
     price: '234',
-    asistir: false
+    asistir: false,
+    date: '8/8/90'
   },
   {
     id:'5',
     idBand: '0',
     title: 'Majadahonda',
     price: '234',
-    asistir: false
+    asistir: false,
+    date: '8/8/90'
   }
 ];
 
 export const comments = [
-  {
-    idComment: '0',
-    idBand: bands[0].id,
-    date: Date(),
-    comment:' Escribe aqui tu comentario'
-  }
+
 ];
 
 

@@ -12,6 +12,9 @@
   text-align: center;
   
 }
+.band{
+  width: 500px;
+}
 
 .title h3{
   text-align: center;
@@ -29,7 +32,9 @@
   color:#DA6161;
   font-family: fantasy;
 }
-
+.infos{
+  width: 500px;
+}
   
 
 
@@ -41,7 +46,7 @@ div .row{
 }
 
 li{
-  color:white;
+ color:#DA6161;
 }
 
 li :hover{
@@ -56,14 +61,15 @@ li :hover{
 
 
 .selected{
+    font-family: fantasy;
+    color:#DA6161;
     padding: 10px; 
     position: absolute;
-    width: 230px;
+    width: 260px;
     border: solid #DA6161;
     border-radius: 10px 10px 10px 10px;
     right: -250px;
-    color: black;
-    height: 341px;
+    height: 300px;
     background-color: white;
 }
 

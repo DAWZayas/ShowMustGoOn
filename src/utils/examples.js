@@ -54,42 +54,48 @@ export const informations = [
     idBand: '0',
     title: 'Madrid',
     price: '45',
-    asistir: true
+    asistir: true,
+    date: '11/02/2016'
   },
   {
     id:'1',
     idBand: '1',
     title: 'Barcelona',
     price: '40',
-    asistir: false
+    asistir: false,
+    date: '10/02/2016'
   },
   {
     id:'2',
     idBand: '2',
     title: 'Madrid',
     price: '55',
-    asistir: false
+    asistir: false,
+    date: '10/02/2016'
   },
   {
     id:'3',
     idBand: '3',
     title: 'Barcelona',
     price: '45',
-    asistir: false
+    asistir: false,
+    date: '10/02/2016'
   },
   {
     id:'4',
     idBand: '4',
     title: 'Madrd',
     price: '40',
-    asistir: false
+    asistir: false,
+    date: '10/02/2016'
   },
   {
     id:'5',
     idBand: '0',
     title: 'Barcelona',
     price: '45',
-    asistir: false
+    asistir: false,
+    date: '10/02/2016'
   }
 ];
 

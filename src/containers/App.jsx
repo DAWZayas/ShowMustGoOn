@@ -1,6 +1,6 @@
 import React, { Component, PropTypes } from 'react';
 import { Link } from 'react-router';
-import image from '../img/logo.png';
+import image from '../img/LOGO.png';
 
 
 

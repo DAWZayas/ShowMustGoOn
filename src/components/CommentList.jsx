@@ -53,7 +53,7 @@ export default class CommentList extends Component {
           <h3>Comments</h3>
           <ul className="col-lg-12 hero">
             {
-              comments.map( (comment, index) => <li key={index}>{comment.comment} {comment.date}
+              comments.map( (comment, index) => <li key={index}>{comment.comment} <h6>{comment.date}</h6>
                 <button className="btn btn-danger" type="button" onClick={ () => this.handleRemoveComment(comment.idComment)}><span className="glyphicon glyphicon-trash" /></button>
                 <button className="btn btn-info" type="button" onClick={ () => this.handleEditClick(comment.idComment) }><span className="glyphicon glyphicon-edit"/></button>
                 </li> )

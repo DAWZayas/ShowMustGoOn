@@ -19,32 +19,32 @@ export const bands = [
 	{
     id: '0',
 		idConcert: concerts[0].id,
-		title: 'Marea'
+		title: 'Queen of the Stonage'
 	},
    {
     id: '1',
     idConcert: concerts[0].id,
-    title: 'Extremo'
+    title: 'Extremo Duro'
   },
   {
     id: '2',
     idConcert: concerts[1].id,
-    title: 'Swan'
+    title: 'Slipknot'
   },
   {
     id: '3',
     idConcert: concerts[1].id,
-    title: 'Bob'
+    title: 'System of a Down'
   },
   {
     id: '4',
     idConcert: concerts[2].id,
-    title: 'Marilyn'
+    title: 'Arctick Monkeys'
   },
   {
     id: '5',
     idConcert: concerts[2].id,
-    title: 'Cristian'
+    title: 'Vampire Weekend'
   }
 ];
 
@@ -53,42 +53,42 @@ export const informations = [
     id:'0',
     idBand: '0',
     title: 'Madrid',
-    price: '234',
+    price: '45',
     asistir: true
   },
   {
     id:'1',
     idBand: '1',
     title: 'Barcelona',
-    price: '234',
+    price: '40',
     asistir: false
   },
   {
     id:'2',
     idBand: '2',
-    title: 'Sevilla',
-    price: '234',
+    title: 'Madrid',
+    price: '55',
     asistir: false
   },
   {
     id:'3',
     idBand: '3',
-    title: 'Malaga',
-    price: '234',
+    title: 'Barcelona',
+    price: '45',
     asistir: false
   },
   {
     id:'4',
     idBand: '4',
-    title: 'Boadilla',
-    price: '234',
+    title: 'Madrd',
+    price: '40',
     asistir: false
   },
   {
     id:'5',
     idBand: '0',
-    title: 'Majadahonda',
-    price: '234',
+    title: 'Barcelona',
+    price: '45',
     asistir: false
   }
 ];
@@ -98,7 +98,7 @@ export const comments = [
     idComment: '0',
     idBand: bands[0].id,
     date: Date(),
-    comment:' Escribe aqui tu comentario'
+    comment:' Put your Comments'
   }
 ];
 

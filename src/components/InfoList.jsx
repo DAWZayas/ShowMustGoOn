@@ -4,6 +4,9 @@ export default class InfoList extends Component {
 
   constructor(props) {
     super(props);
+    this.state = {
+      editting:false
+    };
   }
   
  handleAsistButtonClick(e, index) {
@@ -12,13 +15,16 @@ export default class InfoList extends Component {
    for (var i = informations.length - 1; i >= 0; i--) {
      if(informations[i].id===index){
       onSelectedConcert(index);
-      if(informations[i].asistir){msg='Cancelada asistencia';}else{msg='Confirmada asistencia';}
+      if(informations[i].asistir){msg='Assintance Cancel';}else{msg='Assintance Confirm';}
     }
    }
    alert(msg);
 }
 
     handleAddButtonClick() {
+      this.setState({
+      editting: false
+    });
     const { onAddInfo, band } = this.props;
     const id = band.id;
     const node = this.refs.place;
@@ -31,9 +37,20 @@ export default class InfoList extends Component {
       else{    
     onAddInfo(title, date, price, id);
     }
+
+
     node.value = '';
     node2.value = '';
     node3.value = '';
+  }
+
+  handelOnclickAdd(){
+
+    this.setState({
+      editting: true 
+    
+    }
+  );
   }
 
   render() {
@@ -44,12 +61,17 @@ export default class InfoList extends Component {
       <div className="container">
           <h3>Information</h3>
           <h5>Click on a concert to confirm you are going</h5>
-          <div className="infos">
+          <div className={` ${this.state.editting ? 'hidden' : 'AddPlace'}` }>
+         <button className="btn btn-warning pull-right" onClick={() => this.handelOnclickAdd() }>AddPlace</button>
+         </div>
+
+          <div className="info">
             {
               informations.map( (information, index) => <button key={index} className={information.asistir?'btn btn-success':'btn btn-info'} type="button" onClick={e => this.handleAsistButtonClick(e, information.id)}>{information.title} on {information.date} at {information.price}€</button> )
             }
          </div>
-         <div className="input-group col-xs-3">
+
+         <div className={` ${this.state.editting ? 'input-group col-xs-3 '  : 'hidden'}` }>
             <input  type="text"  className="form-control" placeholder="Add place" ref="place" />
             <input  type="date"  className="form-control" placeholder="Add date" ref="date" />
             <input  type="number"  className="form-control" placeholder="Add price" ref="price" />
@@ -57,7 +79,7 @@ export default class InfoList extends Component {
               <button className="btn btn-info" type="button" onClick={e => this.handleAddButtonClick(e)}><span className="glyphicon glyphicon-plus" /></button>
             </span>
          </div>
-      </div>
+               </div>
     );
   }
 }

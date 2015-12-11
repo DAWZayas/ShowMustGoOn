@@ -6,7 +6,7 @@ function selectedConcert(state, index){
 }
 
 function addInfo(state, title, date, price, idBand){
-	const id = state.lenght;
+	const id = state.length;
 	let newInfo={
 		title,
 		price,

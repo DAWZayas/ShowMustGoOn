@@ -1,7 +1,8 @@
 
 .logo{
   position:fixed;
-  height:350px;
+  height:550px;
+  z-index: -1;
 }
 
 .navbar-nav li{
@@ -21,13 +22,18 @@
 }
 
 .container{
-  font-size: 20px;
+  font-size: 15px;
   text-align: left;
 }
 
 .container h3{
-  color: black;
+  color:#DA6161 ;
   font-family: fantasy;
+}
+
+.container a{
+  font-size: 20px;
+  color:black;
 }
 
 
@@ -38,20 +44,33 @@ div .row{
   
 }
 
-li{
-  color:black;
+
+nav a {
+  font-family: fantasy;
+   color: white;
 }
 
-li :hover{
+.info{
+  width:500px;
+
+}
+
+.nav .navbar-nav  :li :hover{
   background-color: #FEB0B0;
 }
+
 .navbar-inv{
   background-color: #DA6161;
   color:white;
   font-size: 20px;
 }
 
-
+.AddPlace{
+  width: 850px;
+}
+.col-xs-3{
+  width: 500px;
+}
 
 .selected{
     padding: 10px; 
@@ -59,7 +78,7 @@ li :hover{
     width: 230px;
     border-radius: 10px 10px 10px 10px;
     right: -250px;
-    color: green;
+    color: black;
     height: 341px;
     background-color: #DA6161;
 
@@ -96,6 +115,14 @@ li :hover{
   .logo{
   position:fixed;
   height:350px;
+}
+
+.info{
+  width:300px;
+}
+
+.AddPlace{
+  width: 300px;
 }
 
 }

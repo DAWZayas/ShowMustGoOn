@@ -33,8 +33,9 @@ export default class InfoList extends Component {
     const title =  node.value.trim();
     const date =  node2.value.trim();
     const price =  node3.value.trim();
-    if (title === '' | date === '' | price === '' ){alert('Missing input'); }
-      else{    
+    if (title === '' | date === '' | price === '' ){
+      alert('Missing input'); 
+    }else{    
     onAddInfo(title, date, price, id);
     }
 

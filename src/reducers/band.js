@@ -4,11 +4,12 @@ import {  ADD_BAND } from '../actions';
 
 
 function addBand(state, title, idConcert) {
+
 	let id= state.length;
 	let nam= title;
 	let idC= idConcert;
 	let newBand={
-		id: id,
+		id: id.toString(),
 		idConcert: idC,
 		title: nam
 	};

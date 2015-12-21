@@ -4,8 +4,7 @@ import { connect } from 'react-redux';
 import BandDetails from '../components/BandDetails';
 import InfoList from '../components/InfoList';
 import CommentList from '../components/CommentList';
-import ConcertsSelected from '../components/ConcertsSelected';
-import { addComment, removeComment, selectedConcert, editComment, addInfo } from '../actions';
+import { addComment, removeComment, editComment, addInfo } from '../actions';
 
 
 
@@ -19,9 +18,6 @@ class BandDetailsContainer extends Component {
     return (
       <div className="row">
         <div className="col-md-6">
-        <div className="container">
-           <ConcertsSelected { ...this.props }/>
-        </div>
           <div className="panel panel-default">
            <BandDetails { ...this.props } />
            <InfoList { ...this.props } />

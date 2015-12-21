@@ -3,7 +3,6 @@ import { connect } from 'react-redux';
 
 import ConcertDetails from '../components/ConcertDetails';
 import BandList from '../components/BandList';
-import ConcertsSelected from '../components/ConcertsSelected';
 import { addBand } from '../actions';
 
 
@@ -18,9 +17,6 @@ class ConcertDetailsContainer extends Component {
     return (
       <div className="row">
         <div className="col-md-6">
-          <div className="container">
-            <ConcertsSelected { ...this.props }/>
-          </div>
           <div className="panel panel-default">
              <ConcertDetails { ...this.props } />
              <BandList {...this.props}/>

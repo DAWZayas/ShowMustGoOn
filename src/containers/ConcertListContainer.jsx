@@ -2,7 +2,6 @@ import { connect } from 'react-redux';
 import React, { Component } from 'react';
 import ConcertList from '../components/ConcertList';
 //import { pushState } from 'redux-router';
-import ConcertsSelected from '../components/ConcertsSelected';
 import { addConcert } from '../actions';
 
 
@@ -16,9 +15,6 @@ class ConcertListContainer extends Component {
     return (
       <div className="row">
         <div className="col-md-6">
-          <div className="container">
-            <ConcertsSelected { ...this.props }/>
-          </div>
           <div className="panel panel-default">
              <ConcertList { ...this.props } />
            </div>

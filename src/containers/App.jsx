@@ -32,7 +32,7 @@ export default class App extends Component {
             <ul className="nav navbar-nav">
               <li onClick={() => this.handleLogoOK()}><Link to="/">Home</Link></li>
               <li onClick={() => this.handleLogo()}><Link to="/preferences">Preferences</Link></li>
-          
+              <li onClick={() => this.handleSelecteds}><Link to="/selecteds">Selecteds</Link></li>
             </ul>
         </nav>
         <img className={`${this.state.logo ? 'logo' : 'hidden' }`}  src={image}/>

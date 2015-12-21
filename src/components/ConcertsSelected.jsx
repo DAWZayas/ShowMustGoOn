@@ -22,7 +22,7 @@ export default class ConcertsSelected extends Component {
 
     return (
      
-      <div className={`selected ${selecteds.length ===0 ? 'hidden' : ''}`}>
+      <div className="selected">
         <h3>Concerts Selected</h3>
         <ul className="col-lg-12 hero">
           {selecteds.length===0? <li>none</li> :

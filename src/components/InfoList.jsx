@@ -23,27 +23,26 @@ export default class InfoList extends Component {
 
     handleAddButtonClick() {
       this.setState({
-      editting: false
-    });
-    const { onAddInfo, band } = this.props;
-    const id = band.id;
-    const node = this.refs.place;
-    const node2 = this.refs.date;
-    const node3 = this.refs.price;
-    const title =  node.value.trim();
-    const date =  node2.value.trim();
-    const price =  node3.value.trim();
-    if (title === '' | date === '' | price === '' ){
-      alert('Missing input'); 
-    }else{    
-    onAddInfo(title, date, price, id);
+        editting: false
+      });
+      const { onAddInfo, band } = this.props;
+      const id = band.id;
+      const node = this.refs.place;
+      const node2 = this.refs.date;
+      const node3 = this.refs.price;
+      const title =  node.value.trim();
+      const date =  node2.value.trim();
+      const price =  node3.value.trim();
+      if (title === '' | date === '' | price === '' ){
+        alert('Missing input'); 
+      }else{    
+        onAddInfo(title, date, price, id);
+      }
+
+      node.value = '';
+      node2.value = '';
+      node3.value = '';
     }
-
-
-    node.value = '';
-    node2.value = '';
-    node3.value = '';
-  }
 
   handelOnclickAdd(){
 

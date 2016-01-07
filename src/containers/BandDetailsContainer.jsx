@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import BandDetails from '../components/BandDetails';
 import InfoList from '../components/InfoList';
 import CommentList from '../components/CommentList';
-import { addComment, removeComment, editComment, addInfo } from '../actions';
+import { addComment, removeComment, editComment, addInfo, selectedConcert } from '../actions';
 
 
 

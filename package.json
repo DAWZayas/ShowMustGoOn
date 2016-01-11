@@ -38,10 +38,11 @@
   },
   "dependencies": {
     "babel-runtime": "^5.8.29",
-    "bootstrap": "^3.3.5",
     "firebase": "^2.3.2",
     "history": "^1.13.0",
+    "jquery": "^2.2.0",
     "react": "^0.14.0",
+    "bootstrap": "^3.3.5",
     "react-dom": "^0.14.0",
     "react-modal-bootstrap": "^0.5.0",
     "react-redux": "^4.0.0",

@@ -11,7 +11,8 @@ export const SELECTED_CONCERT = 'SELECTED_CONCERT';
 export const EDIT_COMMENT = 'EDIT_COMMENT';
 export const ADD_BAND = 'ADD_BAND';
 export const ADD_INFO = 'ADD_INFO';
-
+import * as authActions from './auth';
+export { authActions };
 
 
 

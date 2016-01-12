@@ -1,0 +1,55 @@
+{
+	"gustos": {
+		"-K4mB6io8er7LNHtRRLZ": {
+			"grupos": {
+				"-K4mBTT91Rl_uEpItTSK": {
+					"title": "Marea",
+					"conciertos": {
+						"title": "Madrid"
+					}
+				},
+				"-K4mBXwo8btk5bjavvpu": {
+					"title": "Extremo",
+					"conciertos": {
+						"title": "Barcelona"
+					}
+				}
+			},
+			"title": "Rock"
+		},
+		"-K4mB6io8er7ASDFRRLZ": {
+			"grupos": {
+				"-K4mBTT91l_uEpItTSK": {
+					"title": "Marea",
+					"conciertos": {
+						"title": "Madrid"
+					}
+				},
+				"-K4mBXwo8btk5bjavvpu": {
+					"title": "Extremo",
+					"conciertos": {
+						"title": "Barcelona"
+					}
+				}
+			},
+			"title": "Pop"
+		},	
+		"-K4mB6io8er7LDFGDFGZ": {
+			"grupos": {
+				"-K4mBTT91Rl_uEpItTSK": {
+					"title": "Marea",
+					"conciertos": {
+						"title": "Madrid"
+					}
+				},
+				"-K4mBXwo8btk5bjavvpu": {
+					"title": "Extremo",
+					"conciertos": {
+						"title": "Barcelona"
+					}
+				}
+			},
+			"title": "Indie"
+		}
+	}
+}

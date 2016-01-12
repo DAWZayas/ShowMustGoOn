@@ -1,5 +1,7 @@
 import configureStore from '../store';
-import { initialState } from './examples';
+function initialState(){
+	return [];
+}
 
 
 export default function init() {

@@ -22,11 +22,13 @@ export default class ConcertsSelected extends Component {
 
     return (
      
-      <div className="selected">
+      <div>
+        <div>
         <h3>Concerts Selected</h3>
+        </div>
         <ul className="col-lg-12 hero">
           {selecteds.length===0? <li>none</li> :
-            selecteds.map( (concert, index) =>  <li key={index}>{concert.band} {concert.place}</li> )
+            selecteds.map( (concert, index) =>  <li key={index}><h7>{concert.band} {concert.place}</h7></li> )
           }
          </ul>
       </div>

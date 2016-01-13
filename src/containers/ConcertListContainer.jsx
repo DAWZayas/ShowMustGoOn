@@ -13,13 +13,14 @@ class ConcertListContainer extends Component {
 
   render() {
     return (
-      <div className="row">
-        <div className="col-md-6">
-          <div className="panel panel-default">
-             <ConcertList { ...this.props } />
-           </div>
+      <div>
+          
+                      <h3>Preferences</h3>
+                     <ConcertList { ...this.props } />
+                
+           
         </div>
-      </div>
+
     );
   } 
 }

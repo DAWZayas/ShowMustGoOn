@@ -16,9 +16,9 @@ class BandDetailsContainer extends Component {
 
   render() {
     return (
-      <div className="row">
-        <div className="col-md-6">
-          <div className="panel panel-default">
+      <div className="container">
+        <div className="row">
+          <div className="col-lg-12">
            <BandDetails { ...this.props } />
            <InfoList { ...this.props } />
            <CommentList { ...this.props} />

@@ -16,12 +16,8 @@ class ConcertDetailsContainer extends Component {
   render() {
     return (
       <div className="row">
-        <div className="col-md-6">
-          <div className="panel panel-default">
              <ConcertDetails { ...this.props } />
              <BandList {...this.props}/>
-          </div>
-        </div>
       </div>
     );
   } 

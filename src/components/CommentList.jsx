@@ -49,23 +49,23 @@ export default class CommentList extends Component {
     
 
     return (
-      <div className="container">
+      <div>
           <h3>Comments</h3>
-          <ul className="col-lg-12 hero">
+          <ul>
             {
               comments.map( (comment, index) => <li key={index}>{comment.comment} <h6>{comment.date}</h6>
                 <button className="btn btn-danger" type="button" onClick={ () => this.handleRemoveComment(comment.idComment)}><span className="glyphicon glyphicon-trash" /></button>
                 <button className="btn btn-info" type="button" onClick={ () => this.handleEditClick(comment.idComment) }><span className="glyphicon glyphicon-edit"/></button>
                 </li> )
             }
-            <div className={`input-group col-xs-5  ${this.state.editing ? '' : 'hidden'}`}>
+            <div className={`input-group ${this.state.editing ? '' : 'hidden'}`}>
                   <input className="form-control" ref="com"/>
                   <span className="input-group-btn">
                     <button className="btn btn-success" type="button" onClick={e => this.handleOkClick(e)}><span className="glyphicon glyphicon-ok" /></button>
                   </span>
                 </div>
           </ul>
-          <div className={`input-group col-xs-5 ${this.state.editing ? 'hidden' : ''}`}>
+          <div className={`input-group ${this.state.editing ? 'hidden' : ''}`}>
             <input  type="text"  className="form-control" placeholder="Add Comments" ref="comment" />
             <span className="input-group-btn">
               <button className="btn btn-info" type="button" onClick={e => this.handleAddButtonClick(e)}><span className="glyphicon glyphicon-plus" /></button>

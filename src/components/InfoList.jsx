@@ -61,25 +61,26 @@ export default class InfoList extends Component {
       <div className="container">
           <h3>Information</h3>
           <h5>Click on a concert to confirm you are going</h5>
-          <div className={` ${this.state.editting ? 'hidden' : 'AddPlace'}` }>
-         <button className="btn btn-warning pull-right" onClick={() => this.handelOnclickAdd() }>AddPlace</button>
-         </div>
-
-          <div className="info">
+          <ul>
             {
-              informations.map( (information, index) => <button key={index} className={information.asistir?'btn btn-success':'btn btn-info'} type="button" onClick={e => this.handleAsistButtonClick(e, information.id)}>{information.title} on {information.date} at {information.price}€</button> )
+              informations.map( (information, index) => <div ><button className={information.asistir?'btn btn-success pull-right':'btn btn-warning pull-right'} type="button" onClick={e => this.handleAsistButtonClick(e, information.id)}>GO?</button><li key={index}>{information.title} on {information.date} at {information.price}€</li><br/></div> )
             }
-         </div>
+         </ul>
 
-         <div className={` ${this.state.editting ? 'input-group col-xs-3 '  : 'hidden'}` }>
+          <div className={` ${this.state.editting ? 'input-group '  : 'hidden'}` }>
             <input  type="text"  className="form-control" placeholder="Add place" ref="place" />
             <input  type="date"  className="form-control" placeholder="Add date" ref="date" />
             <input  type="number"  className="form-control" placeholder="Add price" ref="price" />
             <span className="input-group-btn">
               <button className="btn btn-info" type="button" onClick={e => this.handleAddButtonClick(e)}><span className="glyphicon glyphicon-plus" /></button>
             </span>
-         </div>
-               </div>
+          </div>
+            
+          <div className={` ${this.state.editting ? 'hidden' : 'AddPlace'}` }>
+
+            <button className="btn btn-info pull-right" onClick={() => this.handelOnclickAdd() }>AddPlace</button>
+          </div>
+      </div>
     );
   }
 }

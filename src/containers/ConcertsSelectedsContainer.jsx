@@ -13,12 +13,10 @@ class ConcertsSelectedsContainer extends Component {
 
   render() {
     return (
-      <div className="row">
-        <div className="col-md-6">
-          <div className="panel panel-default">
-            <ConcertsSelected { ...this.props }/>
-          </div>
-        </div>
+      <div>
+ 
+        <ConcertsSelected { ...this.props }/>
+
       </div>
     );
   } 

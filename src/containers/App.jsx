@@ -29,36 +29,48 @@ export default class App extends Component {
     return (
 
 
-
 <div>
-  <nav className="navbar navbar-default" role="navigation">
-   <Link to="/"><img className="navbar-brand"  src={image}/></Link>
-    <div className="navbar-header">
-      <button type="button" className="navbar-toggle" data-toggle="collapse"
-              data-target=".navbar-ex1-collapse">
-        <span className="sr-only">Desplegar navegación</span>
-        <span className="icon-bar"></span>
-        <span className="icon-bar"></span>
-        <span className="icon-bar"></span>
-      </button>
-     
-    </div>
-   
+ <nav className="navbar navbar-default navbar-fixed-top">
+        <div className="container">
+            <div className="navbar-header page-scroll">
+                <button type="button" className="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span className="sr-only">Toggle navigation</span>
+                    <span className="icon-bar"></span>
+                    <span className="icon-bar"></span>
+                    <span className="icon-bar"></span>
+                </button>
+               <Link  className="navbar-brand" to="/">ShowMustGoOn</Link>
+            </div>
 
-    <div className="collapse navbar-collapse navbar-ex1-collapse">
-      <ul className="nav navbar-nav">
-        <li><a href="#">Enlace #1</a></li>
-        <li onClick={() => this.handleLogo()}><Link to="/preferences">Preferences</Link></li>
-      </ul>
-   
-      <ul className="nav navbar-nav navbar-right">
-        <li onClick={() => this.handleLogo()}><Link to="/selecteds">Yours Concerts</Link></li>
-      </ul>
-    </div>
-  </nav>
-    <img className={`${this.state.logo ? 'logo' : 'hidden' }`}  src={image}/>
-        {this.props.children}
-</div>
+            <div className="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul className="nav navbar-nav navbar-right">
+                    <li className="hidden">
+                        <a href="#page-top"></a>
+                    </li>
+                    <li className="page-scroll" onClick={() => this.handleLogo()}>
+                        <Link to="/preferences">Preferences</Link>
+                    </li>
+                    <li conClick={() => this.handleLogo()}>
+                        <Link to="/selecteds">Yours Concerts</Link>
+                    </li>
+                </ul>
+            </div>
+            
+        </div>
+        
+    </nav>
+    <header>
+        <div className="container">
+            <br/><br/><br/>
+            <div className="row">
+                {this.props.children}
+            </div>
+        </div>
+    </header>
+  </div>
+
+
+
 
 
 

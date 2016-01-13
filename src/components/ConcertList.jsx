@@ -68,10 +68,7 @@ export default class ConcertList extends Component {
 
     return (
       <div>
-        <div className="title">
-          <h3>Concert</h3>
-        </div>
-        <div className="col-lg-12 hero">   
+        <div>   
           <ul className="list-group">
              {
                concerts.map( (concert, index) =>  <ConcertItem key={index} concert={concert} /> )

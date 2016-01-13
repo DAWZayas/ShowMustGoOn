@@ -7,9 +7,9 @@ export default class ConcertItem extends Component {
   	const { concert } = this.props;
     return (
     
-    		<div className="container">
-    			<div className="col-lg-6">
-            	<Link to={`/concert/${concert.id}`}>{concert.title}</Link>    
+    		<div>
+    			<div className="col-lg-12">
+            	<h4><li><Link to={`/concert/${concert.id}`}>{concert.title}</Link></li></h4>
          </div>
         </div>
     	

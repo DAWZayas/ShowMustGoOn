@@ -1,5 +1,5 @@
 
-export const FIREBASE_URL = 'https://redux-polls.firebaseio.com';
+export const FIREBASE_URL = 'https://showgoon.firebaseio.com';
 
 // Route paths
 export const SIGN_IN_PATH = '/sign-in';

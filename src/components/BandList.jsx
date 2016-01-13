@@ -25,7 +25,7 @@ export default class BandList extends Component {
               bands.map( (band, index) =>  <BandItem key={index} band={band} /> )
             }
          </ul>
-         <div className="input-group col-xs-3">
+         <div className="input-group">
             <input  type="text"  className="form-control" placeholder="Add bands" ref="band" />
             <span className="input-group-btn">
               <button className="btn btn-info" type="button" onClick={e => this.handleAddButtonClick(e)}><span className="glyphicon glyphicon-plus" /></button>

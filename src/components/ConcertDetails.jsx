@@ -10,13 +10,11 @@ export default class ConcertDetails extends Component {
   render() {
   	const { concert } = this.props;
     return (
-      <div className="title">
-      	   <h3>
-            <span>
-              { concert.title }
-            </span>
-          </h3>
-      </div>
+
+      	   <h3>                         
+             -  { concert.title }
+            </h3>
+
     );
   }
 }

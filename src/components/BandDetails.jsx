@@ -10,11 +10,9 @@ export default class BandDetails extends Component {
   render() {
   	const {band} = this.props;
     return (
-      <div className="title">
+      <div>
       	   <h3>
-            <span>
               { band.title }
-            </span>
           </h3>
       </div>
     );

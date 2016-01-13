@@ -47,10 +47,18 @@ export default class App extends Component {
                     <li className="hidden">
                         <a href="#page-top"></a>
                     </li>
-                    <li className="page-scroll" onClick={() => this.handleLogo()}>
+                    <li>
+                      <p></p>
+                      <input ref="text" type="text" autoFocus className='form-control input-search' placeholder="Search your concert..." />                     
+                    </li>
+                     <li>
+                      <p></p>
+                      <button className='btn biggerGlyphicon glyphicon glyphicon-search'></button>
+                    </li>
+                    <li className="page-scroll" >
                         <Link to="/preferences">Preferences</Link>
                     </li>
-                    <li conClick={() => this.handleLogo()}>
+                    <li >
                         <Link to="/selecteds">Yours Concerts</Link>
                     </li>
                 </ul>

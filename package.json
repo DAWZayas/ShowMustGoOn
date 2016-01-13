@@ -40,6 +40,7 @@
     "babel-runtime": "^5.8.29",
     "bootstrap": "^3.3.5",
     "firebase": "^2.3.2",
+    "firebase-tools": "^2.2.0",
     "history": "^1.13.0",
     "jquery": "^2.2.0",
     "react": "^0.14.0",

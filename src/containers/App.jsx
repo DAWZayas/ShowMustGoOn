@@ -1,10 +1,12 @@
 import React, { Component, PropTypes } from 'react';
 import { Link } from 'react-router';
 import image from '../img/LOGO.png';
+import { authActions } from '../actions';
+import { connect } from 'react-redux';
 
 
 
-export default class App extends Component {
+class App extends Component {
 
   constructor(props) {
     super(props);
@@ -25,9 +27,25 @@ export default class App extends Component {
     });
   }
 
-  render() {
-    return (
+  componentWillReceiveProps(nextProps) {
+    const { auth, history } = this.props;
 
+    if (auth.authenticated && !nextProps.auth.authenticated) {
+      history.replaceState(null, authActions.POST_SIGN_OUT_PATH);
+    }
+    else if (!auth.authenticated && nextProps.auth.authenticated) {
+      history.replaceState(null, authActions.POST_SIGN_IN_PATH);
+    }
+  }
+
+  signOut() {
+    this.props.signOut();
+    window.location.replace('/');
+  }
+
+  render() {
+    const { auth, children } = this.props;
+    return (
 
 
 <div>
@@ -57,7 +75,7 @@ export default class App extends Component {
     </div>
   </nav>
     <img className={`${this.state.logo ? 'logo' : 'hidden' }`}  src={image}/>
-        {this.props.children}
+        {children}
 </div>
 
 
@@ -92,5 +110,13 @@ export default class App extends Component {
 
 App.propTypes = {
   // Injected by React RouterConfirmDialog
-  children: PropTypes.node
-};
+  children: PropTypes.node,
+  history: PropTypes.object.isRequired,
+  auth: PropTypes.object.isRequired
+ };
+
+export default connect(
+  state => ({
+    auth: state.auth
+  }
+), authActions)(App);

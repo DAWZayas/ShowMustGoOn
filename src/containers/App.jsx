@@ -49,7 +49,6 @@ class App extends Component {
 
 
 <div>
-<<<<<<< HEAD
  <nav className="navbar navbar-default navbar-fixed-top">
         <div className="container">
             <div className="navbar-header page-scroll">

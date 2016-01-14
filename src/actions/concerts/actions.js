@@ -1,4 +1,4 @@
-import {SET_CONCERT }from './action-types';
+import { SET_CONCERTS }from './action-types';
 
 
 export function setConcerts(concerts) {
@@ -8,7 +8,7 @@ export function setConcerts(concerts) {
 export function addConcert(title) {
   return (dispatch, getState) => {
     const { firebase } = getState();
-    firebase.child('gustos')
+    firebase.child('concerts')
       .push({title});
     
   };

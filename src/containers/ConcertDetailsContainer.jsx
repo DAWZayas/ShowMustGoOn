@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 
 import ConcertDetails from '../components/ConcertDetails';
 import BandList from '../components/BandList';
-import { addBand } from '../actions';
+import * as bandsActions from '../actions/bands';
 
 
 
@@ -26,20 +26,14 @@ class ConcertDetailsContainer extends Component {
 function mapStateToProps(state) {
   const idConcert = state.router.params.idConcert;
   const concert = state.concerts.filter( concert => idConcert === concert.id)[0] || {};
-  const bands = Object.values(state.bands).filter( band =>  band.idConcert === concert.id );
-  const fullinfo= state.informations;
-  const fullbands= state.bands;
+  const bands = state.bands;
+  
 
-  return { concert, bands, fullinfo, fullbands, idConcert };
+  return { concert, bands, idConcert };
 }
 
-function mapDispatchToProps(dispatch) { 
-  return {
-        onAddBand: (title, idConcert) => dispatch(addBand(title, idConcert))
-  };
-}
 
 export default connect(
   mapStateToProps,
-  mapDispatchToProps
+  bandsActions
 )(ConcertDetailsContainer);

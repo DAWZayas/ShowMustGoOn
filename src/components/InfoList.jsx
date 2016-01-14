@@ -9,6 +9,13 @@ export default class InfoList extends Component {
     };
   }
   
+  componentWillMount() {
+    this.props.registerListeners();
+  }
+  componentWillUnmount() {
+    this.props.unregisterListeners();
+  }
+  
  handleAsistButtonClick(e, index) {
    const { informations, onSelectedConcert } = this.props;
    let msg='';

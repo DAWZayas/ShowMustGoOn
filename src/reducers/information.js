@@ -1,24 +1,22 @@
-import { SELECTED_CONCERT, ADD_INFO } from '../actions';
+import { SELECTED_CONCERT, ADD_INFO, SET_INFO } from '../actions/information';
 
 function selectedConcert(state, index){
-	return state.map( information => information.id === index ? Object.assign({},  information, {asistir: !information.asistir}) : information);
+	return state;
 
 }
 
-function addInfo(state, title, date, price, idBand){
-	const id = state.length;
-	let newInfo={
-		title,
-		price,
-		date,
-		idBand,
-		id
-	};
 
-  return state.concat(
-  	newInfo
-  );
+function setInfo(state, info) {
+  return info.slice();
+}
 
+function addInfo(state, title) {
+  
+  return state.concat({
+  	id: getId(),
+  	title
+    
+  });
 }
 
 export default function informationsReducer(state = [], action) {
@@ -27,6 +25,8 @@ export default function informationsReducer(state = [], action) {
 			return selectedConcert(state, action.index);
 		case ADD_INFO:
 			return addInfo(state, action.title, action.date, action.price, action.id);
+		case SET_INFO:
+			return setInfo(state, action.info);
 		default:
 			return state;
 	}

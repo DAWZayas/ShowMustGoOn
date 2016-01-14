@@ -5,13 +5,11 @@ export default class BandList extends Component {
   constructor(props) {
     super(props);
   }
-
-    handleAddButtonClick() {
-    const { onAddBand, idConcert } = this.props;
-    const node = this.refs.band;
-    const title =  node.value.trim();
-    onAddBand(title, idConcert);
-    node.value = '';
+     componentWillMount() {
+    this.props.registerListeners();
+  }
+    componentWillUnmount() {
+    this.props.unregisterListeners();
   }
 
   render() {
@@ -40,7 +38,6 @@ export default class BandList extends Component {
 BandList.propTypes = {
   bands: PropTypes.array,
   idConcert: PropTypes.string.isRequired,
-  onAddBand: PropTypes.func.isRequired
 };
 
 BandList.defaultProps = { 

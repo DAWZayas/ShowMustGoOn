@@ -1,29 +1,31 @@
-import {  ADD_BAND } from '../actions';
+import {  ADD_BAND, SET_BANDS } from '../actions/bands';
 
 
+function setBands(state, bands) {
 
-
-function addBand(state, title, idConcert) {
-
-	let id= state.length;
-	let nam= title;
-	let idC= idConcert;
-	let newBand={
-		id: id.toString(),
-		idConcert: idC,
-		title: nam
-	};
-   return state.concat(
-    newBand
-  );
+  return bands.slice();
 }
+
+function addBands(state, title) {
+  
+  return state.concat({
+    id: getId(),
+    title
+    
+  });
+}
+
+
+
 
 
 
 export default function bandReducer(state = [], action) {
   switch (action.type) {
     case ADD_BAND:
-      return addBand(state, action.title, action.idConcert);
+      return addBands(state, action.title, action.idConcert);
+    case SET_BANDS:
+      return setBands(state, action.bands);
     default:
       return state;
     }

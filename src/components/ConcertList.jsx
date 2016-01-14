@@ -12,6 +12,12 @@ export default class ConcertList extends Component {
       addDisabled:true
     };
   }
+      componentWillMount() {
+    this.props.registerListeners();
+  }
+    componentWillUnmount() {
+    this.props.unregisterListeners();
+  }
 
   handleSearchButtonClick(event) {
     const node = this.refs.text;
@@ -39,14 +45,7 @@ export default class ConcertList extends Component {
     });
   }
 
-    componentWillMount() {
-    this.props.registerListeners();
-  }
 
-  componentWillUnmount() {
-    this.props.unregisterListeners();
-  }
-  
   handleOnTitleKeyDown(event) {
     const ENTER_KEY = 13;
     if (event.keyCode === ENTER_KEY && !this.state.addDisabled) {

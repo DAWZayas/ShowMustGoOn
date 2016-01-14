@@ -1,6 +1,5 @@
 import React, { Component, PropTypes } from 'react';
 import { Link } from 'react-router';
-import image from '../img/LOGO.png';
 import { authActions } from '../actions';
 import { connect } from 'react-redux';
 
@@ -44,7 +43,7 @@ class App extends Component {
   }
 
   render() {
-    const { auth, children } = this.props;
+    const { children } = this.props;
     return (
 
 
@@ -90,7 +89,7 @@ class App extends Component {
         <div className="container">
             <br/><br/><br/>
             <div className="row">
-                {this.props.children}
+                {children}
             </div>
         </div>
     </header>

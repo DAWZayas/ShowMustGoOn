@@ -1,13 +1,13 @@
-import { SET_CONCERTS } from './action-types';
+import { SET_BANDS } from './action-types';
 
 export function registerListeners() {
   return (dispatch, getState) => {
     const { firebase } = getState();
-    const ref = firebase.child('polls');
+    const ref = firebase.child('bands');
 
     ref.on('value', snapshot => dispatch({
-      type: SET_CONCERTS,
-      polls: Object.keys(snapshot.val() || []).map( id => ({id, title:snapshot.val()[id].title}) )
+      type: SET_BANDS,
+      bands: Object.keys(snapshot.val() || []).map( id => ({id, title:snapshot.val()[id].title}) )
     }));
   };
 }
@@ -15,11 +15,11 @@ export function registerListeners() {
 export function unregisterListeners() {
   return (dispatch, getState) => {
     const { firebase } = getState();
-    const ref = firebase.child('polls');
+    const ref = firebase.child('bands');
     ref.off();
     dispatch({
-      type: SET_CONCERTS,
-      polls: []
+      type: SET_BANDS,
+      bands: []
     });
   };
 }

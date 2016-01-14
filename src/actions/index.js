@@ -1,3 +1,6 @@
+import * as authActions from './auth';
+export { authActions };
+
 //import { pushState } from 'redux-router';
 //import sequencer from './sequencer';
 /*

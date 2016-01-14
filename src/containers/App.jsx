@@ -1,10 +1,12 @@
 import React, { Component, PropTypes } from 'react';
 import { Link } from 'react-router';
 import image from '../img/LOGO.png';
+import { authActions } from '../actions';
+import { connect } from 'react-redux';
 
 
 
-export default class App extends Component {
+class App extends Component {
 
   constructor(props) {
     super(props);
@@ -25,11 +27,29 @@ export default class App extends Component {
     });
   }
 
+  componentWillReceiveProps(nextProps) {
+    const { auth, history } = this.props;
+
+    if (auth.authenticated && !nextProps.auth.authenticated) {
+      history.replaceState(null, authActions.POST_SIGN_OUT_PATH);
+    }
+    else if (!auth.authenticated && nextProps.auth.authenticated) {
+      history.replaceState(null, authActions.POST_SIGN_IN_PATH);
+    }
+  }
+
+  signOut() {
+    this.props.signOut();
+    window.location.replace('/');
+  }
+
   render() {
+    const { auth, children } = this.props;
     return (
 
 
 <div>
+<<<<<<< HEAD
  <nav className="navbar navbar-default navbar-fixed-top">
         <div className="container">
             <div className="navbar-header page-scroll">
@@ -112,5 +132,13 @@ export default class App extends Component {
 
 App.propTypes = {
   // Injected by React RouterConfirmDialog
-  children: PropTypes.node
-};
+  children: PropTypes.node,
+  history: PropTypes.object.isRequired,
+  auth: PropTypes.object.isRequired
+ };
+
+export default connect(
+  state => ({
+    auth: state.auth
+  }
+), authActions)(App);

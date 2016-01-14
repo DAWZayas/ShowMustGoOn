@@ -39,6 +39,13 @@ export default class ConcertList extends Component {
     });
   }
 
+    componentWillMount() {
+    this.props.registerListeners();
+  }
+
+  componentWillUnmount() {
+    this.props.unregisterListeners();
+  }
   
   handleOnTitleKeyDown(event) {
     const ENTER_KEY = 13;
@@ -48,10 +55,10 @@ export default class ConcertList extends Component {
   }
 
   handleAddButtonClick(){
-    const { onAddConcert } = this.props;
+    const { addConcert } = this.props;
     const node = this.refs.concert;
     const title =  node.value.trim();
-    onAddConcert(title);
+    addConcert(title);
     node.value = '';
     this.setState({
       addDisabled: true

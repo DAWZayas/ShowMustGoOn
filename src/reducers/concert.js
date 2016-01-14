@@ -13,7 +13,7 @@ function addConcert(state, title) {
   
   return state.concat({
   	id: getId(),
-  	title,
+  	title
     
   });
 }

@@ -5,12 +5,7 @@ export default class BandList extends Component {
   constructor(props) {
     super(props);
   }
-     componentWillMount() {
-    this.props.registerListeners();
-  }
-    componentWillUnmount() {
-    this.props.unregisterListeners();
-  }
+
 
   render() {
     const { bands } = this.props;

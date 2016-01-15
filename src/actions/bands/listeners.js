@@ -7,7 +7,7 @@ export function registerListeners() {
 
     ref.on('value', snapshot => dispatch({
       type: SET_BANDS,
-      bands: Object.keys(snapshot.val() || []).map( id => ({id, title:snapshot.val()[id].title}) )
+      bands: Object.keys(snapshot.val() || []).map( id => ({id, title:snapshot.val()[id].title, concert:snapshot.val()[id].concert}) )
     }));
   };
 }

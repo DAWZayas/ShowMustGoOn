@@ -1,7 +1,5 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-
-import BandDetails from '../components/BandDetails';
 import InfoList from '../components/InfoList';
 import CommentList from '../components/CommentList';
 
@@ -27,7 +25,6 @@ class BandDetailsContainer extends Component {
       <div className="container">
         <div className="row">
           <div className="col-lg-12">
-           <BandDetails { ...this.props } />
            <InfoList { ...this.props } />
            <CommentList { ...this.props} />
           </div>
@@ -48,7 +45,7 @@ function mapStateToProps(state) {
   const info = state.info.filter(i => idBand === i.band);
 
 
-  return { band, info, comments};
+  return { idBand, info, comments};
 }
 
 

@@ -5,11 +5,11 @@ export function setbands(bands) {
   return { type: SET_BAND, bands};
 }
 
-export function addband(title) {
+export function addBand(title, concert) {
   return (dispatch, getState) => {
     const { firebase } = getState();
     firebase.child('bands')
-      .push({title});
+      .push({title, concert});
     
   };
 }

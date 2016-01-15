@@ -9,52 +9,50 @@ export default class InfoList extends Component {
     };
   }
 
- handleAsistButtonClick(e, index) {
-   const { info, onSelectedConcert } = this.props;
-   let msg='';
-   for (var i = info.length - 1; i >= 0; i--) {
-     if(info[i].id===index){
-      onSelectedConcert(index);
-      if(info[i].asistir){msg='Assintance Cancel';}else{msg='Assintance Confirm';}
-    }
-   }
-   alert(msg);
-}
-
-    handleAddButtonClick() {
-      this.setState({
-        editting: false
-      });
-      const { onAddInfo, band } = this.props;
-      const id = band.id;
-      const node = this.refs.place;
-      const node2 = this.refs.date;
-      const node3 = this.refs.price;
-      const title =  node.value.trim();
-      const date =  node2.value.trim();
-      const price =  node3.value.trim();
-      if (title === '' | date === '' | price === '' ){
-        alert('Missing input'); 
-      }else{    
-        onAddInfo(title, date, price, id);
+  handleAsistButtonClick(e, index) {
+    const { info, onSelectedConcert } = this.props;
+    let msg='';
+    for (var i = info.length - 1; i >= 0; i--) {
+      if(info[i].id===index){
+        onSelectedConcert(index);
+        if(info[i].asistir){msg='Assintance Cancel';}else{msg='Assintance Confirm';}
       }
-
-      node.value = '';
-      node2.value = '';
-      node3.value = '';
     }
+    alert(msg);
+  }
+
+  handleAddButtonClick() {
+    this.setState({
+      editting: false
+    });
+    const { addInfo, idBand } = this.props;
+    const node = this.refs.place;
+    const node2 = this.refs.date;
+    const node3 = this.refs.price;
+    const title =  node.value.trim();
+    const date =  node2.value.trim();
+    const price =  node3.value.trim();
+    if (title === '' | date === '' | price === '' ){
+      alert('Missing input'); 
+    }else{    
+      addInfo(title, date, price, idBand);
+    }
+
+    node.value = '';
+    node2.value = '';
+    node3.value = '';
+  }
 
   handelOnclickAdd(){
 
     this.setState({
-      editting: true 
-    
-    }
-  );
+      editting: true   
+    }); 
   }
 
   render() {
     const { info } = this.props;
+
     
 
     return (
@@ -89,7 +87,7 @@ InfoList.propTypes = {
   info: PropTypes.array,
   band: PropTypes.object.isRequired,
   onSelectedConcert: PropTypes.func.isRequired,
-  onAddInfo: PropTypes.func.isRequired
+  addInfo: PropTypes.func.isRequired
 };
 
 InfoList.defaultProps = {

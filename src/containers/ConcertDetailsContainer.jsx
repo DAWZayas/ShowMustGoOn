@@ -1,9 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-
-import ConcertDetails from '../components/ConcertDetails';
 import BandList from '../components/BandList';
 import * as bandsActions from '../actions/bands';
+import setHistory from '../actions/history';
 
 
 
@@ -23,7 +22,6 @@ class ConcertDetailsContainer extends Component {
   render() {
     return (
       <div className="row">
-             <ConcertDetails { ...this.props } />
              <BandList {...this.props}/>
       </div>
     );
@@ -42,5 +40,5 @@ function mapStateToProps(state) {
 
 export default connect(
   mapStateToProps,
-  bandsActions
+   Object.assign( {}, bandsActions, { setHistory } )
 )(ConcertDetailsContainer);

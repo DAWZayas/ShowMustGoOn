@@ -1,11 +1,11 @@
-import { SET_INFO }from './action-types';
 
 
-export function addConcert(title) {
+
+export function addInfo(title, date, price, band) {
   return (dispatch, getState) => {
     const { firebase } = getState();
     firebase.child('info')
-      .push({title});
+      .push({title, date, price, band});
     
   };
 }

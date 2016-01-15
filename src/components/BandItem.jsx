@@ -28,11 +28,12 @@ export default class BandItem extends Component {
    }
 
   render() {
+  //  const { setHistory } = this.props;
     const { band } = this.props;
     return (
       <li >
         <div>
-        <Link to={`/band/${band.id}`}>{band.title}</Link>  
+        <Link to={`/band/${band.id}`} /*onClick={ setHistory(band.title) }*/>{band.title}</Link>  
         <button className=" btn btn-success glyphicon glyphicon-thumbs-up pull-right" onClick={() => this.handlePositive()}>({this.state.isPositive})</button>
         <button className=" btn btn-danger glyphicon glyphicon-thumbs-down pull-right" onClick={() => this.handleNegative()}>({this.state.isNegative})</button>
         </div>

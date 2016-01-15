@@ -6,6 +6,20 @@ export default class BandList extends Component {
     super(props);
   }
 
+  handleAddButtonClick() {
+  this.setState({
+    editting: false
+  });
+  const { addBand, idConcert } = this.props;
+  const node = this.refs.band;
+  const title =  node.value.trim();
+  if (title === ''){
+    alert('Missing input'); 
+  }else{    
+    addBand(title, idConcert);
+  }
+}
+
 
   render() {
     const { bands } = this.props;
@@ -15,7 +29,7 @@ export default class BandList extends Component {
           <h3>Bands</h3>
           <ul className="col-lg-12 hero">
             {
-              bands.map( (band, index) =>  <BandItem key={index} band={band} /> )
+              bands.map( (band, index) =>  <BandItem key={index} band={band} {...this.props}/> )
             }
          </ul>
          <div className="input-group">

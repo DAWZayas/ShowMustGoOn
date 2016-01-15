@@ -19,7 +19,7 @@ function addInfo(state, title) {
   });
 }
 
-export default function informationsReducer(state = [], action) {
+export default function infoReducer(state = [], action) {
 	switch (action.type) {
 		case SELECTED_CONCERT:
 			return selectedConcert(state, action.index);

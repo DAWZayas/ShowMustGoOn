@@ -8,21 +8,14 @@ export default class InfoList extends Component {
       editting:false
     };
   }
-  
-  componentWillMount() {
-    this.props.registerListeners();
-  }
-  componentWillUnmount() {
-    this.props.unregisterListeners();
-  }
-  
+
  handleAsistButtonClick(e, index) {
-   const { informations, onSelectedConcert } = this.props;
+   const { info, onSelectedConcert } = this.props;
    let msg='';
-   for (var i = informations.length - 1; i >= 0; i--) {
-     if(informations[i].id===index){
+   for (var i = info.length - 1; i >= 0; i--) {
+     if(info[i].id===index){
       onSelectedConcert(index);
-      if(informations[i].asistir){msg='Assintance Cancel';}else{msg='Assintance Confirm';}
+      if(info[i].asistir){msg='Assintance Cancel';}else{msg='Assintance Confirm';}
     }
    }
    alert(msg);
@@ -61,16 +54,16 @@ export default class InfoList extends Component {
   }
 
   render() {
-    const { informations } = this.props;
+    const { info } = this.props;
     
 
     return (
       <div className="container">
-          <h3>Information</h3>
+          <h3>Info</h3>
           <h5>Click on a concert to confirm you are going</h5>
           <ul>
             {
-              informations.map( (information, index) => <div ><button className={information.asistir?'btn btn-success pull-right':'btn btn-warning pull-right'} type="button" onClick={e => this.handleAsistButtonClick(e, information.id)}>GO?</button><li key={index}>{information.title} on {information.date} at {information.price}€</li><br/></div> )
+              info.map( (infor, index) => <div ><button className={infor.asistir?'btn btn-success pull-right':'btn btn-warning pull-right'} type="button" onClick={e => this.handleAsistButtonClick(e, infor.id)}>GO?</button><li key={index}>{infor.title} on {infor.date} at {infor.price}€</li><br/></div> )
             }
          </ul>
 
@@ -93,13 +86,13 @@ export default class InfoList extends Component {
 }
 
 InfoList.propTypes = {
-  informations: PropTypes.array,
+  info: PropTypes.array,
   band: PropTypes.object.isRequired,
   onSelectedConcert: PropTypes.func.isRequired,
   onAddInfo: PropTypes.func.isRequired
 };
 
 InfoList.defaultProps = {
-  informations: [],
+  info: [],
   band: {}
 };

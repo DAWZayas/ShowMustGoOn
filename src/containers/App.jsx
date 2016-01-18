@@ -1,6 +1,5 @@
 import React, { Component, PropTypes } from 'react';
-import { Link } from 'react-router';
-import { push } from 'redux-router';
+import { a } from 'react-router';
 import { bandSearch } from '../actions/bandSearch/actions.js';
 import { connect } from 'react-redux';
 import { authActions } from '../actions/auth';
@@ -34,7 +33,7 @@ class App extends Component {
   }
 
   render() {
-    const { children, bands } = this.props;
+    const { children, search } = this.props;
 
 
 
@@ -42,34 +41,39 @@ class App extends Component {
 
 
 <div>
- <nav className="navbar navbar-default navbar-fixed-top">
-        <div className="container">
-            <div className="navbar-header page-scroll">
+ <nav className="navbar navbar-default">
+        <div className="container-fluid">
+            <div className="navbar-header">
                 <button type="button" className="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
                     <span className="sr-only">Toggle navigation</span>
                     <span className="icon-bar"></span>
                     <span className="icon-bar"></span>
                     <span className="icon-bar"></span>
                 </button>
-               <Link  className="navbar-brand" to="/">ShowMustGoOn</Link>
+               <a  className="navbar-brand" href="/">ShowMustGoOn</a>
             </div>
 
             <div className="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul className="nav navbar-nav navbar-right">
+                    <li className="hidden">
+                        <a href="#page-top"></a>
+                    </li>
                     <li className="search">
                          <input type="text" placeholder="Search..." ref="title" onChange={e => this.handleOnChangeTitle(e)}/>
                          <ul className="results" >
                           {
-                            bands.map( (band, index) =>  <li className="list-group-item" key={index}><a href={`band/${band.id}`}>{band.title}</a></li> )
+                            search.map( (band, index) =>  <li className="list-group-item" key={index}><a href={`band/${band.id}`}>{band.title}</a></li> )
                           }
                          </ul>
 
                     </li>
+                  </ul>
+                  <ul className="nav navbar-nav">
                     <li className="page-scroll" >
-                        <Link to="/preferences">Preferences</Link>
+                        <a href="/preferences">Preferences</a>
                     </li>
                     <li >
-                        <Link to="/selecteds">Yours Concerts</Link>
+                        <a href="/selecteds">Yours Concerts</a>
                     </li>
                 </ul>
             </div>
@@ -78,8 +82,8 @@ class App extends Component {
         
     </nav>
     <header>
-        <div className="container">
-            <br/><br/><br/>
+        <div className="container-fluid">
+
             <div className="row">
                 {children}
             </div>
@@ -105,5 +109,5 @@ App.propTypes = {
 export default connect(
   state => ({
     auth: state.auth,
-    bands: state.bands
+    search: state.search
   }),   Object.assign( {}, authActions, { bandSearch }))(App);

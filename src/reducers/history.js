@@ -1,9 +1,9 @@
 import { SET_HISTORY } from '../actions/history';
 
 
-function setHistory(state, band) {
+function setHistory(state, title) {
 
-  return [];
+  return {title};
 }
 
 
@@ -11,10 +11,10 @@ function setHistory(state, band) {
 
 
 
-export default function bandReducer(state = [], action) {
+export default function historyReducer(state = [], action) {
   switch (action.type) {
     case SET_HISTORY:
-      return setHistory(state, action.band);
+      return setHistory(state, action.title);
     default:
       return state;
     }

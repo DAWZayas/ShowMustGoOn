@@ -25,9 +25,9 @@ export default class BandList extends Component {
     const { bands } = this.props;
 
     return (
-      <div className="container">
+      <div className="container-fluid">
           <h3>Bands</h3>
-          <ul className="col-lg-12 hero">
+          <ul>
             {
               bands.map( (band, index) =>  <BandItem key={index} band={band} {...this.props}/> )
             }

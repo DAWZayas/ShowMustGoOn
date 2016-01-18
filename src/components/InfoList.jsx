@@ -51,13 +51,13 @@ export default class InfoList extends Component {
   }
 
   render() {
-    const { info } = this.props;
+    const { info, bandTitle } = this.props;
 
     
 
     return (
-      <div className="container">
-          <h3>Info</h3>
+      <div className="container-fluid">
+          <h3>{bandTitle}</h3>
           <h5>Click on a concert to confirm you are going</h5>
           <ul>
             {

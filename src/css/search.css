@@ -1,4 +1,6 @@
-
+body #root{
+    background-color:#AFD9E9;
+}
 a {
     color: #1e7ad3;
     text-decoration: none;
@@ -10,6 +12,12 @@ a:hover { text-decoration: underline }
     width: 640px;
     margin-left: auto;
     margin-right: auto;
+
+}
+@media(min-width:820px) {
+    .container-fluid{
+        width: 800px;
+    }
 
 }
 
@@ -24,7 +32,7 @@ input {
 .search {
     position: relative;
     margin: 0 auto;
-    top:10px;
+    top:12px;
     width: 300px;
 }
 

@@ -1,46 +1,18 @@
-import {  ADD_COMMENT, REMOVE_COMMENT, EDIT_COMMENT } from '../actions';
-import { getId } from '../utils';
-import clone from 'clone';
+import {  SET_COMMENTS } from '../actions/comments';
 
 
-function addComment(state, idBand, comment) {
- 
-  const idComment = getId();
-  const date = Date();
-  const commentary = {
-      idComment,
-      idBand,
-      date,
-      comment
-  };
+function setComments(state, comments) {
 
-
-   return state.concat(
-    commentary
-  );
+  return comments.slice();
 }
 
-function removeComment(state, idComment){
- return state.filter( commentary => idComment !== commentary.idComment);
-}
-
-function editComment(state, idComment, comment) {
-let newstate=clone(state);
-for (var i = newstate.length - 1; i >= 0; i--) {
-  if(newstate[i].idComment===idComment){newstate[i].comment=comment;}
-};
-return newstate;
-} 
 
 
-export default function commentReducer(state = [], action) {
+export default function commentsReducer(state = [], action) {
   switch (action.type) {
-    case ADD_COMMENT:
-      return addComment(state, action.idBand, action.comment);
-    case REMOVE_COMMENT:
-      return removeComment(state, action.idComment);
-    case EDIT_COMMENT:
-      return editComment(state, action.idComment, action.comment);
+   
+    case SET_COMMENTS:
+      return setComments(state, action.comments);
     default:
       return state;
     }

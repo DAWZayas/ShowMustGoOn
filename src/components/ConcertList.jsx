@@ -87,13 +87,7 @@ export default class ConcertList extends Component {
             </span>
           </div>
            <div className="search">
-              <div className="search-btn-input">
-                <button className={`${this.state.isVisible ? 'hidden' : 'btn btn-warning' }`}>
-                  <span className="biggerGlyphicon glyphicon glyphicon-search pull-left" aria-hidden="true" onClick={ () => this.handleVisibility()} />
-                </button>
-                <input ref="text" type="text" autoFocus className={`${this.state.isVisible ? 'form-control input-search' : 'hidden' }`} placeholder="Search your concert..." onChange={ (event) => this.handleSearchButtonClick(event)}/>
-                <button className={`${this.state.isVisible ? 'btn btn-success' : 'hidden' }`} onClick={() => this.handleChangeSearchToAdd()}> Add Concert </button>
-              </div>
+            
               <ul className={`${this.state.isVisible ?  'list-group'  : 'hidden' }`}>
                   {
                      this.state.newConcerts.map( (concert, index) => <ConcertItem key={index} concert={concert} />  )

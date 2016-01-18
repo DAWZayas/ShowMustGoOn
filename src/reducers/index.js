@@ -7,6 +7,7 @@ import comments from './comment';
 import auth from './auth';
 import firebase from './firebase';
 import history from './history';
+import search from './search';
 
 
 const concertApp = combineReducers({
@@ -17,7 +18,8 @@ const concertApp = combineReducers({
   comments,
   auth,
   firebase,
-  history
+  history,
+  search
 });
 
 export default concertApp;

@@ -11,10 +11,10 @@ export default class CommentList extends Component {
   }
 
   handleAddButtonClick() {
-    const { band, onAddComment } = this.props;
+    const { idBand, addComments } = this.props;
     const node = this.refs.comment;
     const comment =  node.value.trim();
-    onAddComment(band.id, comment);
+    addComments(idBand, comment);
     node.value = '';
   }
   
@@ -45,18 +45,18 @@ export default class CommentList extends Component {
 
 
   render() {
+
     const { comments } = this.props;
-    
 
     return (
       <div>
           <h3>Comments</h3>
           <ul>
             {
-              comments.map( (comment, index) => <li key={index}>{comment.comment} <h6>{comment.date}</h6>
-                <button className="btn btn-danger" type="button" onClick={ () => this.handleRemoveComment(comment.idComment)}><span className="glyphicon glyphicon-trash" /></button>
-                <button className="btn btn-info" type="button" onClick={ () => this.handleEditClick(comment.idComment) }><span className="glyphicon glyphicon-edit"/></button>
-                </li> )
+              comments.map( (comment, index) => <li key={index}>{comment.title}
+                <button className="btn btn-danger pull-right" type="button" onClick={ () => this.handleRemoveComment(comment.idComment)}><span className="glyphicon glyphicon-trash" /></button>
+                <button className="btn btn-info pull-right" type="button" onClick={ () => this.handleEditClick(comment.idComment) }><span className="glyphicon glyphicon-edit"/></button>
+                <br/><br/></li> )
             }
             <div className={`input-group ${this.state.editing ? '' : 'hidden'}`}>
                   <input className="form-control" ref="com"/>

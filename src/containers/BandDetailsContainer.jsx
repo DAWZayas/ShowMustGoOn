@@ -5,6 +5,7 @@ import CommentList from '../components/CommentList';
 
 
 import * as infoActions from '../actions/information';
+import * as commentsActions from '../actions/comments';
 
 
 
@@ -15,20 +16,18 @@ class BandDetailsContainer extends Component {
 
   componentWillMount() {
     this.props.registerListeners();
+    this.props.registerListenersComments();
   }
   componentWillUnmount() {
     this.props.unregisterListeners();
+    this.props.unregisterListenersComments();
   }
   
   render() {
     return (
-      <div className="container">
-        <div className="row">
-          <div className="col-lg-12">
+      <div>
            <InfoList { ...this.props } />
            <CommentList { ...this.props} />
-          </div>
-        </div>
       </div>
     );
   } 
@@ -40,16 +39,16 @@ function mapStateToProps(state) {
  /* for (var i = state.bands.length - 1; i >= 0; i--) {
     if (state.bands[i].id === id){band = state.bands[i];}
   }*/
-
-  const comments =  Object.values(state.comments).filter( comment =>  comment.idBand === band.id);
+  const bandTitle = state.history.title;
+  const comments =  state.comments.filter( comment =>  comment.band === idBand);
   const info = state.info.filter(i => idBand === i.band);
 
 
-  return { idBand, info, comments};
+  return { idBand, info, comments, bandTitle};
 }
 
 
 export default connect(
   mapStateToProps,
-  infoActions
+  Object.assign( {}, infoActions, commentsActions)
 )(BandDetailsContainer);

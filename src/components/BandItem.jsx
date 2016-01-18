@@ -1,4 +1,4 @@
-import React, { Component, PropTypes } from 'react';
+  import React, { Component, PropTypes } from 'react';
 import { Link } from 'react-router';
 
 
@@ -27,17 +27,19 @@ export default class BandItem extends Component {
       isNegative: cont
     });
    }
+   handleClick(e, title){
+        const { setHistory } = this.props;
+        setHistory(title);
+   }
 
   render() {
-  //  const { setHistory } = this.props;
+
     const { band } = this.props;
     return (
       <li >
         <div>
-        <Link to={`/band/${band.id}`} /*onClick={ setHistory(band.title) }*/>{band.title}</Link>  
+        <Link to={`/band/${band.id}`}><p onClick={e => this.handleClick(e, band.title)}>{band.title}</p></Link>  
         </div>
-         <br/>
-          <br/>
       </li>
     );
   }

@@ -30,17 +30,17 @@ class App extends Component {
     const { bandSearch, push } = this.props;
     const node = this.refs.title;
     const title =  node.value;
-    let search=bandSearch(title);
+    this.props.bandSearch(title);
 
   }
 
   render() {
-    const { children } = this.props;
-    const bands = this.state!=null?this.state.bands:[];
-    let search = {bands: {id: {title: 'No Results', id: '/'}}};
-    debugger;
+    const { children, bands } = this.props;
+    //const bands = this.state!=null?this.state.bands:[];
+    //let search = {bands: {id: {title: 'No Results', id: '/'}}};
 
 
+    
     return (
 
 
@@ -66,7 +66,7 @@ class App extends Component {
                      <input type="text" placeholder="Search..." ref="title" onChange={e => this.handleOnChangeTitle(e)}/>
                      <ul className="results" >
                       {
-                       search.bands.map( (band, index) =>  <li className="list-group-item" key={index}><Link to={`band/${band.id}`}>{band.title}</Link></li> )
+                        bands.map( (band, index) =>  <li className="list-group-item" key={index}><Link to={`/band/${band.id}`} >{band.title}</Link>  </li> )
                       }
                      </ul>
                     </li>
@@ -104,12 +104,14 @@ App.propTypes = {
   // Injected by React RouterConfirmDialog
   children: PropTypes.node,
   history: PropTypes.object.isRequired,
-  auth: PropTypes.object.isRequired
+  auth: PropTypes.object.isRequired,
+  bandSearch: PropTypes.func.isRequired,
+  bands: PropTypes.object.isRequired
  };
 
 export default connect(
   state => ({
     auth: state.auth,
     bands: state.bands
-  }
-),   Object.assign( {}, authActions, { bandSearch }, {push} ))(App);
+  }),  
+  Object.assign( {}, authActions, { bandSearch }, {push} ))(App);

@@ -1,1 +1,1 @@
-export const SET_BANDS = 'SET_BANDS';
+export const SET_BANDS_SEARCH = 'SET_BANDS_SEARCH';

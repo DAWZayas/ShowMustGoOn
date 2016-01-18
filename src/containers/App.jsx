@@ -27,7 +27,6 @@ class App extends Component {
     window.location.replace('/');
   }*/
     handleOnChangeTitle() {
-    const { bandSearch, push } = this.props;
     const node = this.refs.title;
     const title =  node.value;
     this.props.bandSearch(title);
@@ -36,11 +35,9 @@ class App extends Component {
 
   render() {
     const { children, bands } = this.props;
-    //const bands = this.state!=null?this.state.bands:[];
-    //let search = {bands: {id: {title: 'No Results', id: '/'}}};
 
 
-    
+
     return (
 
 
@@ -59,16 +56,14 @@ class App extends Component {
 
             <div className="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul className="nav navbar-nav navbar-right">
-                    <li className="hidden">
-                        <a href="#page-top"></a>
-                    </li>
                     <li className="search">
-                     <input type="text" placeholder="Search..." ref="title" onChange={e => this.handleOnChangeTitle(e)}/>
-                     <ul className="results" >
-                      {
-                        bands.map( (band, index) =>  <li className="list-group-item" key={index}><Link to={`/band/${band.id}`} >{band.title}</Link>  </li> )
-                      }
-                     </ul>
+                         <input type="text" placeholder="Search..." ref="title" onChange={e => this.handleOnChangeTitle(e)}/>
+                         <ul className="results" >
+                          {
+                            bands.map( (band, index) =>  <li className="list-group-item" key={index}><a href={`band/${band.id}`}>{band.title}</a></li> )
+                          }
+                         </ul>
+
                     </li>
                     <li className="page-scroll" >
                         <Link to="/preferences">Preferences</Link>
@@ -104,14 +99,11 @@ App.propTypes = {
   // Injected by React RouterConfirmDialog
   children: PropTypes.node,
   history: PropTypes.object.isRequired,
-  auth: PropTypes.object.isRequired,
-  bandSearch: PropTypes.func.isRequired,
-  bands: PropTypes.object.isRequired
+  auth: PropTypes.object.isRequired
  };
 
 export default connect(
   state => ({
     auth: state.auth,
     bands: state.bands
-  }),  
-  Object.assign( {}, authActions, { bandSearch }, {push} ))(App);
+  }),   Object.assign( {}, authActions, { bandSearch }))(App);

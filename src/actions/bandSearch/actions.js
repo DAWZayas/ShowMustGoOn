@@ -13,7 +13,7 @@ export function bandSearch(startAt) {
    const ref = firebase.child('bands');
    ref.orderByChild('title').startAt(startAt).endAt(`${startAt}\uf8ff`).once('value', snapshot => dispatch({
      type: SET_BANDS,
-   bands: Object.keys(snapshot.val() || []).map( id => ({id, title:snapshot.val()[id].title}))
-   }));
+     bands: Object.keys(snapshot.val() || []).map( id => ({id, title:snapshot.val()[id].title}) )
+  }));
   };
 }

@@ -39,10 +39,12 @@
   "dependencies": {
     "babel-runtime": "^5.8.29",
     "bootstrap": "^3.3.5",
+    "clone": "^1.0.2",
     "firebase": "^2.3.2",
     "firebase-tools": "^2.2.0",
     "history": "^1.17.0",
     "jquery": "^2.2.0",
+    "node-uuid": "^1.4.7",
     "react": "^0.14.6",
     "react-dom": "^0.14.6",
     "react-modal-bootstrap": "^0.5.1",

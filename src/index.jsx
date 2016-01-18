@@ -4,7 +4,7 @@ import Root from './containers/Root';
 
 import init from './utils/init';
 
-require('./style.css');
+require('./css/search.css');
 require('bootstrap/dist/css/bootstrap.min.css');
 global.jQuery = require('jquery/dist/jquery.min.js');
 require('bootstrap/dist/js/bootstrap.min.js');

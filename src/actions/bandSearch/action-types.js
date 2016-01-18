@@ -1,0 +1,1 @@
+export const SET_BANDS = 'SET_BANDS';

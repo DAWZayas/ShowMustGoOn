@@ -1,7 +1,10 @@
 import React, { Component, PropTypes } from 'react';
 import { Link } from 'react-router';
-import { authActions } from '../actions';
+import { push } from 'redux-router';
+import { bandSearch } from '../actions/bandSearch/actions.js';
 import { connect } from 'react-redux';
+import { authActions } from '../actions/auth';
+
 
 
 
@@ -9,41 +12,35 @@ class App extends Component {
 
   constructor(props) {
     super(props);
-    this.state={
-      logo: true
-    };
   }
 
-  handleLogo(){
-    this.setState({
-      logo: false
-    });
-  }
 
-  handleLogoOK(){
-    this.setState({
-      logo: true
-    });
-  }
-
-  componentWillReceiveProps(nextProps) {
-    const { auth, history } = this.props;
-
-    if (auth.authenticated && !nextProps.auth.authenticated) {
+  /*  if (auth.authenticated && !nextProps.auth.authenticated) {
       history.replaceState(null, authActions.POST_SIGN_OUT_PATH);
     }
     else if (!auth.authenticated && nextProps.auth.authenticated) {
       history.replaceState(null, authActions.POST_SIGN_IN_PATH);
     }
   }
-
   signOut() {
     this.props.signOut();
     window.location.replace('/');
+  }*/
+    handleOnChangeTitle() {
+    const { bandSearch, push } = this.props;
+    const node = this.refs.title;
+    const title =  node.value;
+    let search=bandSearch(title);
+
   }
 
   render() {
     const { children } = this.props;
+    const bands = this.state!=null?this.state.bands:[];
+    let search = {bands: {id: {title: 'No Results', id: '/'}}};
+    debugger;
+
+
     return (
 
 
@@ -65,13 +62,13 @@ class App extends Component {
                     <li className="hidden">
                         <a href="#page-top"></a>
                     </li>
-                    <li>
-                      <p></p>
-                      <input ref="text" type="text" autoFocus className='form-control input-search' placeholder="Search your concert..." />                     
-                    </li>
-                     <li>
-                      <p></p>
-                      <button className='btn biggerGlyphicon glyphicon glyphicon-search'></button>
+                    <li className="search">
+                     <input type="text" placeholder="Search..." ref="title" onChange={e => this.handleOnChangeTitle(e)}/>
+                     <ul className="results" >
+                      {
+                       search.bands.map( (band, index) =>  <li className="list-group-item" key={index}><Link to={`band/${band.id}`}>{band.title}</Link></li> )
+                      }
+                     </ul>
                     </li>
                     <li className="page-scroll" >
                         <Link to="/preferences">Preferences</Link>
@@ -99,32 +96,7 @@ class App extends Component {
 
 
 
-
-      /*
-     <nav className="navbar navbar-default" role="navigation">>
-       <div className="navbar-header">
-         <button type="button" className="navbar-toggle" data-toggle="collapse"
-         data-target=".navbar-ex1-collapse">
-           <span className="sr-only">Desplegar navegación</span>
-           <span className="icon-bar"></span>
-           <span className="icon-bar"></span>
-           <span className="icon-bar"></span>
-         </button>
-         <a className="navbar-brand" href="#">Logotipo</a>
-       </div>
-       <div>
-         <nav className="navbar navbar-inv">
-         <ul className="nav navbar-nav">
-           <li onClick={() => this.handleLogoOK()}><Link to="/">Home</Link></li>
-           <li onClick={() => this.handleLogo()}><Link to="/preferences">Preferences</Link></li>
-           <li onClick={() => this.handleLogo()}><Link to="/selecteds">Yours Concerts</Link></li>
-         </ul>
-         </nav>
-         <img className={`${this.state.logo ? 'logo' : 'hidden' }`}  src={image}/>
-         {this.props.children}
-       </div>
-     </nav>
-    */);
+);
   }
 }
 
@@ -137,6 +109,7 @@ App.propTypes = {
 
 export default connect(
   state => ({
-    auth: state.auth
+    auth: state.auth,
+    bands: state.bands
   }
-), authActions)(App);
+),   Object.assign( {}, authActions, { bandSearch }, {push} ))(App);

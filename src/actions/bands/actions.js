@@ -1,8 +1,8 @@
-import { SET_BAND }from './action-types';
+import { SET_BANDS }from './action-types';
 
 
 export function setbands(bands) {
-  return { type: SET_BAND, bands};
+  return { type: SET_BANDS, bands};
 }
 
 export function addBand(title, concert) {

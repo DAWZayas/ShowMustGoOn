@@ -2,7 +2,7 @@ import React, { Component, PropTypes } from 'react';
 import { a } from 'react-router';
 import { bandSearch } from '../actions/bandSearch/actions.js';
 import { connect } from 'react-redux';
-import { authActions } from '../actions/auth';
+import { authActions } from '../actions/auth/index.js';
 
 
 
@@ -41,8 +41,8 @@ class App extends Component {
 
 
 <div>
- <nav className="navbar navbar-default">
-        <div className="container-fluid">
+ <nav className="navbar navbar-default-fluid">
+        <div className="container-fluid 2">
             <div className="navbar-header">
                 <button type="button" className="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
                     <span className="sr-only">Toggle navigation</span>
@@ -69,10 +69,13 @@ class App extends Component {
                     </li>
                   </ul>
                   <ul className="nav navbar-nav">
-                    <li className="page-scroll" >
+                    <li className="nav navbar-nav">
+                        <a href="/sign-in">Sign-In</a>
+                    </li>
+                    <li className="nav navbar-nav">
                         <a href="/preferences">Preferences</a>
                     </li>
-                    <li >
+                    <li className="nav navbar-nav">
                         <a href="/selecteds">Yours Concerts</a>
                     </li>
                 </ul>

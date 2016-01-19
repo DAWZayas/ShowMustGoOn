@@ -27,11 +27,10 @@ export default class BandList extends Component {
     return (
       <div className="container-fluid">
           <h3>Bands</h3>
-          <ul>
             {
               bands.map( (band, index) =>  <BandItem key={index} band={band} {...this.props}/> )
             }
-         </ul>
+            <br/>
          <div className="input-group">
             <input  type="text"  className="form-control" placeholder="Add bands" ref="band" />
             <span className="input-group-btn">

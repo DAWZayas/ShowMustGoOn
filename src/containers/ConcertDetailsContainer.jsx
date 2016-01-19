@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import BandList from '../components/BandList';
 import * as bandsActions from '../actions/bands';
-import setHistory from '../actions/history';
+
 
 
 
@@ -40,5 +40,5 @@ function mapStateToProps(state) {
 
 export default connect(
   mapStateToProps,
-   Object.assign( {}, bandsActions, { setHistory } )
+   Object.assign( {}, bandsActions )
 )(ConcertDetailsContainer);

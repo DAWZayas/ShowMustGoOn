@@ -7,12 +7,8 @@ export default class ConcertItem extends Component {
   	const { concert } = this.props;
     return (
     
-    		<div>
-    			<div className="col-lg-12">
-            	<h4><li><Link to={`/concert/${concert.id}`}>{concert.title}</Link></li></h4>
-         </div>
-        </div>
-    	
+    
+       <a href={`/concert/${concert.id}`}  className="list-group-item action-element">{concert.title}</a>
     );
   }
 

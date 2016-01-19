@@ -27,20 +27,13 @@ export default class BandItem extends Component {
       isNegative: cont
     });
    }
-   handleClick(e, title){
-        const { setHistory } = this.props;
-        setHistory(title);
-   }
+
 
   render() {
 
     const { band } = this.props;
     return (
-      <li >
-        <div>
-        <Link to={`/band/${band.id}`}><p onClick={e => this.handleClick(e, band.title)}>{band.title}</p></Link>  
-        </div>
-      </li>
+        <a href={`/band/${band.id}`}{...this.props} className="list-group-item action-element">{band.title}</a>  
     );
   }
 

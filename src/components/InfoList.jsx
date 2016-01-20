@@ -10,11 +10,11 @@ export default class InfoList extends Component {
   }
 
   handleAsistButtonClick(e, index) {
-    const { info, onSelectedConcert } = this.props;
+    const { info, selectedConcert } = this.props;
     let msg='';
     for (var i = info.length - 1; i >= 0; i--) {
       if(info[i].id===index){
-        onSelectedConcert(index);
+        selectedConcert(index);
         if(info[i].asistir){msg='Assintance Cancel';}else{msg='Assintance Confirm';}
       }
     }

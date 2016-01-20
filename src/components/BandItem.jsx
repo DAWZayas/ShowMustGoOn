@@ -33,7 +33,7 @@ export default class BandItem extends Component {
 
     const { band } = this.props;
     return (
-        <a href={`/band/${band.id}`}{...this.props} className="list-group-item action-element">{band.title}</a>  
+        <Link to={`/band/${band.id}`}{...this.props} className="list-group-item action-element">{band.title}</Link>  
     );
   }
 

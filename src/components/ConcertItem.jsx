@@ -8,7 +8,7 @@ export default class ConcertItem extends Component {
     return (
     
     
-       <a href={`/concert/${concert.id}`}  className="list-group-item action-element">{concert.title}</a>
+       <Link to={`/concert/${concert.id}`}  className="list-group-item action-element">{concert.title}</Link>
     );
   }
 

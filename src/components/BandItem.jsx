@@ -15,17 +15,21 @@ export default class BandItem extends Component {
    }
 
    handlePositive(){
-    let cont=this.state.isPositive + 1;
-    this.setState({
+      let cont=this.state.isPositive + 1;
+      this.setState({
       isPositive: cont
     });
    }
 
     handleNegative(){
-    let cont=this.state.isNegative + 1;
-    this.setState({
+      let cont=this.state.isNegative + 1;
+      this.setState({
       isNegative: cont
     });
+   }
+
+   handelOnclickRemove(id){
+    this.props.deleteBand(id);
    }
 
 
@@ -33,7 +37,11 @@ export default class BandItem extends Component {
 
     const { band } = this.props;
     return (
-        <Link to={`/band/${band.id}`}{...this.props} className="list-group-item action-element">{band.title}</Link>  
+      <li  className="list-group-item action-element">
+        <Link to={`/band/${band.id}`}{...this.props}>{band.title}</Link>  
+        <span className={'pull-right glyphicon glyphicon-trash action-icon'} onClick={() => this.handelOnclickRemove(band.id) }></span>
+
+      </li>
     );
   }
 

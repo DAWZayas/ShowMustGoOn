@@ -1,8 +1,8 @@
 import React, { Component, PropTypes } from 'react';
-import { a } from 'react-router';
+import { Link } from 'react-router';
 import { bandSearch } from '../actions/bandSearch/actions.js';
 import { connect } from 'react-redux';
-import { authActions } from '../actions/auth/index.js';
+import * as authActions from '../actions/auth/index.js';
 
 
 
@@ -32,6 +32,10 @@ class App extends Component {
 
   }
 
+  handleSignOutButtonClick(){
+    this.props.signOut();
+  }
+
   render() {
     const { children, search } = this.props;
 
@@ -50,7 +54,7 @@ class App extends Component {
                     <span className="icon-bar"></span>
                     <span className="icon-bar"></span>
                 </button>
-               <a  className="navbar-brand" href="/">ShowMustGoOn</a>
+               <Link className="navbar-brand" to="/">ShowMustGoOn</Link>
             </div>
 
             <div className="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
@@ -67,16 +71,19 @@ class App extends Component {
                          </ul>
 
                     </li>
+                    <li className={this.props.auth.authenticated?'hidden':'nav navbar-nav'}>
+                        <Link to="/sign-in">Sign-In</Link>
+                    </li>
+                    <li className={this.props.auth.authenticated?'nav navbar-nav':'hidden'}>
+                        <Link to='/' onClick={e => this.handleSignOutButtonClick(e)}>Sign Out</Link>
+                    </li>
                   </ul>
                   <ul className="nav navbar-nav">
                     <li className="nav navbar-nav">
-                        <a href="/sign-in">Sign-In</a>
+                        <Link to="/preferences">Preferences</Link>
                     </li>
-                    <li className="nav navbar-nav">
-                        <a href="/preferences">Preferences</a>
-                    </li>
-                    <li className="nav navbar-nav">
-                        <a href="/selecteds">Yours Concerts</a>
+                    <li className={this.props.auth.authenticated?'nav navbar-nav':'hidden'}>
+                        <Link to="/selecteds">Yours Concerts</Link>
                     </li>
                 </ul>
             </div>

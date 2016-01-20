@@ -38,11 +38,12 @@ function mapStateToProps(state) {
  /* for (var i = state.bands.length - 1; i >= 0; i--) {
     if (state.bands[i].id === id){band = state.bands[i];}
   }*/
+  const auth = state.auth;
   const comments =  state.comments.filter( comment =>  comment.band === idBand);
   const info = state.info.filter(i => idBand === i.band);
 
 
-  return { idBand, info, comments};
+  return { idBand, info, comments, auth};
 }
 
 

@@ -10,11 +10,14 @@ export default class InfoList extends Component {
   }
 
   handleAsistButtonClick(e, index) {
-    const { info, selectedConcert } = this.props;
+    const { info, selectConcert, auth } = this.props;
+    debugger;
+    let idUser = auth.id;
     let msg='';
     for (var i = info.length - 1; i >= 0; i--) {
       if(info[i].id===index){
-        selectedConcert(index);
+        let assi=!info[i].users.idUser.assist;
+        selectConcert(index, assi);
         if(info[i].asistir){msg='Assintance Cancel';}else{msg='Assintance Confirm';}
       }
     }
@@ -51,13 +54,13 @@ export default class InfoList extends Component {
   }
 
   render() {
-    const { info, band } = this.props;
+    const { info } = this.props;
 
     
 
     return (
       <div className="container-fluid">
-          <h3>{band}</h3>
+          <h3></h3>
           <h5>Click on a concert to confirm you are going</h5>
           <ul>
             {
@@ -86,7 +89,7 @@ export default class InfoList extends Component {
 InfoList.propTypes = {
   info: PropTypes.array,
   band: PropTypes.object.isRequired,
-  onSelectedConcert: PropTypes.func.isRequired,
+  selectedConcert: PropTypes.func.isRequired,
   addInfo: PropTypes.func.isRequired
 };
 

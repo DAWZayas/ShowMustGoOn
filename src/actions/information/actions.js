@@ -1,8 +1,9 @@
-export function selectConcert(id) {
+export function selectConcert(idInfo, assi) {
   return (dispatch, getState) => {
-    const { firebase } = getState();
-    firebase.child('info')
-      .push({title, date, price, band});
+    const { firebase, auth } = getState();
+    const userId = auth.id;
+    firebase.child(`info/${idInfo}/users/${userId}`)
+      .update({assist: assi});
     
   };
 }
@@ -10,9 +11,10 @@ export function selectConcert(id) {
 
 export function addInfo(title, date, price, band) {
   return (dispatch, getState) => {
-    const { firebase } = getState();
+    const { firebase, auth } = getState();
+    const userId = auth.id;
     firebase.child('info')
-      .push({title, date, price, band});
+      .push({title, date, price, band, users: {id: userId} });
     
   };
 }

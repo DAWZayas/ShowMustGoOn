@@ -5,8 +5,7 @@ export default class CommentList extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      editing: false,
-      idediting: ''
+      editing: false
     };
   }
 
@@ -19,22 +18,22 @@ export default class CommentList extends Component {
   }
   
   handleRemoveComment(idComment){
-    this.props.onRemoveComment(idComment);
+    this.props.removeComment(idComment);
   } 
 
-  handleEditClick(index) {
+  handleEditClick(idComment) {
 
     this.setState({
-      editing: true,
-      idediting: index
+      editing: true
     });
+    this.props.editComment(idComment);
    
   }
 
   handleOkClick() {
     const node = this.refs.com;
-    const { onEditComment } = this.props;
-    onEditComment(this.state.idediting, node.value.trim());
+    const { editComment } = this.props;
+    editComment(this.state.idediting, node.value.trim());
 
     this.setState({
       editing: false
@@ -54,8 +53,8 @@ export default class CommentList extends Component {
           <ul>
             {
               comments.map( (comment, index) => <li key={index}>{comment.title}
-                <button className="btn btn-danger pull-right" type="button" onClick={ () => this.handleRemoveComment(comment.idComment)}><span className="glyphicon glyphicon-trash" /></button>
-                <button className="btn btn-info pull-right" type="button" onClick={ () => this.handleEditClick(comment.idComment) }><span className="glyphicon glyphicon-edit"/></button>
+                <button className="btn btn-danger pull-right" type="button" onClick={ () => this.handleRemoveComment(comment.id)}><span className="glyphicon glyphicon-trash" /></button>
+                <button className="btn btn-info pull-right" type="button" onClick={ () => this.handleEditClick(comment.id) }><span className="glyphicon glyphicon-edit"/></button>
                 <br/><br/></li> )
             }
             <div className={`input-group ${this.state.editing ? '' : 'hidden'}`}>
@@ -78,9 +77,9 @@ export default class CommentList extends Component {
 
 CommentList.propTypes = {
   comments: PropTypes.array,
-  onAddComment: PropTypes.func.isRequired,
-  onRemoveComment: PropTypes.func.isRequired,
-  onEditComment: PropTypes.func.isRequired,
+  addComment: PropTypes.func.isRequired,
+  removeComment: PropTypes.func.isRequired,
+  editComment: PropTypes.func.isRequired,
   band: PropTypes.object.isRequired
 };
 

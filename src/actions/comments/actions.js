@@ -7,9 +7,38 @@ export function setcomments(comments) {
 
 export function addComments(band, title) {
   return (dispatch, getState) => {
-    const { firebase } = getState();
+    const { firebase, auth } = getState();
+    const user = auth.id;
     firebase.child('comments')
-      .push({title, band});
+      .push({title, band, user});
+    
+  };
+}
+
+export function removeComment(idComment) {
+  return (dispatch, getState) => {
+    const { firebase, auth } = getState();
+    const user = auth.id;
+    const ref = firebase.child(`comments/${idComment}/`);
+    ref.once('value', function(snapshot){
+      const data = snapshot.val();
+      if (data.user===user){
+       firebase.child(`comments/${idComment}`).remove();
+      }else{
+        alert('This is not your Comment, Bitch' );
+      }
+    });
+    
+  };
+
+}
+
+export function editComment(idComment) {
+  return (dispatch, getState) => {
+    const { firebase, auth } = getState();
+    const user = auth.id;
+    firebase.child('comments')
+      .update({title, band, user});
     
   };
 }

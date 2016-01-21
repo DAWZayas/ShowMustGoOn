@@ -15,18 +15,21 @@ export function addBand(title, concert) {
   };
 
 }
-/*export function deleteBand(idBand) {
+export function deleteBand(idBand) {
   return (dispatch, getState) => {
     const { firebase, auth } = getState();
     const user = auth.id;
     const ref = firebase.child(`bands/${idBand}/`);
     ref.once('value', function(snapshot){
-    debugger;
-    if (snapshot.val()[id].user===user){
-   		 firebase.child(`bands/${idBand}`).remove;
-     }
-
+      const data = snapshot.val();
+      console.log('*****', user); 
+      if (data.user===user){
+       firebase.child(`bands/${idBand}`).remove();
+      }else{
+        alert('This is not your Band, Bitch' );
+      }
     });
+    
   };
 
-}*/
+}

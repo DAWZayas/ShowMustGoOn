@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import ConcertsSelected from '../components/ConcertsSelected';
+import * as selectedsActions from '../actions/selecteds';
 
 
 
@@ -9,6 +10,14 @@ class ConcertsSelectedsContainer extends Component {
 
   constructor(props) {
     super(props);
+  }
+
+
+  componentWillMount() {
+    this.props.registerListeners();
+  }
+  componentWillUnmount() {
+    this.props.unregisterListeners();
   }
 
   render() {
@@ -23,18 +32,15 @@ class ConcertsSelectedsContainer extends Component {
 }
 
 function mapStateToProps(state) {
-  const fullinfo= state.informations;
-  const fullbands= state.bands;
+  debugger;
+  const idUser=state.auth.id;
+  const selecteds= state.info.filter(i => {i.users[idUser].assist === true || {}});
 
-  return {fullinfo, fullbands};
+  return {selecteds};
 }
 
-function mapDispatchToProps() { 
-  return {
-  };
-}
 
 export default connect(
   mapStateToProps,
-  mapDispatchToProps
+  selectedsActions
 )(ConcertsSelectedsContainer);

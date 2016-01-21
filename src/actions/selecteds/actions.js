@@ -18,10 +18,8 @@ export function addInfo(title, date, price, band) {
   return (dispatch, getState) => {
     const { firebase, auth } = getState();
     const userId = auth.id;
-    const ref = firebase.child(`bands/${band}/title`);
-    ref.once('value', function(snapshot){
-      let bandName=snapshot.val();
-      firebase.child('info').push({title, date, price, band, creator: userId, bandName });
-    });
+    firebase.child('info')
+      .push({title, date, price, band, creator: userId });
+    
   };
 }

@@ -10,11 +10,12 @@ export default class CommentList extends Component {
   }
 
   handleAddButtonClick() {
-    const { idBand, addComments } = this.props;
+    const { idBand, addComments, auth } = this.props;
     const node = this.refs.comment;
     const comment =  node.value.trim();
     addComments(idBand, comment);
     node.value = '';
+    if (!auth.authenticated) {alert('You need to log in to comment')};
   }
   
   handleRemoveComment(idComment){
@@ -45,27 +46,24 @@ export default class CommentList extends Component {
 
 
   render() {
-
     const { comments, auth } = this.props;
 
     return (
       <div>
           <h3>Comments</h3>
-          <ul>
-            {
-              comments.map( (comment, index) => <li key={index}>{comment.title}
-                <button className="btn btn-danger pull-right" type="button" onClick={ () => this.handleRemoveComment(comment.id)}><span className="glyphicon glyphicon-trash" /></button>
-                <button className="btn btn-info pull-right" type="button" onClick={ () => this.handleEditClick(comment.id) }><span className="glyphicon glyphicon-edit"/></button>
-                <br/><br/></li> )
-            }
-            <div className={`input-group ${this.state.editing ? '' : 'hidden'}`}>
-                  <input className="form-control" ref="com"/>
-                  <span className="input-group-btn">
-                    <button className="btn btn-success" type="button" onClick={(e) => this.handleOkClick(e)}><span className="glyphicon glyphicon-ok" /></button>
-                  </span>
-                </div>
-          </ul>
-          <div className={`input-group ${this.state.editing ? 'hidden' : ''}`}>
+          {
+            comments.map( (comment, index) => <p key={index}>{comment.title}
+            <button className={comment.user===auth.id?'btn btn-danger pull-right':'hidden'} type="button" onClick={ () => this.handleRemoveComment(comment.id)}><span className="glyphicon glyphicon-trash" /></button>
+            <button className={comment.user===auth.id?'btn btn-info pull-right':'hidden'} type="button" onClick={ () => this.handleEditClick(comment.id) }><span className="glyphicon glyphicon-edit"/></button>
+            <br/><br/></p> )
+          }
+          <div className={`input-group ${this.state.editing ? '' : 'hidden'}`}>
+            <input className="form-control" ref="com"/>
+            <span className="input-group-btn">
+              <button className="btn btn-success" type="button" onClick={(e) => this.handleOkClick(e)}><span className="glyphicon glyphicon-ok" /></button>
+            </span>
+          </div>
+          <div className={this.state.editing? 'hidden' : 'input-group'}>
             <input  type="text"  className="form-control" placeholder="Add Comments" ref="comment" />
             <span className="input-group-btn">
               <button className="btn btn-info" type="button" onClick={e => this.handleAddButtonClick(e)}><span className="glyphicon glyphicon-plus" /></button>

@@ -7,7 +7,7 @@ export function registerListenersComments() {
 
     ref.on('value', snapshot => dispatch({
       type: SET_COMMENTS,
-      comments: Object.keys(snapshot.val() || []).map( id => ({id, title:snapshot.val()[id].title, band:snapshot.val()[id].band}) )
+      comments: Object.keys(snapshot.val() || []).map( id => ({id, title:snapshot.val()[id].title, band:snapshot.val()[id].band, user:snapshot.val()[id].user}) )
     }));
   };
 }

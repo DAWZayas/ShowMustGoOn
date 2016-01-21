@@ -9,8 +9,10 @@ export function addComments(band, title) {
   return (dispatch, getState) => {
     const { firebase, auth } = getState();
     const user = auth.id;
-    firebase.child('comments')
+    if(user!==null){
+      firebase.child('comments')
       .push({title, band, user});
+    }
     
   };
 }

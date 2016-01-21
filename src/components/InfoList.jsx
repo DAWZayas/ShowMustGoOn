@@ -60,7 +60,7 @@ export default class InfoList extends Component {
           <h3></h3>
           <h5>Click on a concert to confirm/cancel your assistance</h5><br/>
             {
-              info.map( (infor, index) => <li className="list-group-item action-element"><span className={infor.users[auth.id]===undefined?'hidden':infor.users[auth.id].assist?'btn btn-warning glyphicon glyphicon-log-out pull-right action-icon':'btn btn-success glyphicon glyphicon-log-in pull-right action-icon'} onClick={e => this.handleAsistButtonClick(e, infor.id)}></span><p key={index}>{infor.title} on {infor.date} at {infor.price}€</p></li> )
+              info.map( (infor, index) => <li className="list-group-item action-element"><span /*className={infor.users[auth.id]===undefined?'hidden':infor.users[auth.id].assist?'btn btn-warning glyphicon glyphicon-log-out pull-right action-icon':'btn btn-success glyphicon glyphicon-log-in pull-right action-icon'}*/ onClick={e => this.handleAsistButtonClick(e, infor.id)}></span><p key={index}>{infor.title} on {infor.date} at {infor.price}€</p></li> )
             }
             <br/>
           <div className={` ${this.state.editting ? 'input-group '  : 'hidden'}` }>

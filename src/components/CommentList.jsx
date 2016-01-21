@@ -5,7 +5,8 @@ export default class CommentList extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      editing: false
+      editing: false,
+      addDisabled:true
     };
   }
 
@@ -16,6 +17,10 @@ export default class CommentList extends Component {
     addComments(idBand, comment);
     node.value = '';
     if (!auth.authenticated) {alert('You need to log in to comment')};
+
+    this.setState({
+      addDisabled:true
+    });
   }
   
   handleRemoveComment(idComment){
@@ -39,11 +44,39 @@ export default class CommentList extends Component {
       editing: false
     });
      this.props.editComment(title, this.state.idComment);
-
-
-    
   }
 
+  handleOnTitleKeyDownEdit(event) {
+    const ENTER_KEY = 13;
+    if (event.keyCode === ENTER_KEY && !this.state.addDisabled) {
+      this.handleOkClick();
+    }
+  }
+
+  handleOnTitleKeyDownAdd(event) {
+    const ENTER_KEY = 13;
+    if (event.keyCode === ENTER_KEY && !this.state.addDisabled) {
+      this.handleAddButtonClick();
+    }
+  }
+
+  handleDisabledOkEdit(){
+    const node = this.refs.com;
+    const title =  node.value.trim();
+
+    this.setState({
+      addDisabled: title.length === 0
+    });
+  }
+
+  handleDisabledOk() {
+    const node = this.refs.comment;
+    const title =  node.value.trim();
+
+    this.setState({
+      addDisabled: title.length === 0
+    });
+  }
 
   render() {
     const { comments, auth } = this.props;
@@ -58,15 +91,15 @@ export default class CommentList extends Component {
             <br/><br/></p> )
           }
           <div className={`input-group ${this.state.editing ? '' : 'hidden'}`}>
-            <input className="form-control" ref="com"/>
+            <input className="form-control" ref="com" placeholder="Edit Comment" onKeyDown={(e) => this.handleOnTitleKeyDownEdit(e)} onChange={(e) => this.handleDisabledOkEdit(e)}/>
             <span className="input-group-btn">
-              <button className="btn btn-success" type="button" onClick={(e) => this.handleOkClick(e)}><span className="glyphicon glyphicon-ok" /></button>
+              <button disabled={this.state.addDisabled} className="btn btn-success" type="button" onClick={(e) => this.handleOkClick(e)} ><span className="glyphicon glyphicon-ok" /></button>
             </span>
           </div>
           <div className={this.state.editing? 'hidden' : 'input-group'}>
-            <input  type="text"  className="form-control" placeholder="Add Comments" ref="comment" />
+            <input  type="text"  className="form-control" placeholder="Add Comments" ref="comment" onKeyDown={(e) => this.handleOnTitleKeyDownAdd(e)} onChange={(e) => this.handleDisabledOk(e)}/>
             <span className="input-group-btn">
-              <button className="btn btn-info" type="button" onClick={e => this.handleAddButtonClick(e)}><span className="glyphicon glyphicon-plus" /></button>
+              <button disabled={this.state.addDisabled} className="btn btn-info" type="button" onClick={e => this.handleAddButtonClick(e)}><span className="glyphicon glyphicon-plus" /></button>
             </span>
           </div>
       </div>

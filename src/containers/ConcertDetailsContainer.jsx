@@ -32,9 +32,10 @@ function mapStateToProps(state) {
   const idConcert = state.router.params.idConcert;
   const concert = state.concerts.filter( concert => idConcert === concert.id)[0] || {};
   const bands = state.bands.filter(band => idConcert === band.concert);
+  const auth = state.auth;
   
 
-  return { concert, bands, idConcert };
+  return { concert, bands, idConcert, auth };
 }
 
 

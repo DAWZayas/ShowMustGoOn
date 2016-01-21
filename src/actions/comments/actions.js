@@ -33,12 +33,12 @@ export function removeComment(idComment) {
 
 }
 
-export function editComment(idComment) {
+export function editComment(title, idComment) {
   return (dispatch, getState) => {
     const { firebase, auth } = getState();
     const user = auth.id;
-    firebase.child('comments')
-      .update({title, band, user});
+    firebase.child(`comments/${idComment}`)
+      .update({title});
     
   };
 }

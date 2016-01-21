@@ -1,13 +1,12 @@
 import React, { Component, PropTypes } from 'react';
 import ConcertItem from './ConcertItem';
-
+ 
 
 export default class ConcertList extends Component {
 
   constructor(props) {
     super(props);
     this.state = {
-      isVisible: false,
       newConcerts: [],
       addDisabled:true
     };
@@ -24,10 +23,6 @@ export default class ConcertList extends Component {
     let updateConcerts = this.props.concerts;
     updateConcerts = updateConcerts.filter( concert => concert.title.toLowerCase().search(event.target.value.toLowerCase()) !== -1);
     node.value === '' ? this.setState({newConcerts: [] }) : this.setState({newConcerts: updateConcerts});
-  }
-
-  handleVisibility(){
-    this.setState({ isVisible: true });
   }
 
 
@@ -64,13 +59,10 @@ export default class ConcertList extends Component {
     });
   }
 
-  handleChangeSearchToAdd(){
-    this.setState({ isVisible: false });
-  }
 
   render() {
 
-    const { concerts } = this.props;
+    const { concerts, auth } = this.props;
 
     return (
       <div>
@@ -80,19 +72,11 @@ export default class ConcertList extends Component {
                concerts.map( (concert, index) =>  <ConcertItem key={index} concert={concert} /> )
              }
           </ul>
-         <div className={`input-group col-xs-12 ${this.state.isVisible ? 'hidden' : ''}`}>
+         <div className={auth.authenticated ?'':'hidden'}>
             <input  type="text"  className="form-control" placeholder="Add Concerts" ref="concert" onKeyDown={e => this.handleOnTitleKeyDown(e)} onChange={e => this.handleOnChangeTitle(e)} />
             <span className="input-group-btn">
               <button disabled={this.state.addDisabled} className="btn btn-info glyphicon glyphicon-plus" type="button" onClick={e => this.handleAddButtonClick(e)}></button>
             </span>
-          </div>
-           <div className="search">
-            
-              <ul className={`${this.state.isVisible ?  'list-group'  : 'hidden' }`}>
-                  {
-                     this.state.newConcerts.map( (concert, index) => <ConcertItem key={index} concert={concert} />  )
-                  }
-              </ul>
           </div>
         </div>
       </div>
@@ -102,7 +86,7 @@ export default class ConcertList extends Component {
 
 ConcertList.propTypes = {
   concerts: PropTypes.array,
-  onAddConcert: PropTypes.func.isRequired
+  addConcert: PropTypes.func.isRequired
 };
 
 ConcertList.defaultProps = { 

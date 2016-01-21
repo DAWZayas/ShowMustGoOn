@@ -22,7 +22,6 @@ export function deleteBand(idBand) {
     const ref = firebase.child(`bands/${idBand}/`);
     ref.once('value', function(snapshot){
       const data = snapshot.val();
-      console.log('*****', user); 
       if (data.user===user){
        firebase.child(`bands/${idBand}`).remove();
       }else{

@@ -7,6 +7,6 @@ import * as concertsActions from '../actions/concerts';
 
 
 export default connect(
- state => ({concerts: state.concerts}),
+ state => ({concerts: state.concerts, auth: state.auth}),
   concertsActions
 )(ConcertList);

@@ -24,20 +24,21 @@ export default class CommentList extends Component {
   handleEditClick(idComment) {
 
     this.setState({
-      editing: true
+      editing: true,
+      idComment: idComment
     });
-    this.props.editComment(idComment);
    
   }
 
   handleOkClick() {
-    const node = this.refs.com;
     const { editComment } = this.props;
-    editComment(this.state.idediting, node.value.trim());
-
+    const node = this.refs.com;
+    const title= node.value.trim();
     this.setState({
       editing: false
     });
+     this.props.editComment(title, this.state.idComment);
+
 
     
   }
@@ -45,7 +46,7 @@ export default class CommentList extends Component {
 
   render() {
 
-    const { comments } = this.props;
+    const { comments, auth } = this.props;
 
     return (
       <div>
@@ -60,7 +61,7 @@ export default class CommentList extends Component {
             <div className={`input-group ${this.state.editing ? '' : 'hidden'}`}>
                   <input className="form-control" ref="com"/>
                   <span className="input-group-btn">
-                    <button className="btn btn-success" type="button" onClick={e => this.handleOkClick(e)}><span className="glyphicon glyphicon-ok" /></button>
+                    <button className="btn btn-success" type="button" onClick={(e) => this.handleOkClick(e)}><span className="glyphicon glyphicon-ok" /></button>
                   </span>
                 </div>
           </ul>

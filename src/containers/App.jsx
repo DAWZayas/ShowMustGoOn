@@ -13,23 +13,15 @@ class App extends Component {
     super(props);
   }
 
-
-  /*  if (auth.authenticated && !nextProps.auth.authenticated) {
-      history.replaceState(null, authActions.POST_SIGN_OUT_PATH);
-    }
-    else if (!auth.authenticated && nextProps.auth.authenticated) {
-      history.replaceState(null, authActions.POST_SIGN_IN_PATH);
-    }
-  }
-  signOut() {
-    this.props.signOut();
-    window.location.replace('/');
-  }*/
-    handleOnChangeTitle() {
+  handleOnChangeTitle() {
     const node = this.refs.title;
     const title =  node.value;
-    this.props.bandSearch(title);
 
+    function capitaliseFirstLetter(string){
+      return string.charAt(0).toUpperCase() + string.slice(1);
+    }
+    const firstLetter = capitaliseFirstLetter(title);
+    this.props.bandSearch(firstLetter);
   }
 
   handleSignOutButtonClick(){

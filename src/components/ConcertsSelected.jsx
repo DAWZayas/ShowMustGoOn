@@ -26,7 +26,6 @@ export default class ConcertsSelected extends Component {
 }
 
 ConcertsSelected.propTypes = {
-  fullinfo: PropTypes.array,
-  fullbands: PropTypes.array
+  selecteds: PropTypes.array,
 };
 

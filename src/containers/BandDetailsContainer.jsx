@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
 import InfoList from '../components/InfoList';
 import CommentList from '../components/CommentList';
@@ -51,3 +51,10 @@ export default connect(
   mapStateToProps,
   Object.assign( {}, infoActions, commentsActions)
 )(BandDetailsContainer);
+
+BandDetailsContainer.propTypes = {
+  registerListenersComments: PropTypes.func.isRequired,
+  unregisterListenersComments: PropTypes.func.isRequired,
+  registerListeners: PropTypes.func.isRequired,
+  unregisterListeners: PropTypes.func.isRequired
+};

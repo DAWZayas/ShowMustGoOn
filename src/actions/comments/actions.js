@@ -37,8 +37,7 @@ export function removeComment(idComment) {
 
 export function editComment(title, idComment) {
   return (dispatch, getState) => {
-    const { firebase, auth } = getState();
-    const user = auth.id;
+    const { firebase } = getState();
     firebase.child(`comments/${idComment}`)
       .update({title});
     

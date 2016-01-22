@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
 import ConcertsSelected from '../components/ConcertsSelected';
 import * as selectedsActions from '../actions/selecteds';
@@ -42,3 +42,8 @@ export default connect(
   mapStateToProps,
   selectedsActions
 )(ConcertsSelectedsContainer);
+
+ConcertsSelectedsContainer.propTypes = {
+  registerListeners: PropTypes.func.isRequired,
+  unregisterListeners: PropTypes.func.isRequired,
+};

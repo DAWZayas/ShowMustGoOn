@@ -1,5 +1,9 @@
+html {
+    background-color: #A3BF9A;
+}
+
 body #root{
-    
+    background-color: #A3BF9A;
 }
 a {
     color: black;
@@ -213,6 +217,11 @@ input {
 
 .list-group-item a {
   color: #544B4B;
+}
+
+.list-group-item .action-element{
+  border-radius: 5px;
+  background-color: #4E8F5D;
 }
 
 .list-group-item a:hover {

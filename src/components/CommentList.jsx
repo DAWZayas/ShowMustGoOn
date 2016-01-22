@@ -16,7 +16,7 @@ export default class CommentList extends Component {
     const comment =  node.value.trim();
     addComments(idBand, comment);
     node.value = '';
-    if (!auth.authenticated) {alert('You need to log in to comment')};
+    if (!auth.authenticated) {alert('You need to log in to comment');}
 
     this.setState({
       addDisabled:true
@@ -43,7 +43,7 @@ export default class CommentList extends Component {
     this.setState({
       editing: false
     });
-     this.props.editComment(title, this.state.idComment);
+     editComment(title, this.state.idComment);
   }
 
   handleOnTitleKeyDownEdit(event) {
@@ -108,6 +108,9 @@ export default class CommentList extends Component {
 }
 
 CommentList.propTypes = {
+  idBand: PropTypes.string,
+  addComments: PropTypes.func.isRequired,
+  auth: PropTypes.array,
   comments: PropTypes.array,
   addComment: PropTypes.func.isRequired,
   removeComment: PropTypes.func.isRequired,

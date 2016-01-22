@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
 import BandList from '../components/BandList';
 import * as bandsActions from '../actions/bands';
@@ -43,3 +43,8 @@ export default connect(
   mapStateToProps,
    Object.assign( {}, bandsActions )
 )(ConcertDetailsContainer);
+
+ConcertDetailsContainer.propTypes = {
+  registerListeners: PropTypes.func.isRequired,
+  unregisterListeners: PropTypes.func.isRequired
+};

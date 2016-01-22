@@ -60,12 +60,12 @@ export default class InfoList extends Component {
           <h3></h3>
           <h5>Click on a concert to confirm/cancel your assistance</h5><br/>
             {
-              info.map( (infor, index) => <li className="list-group-item action-element">
+              info.map( (infor, index) => <li onClick={e => this.handleAsistButtonClick(e, infor.id)} className="list-group-item action-element">
                                             <span className={auth.id===null?
                                               'hidden'
                                               :infor.users[auth.id]===undefined||!infor.users[auth.id].assist?
                                                 'btn btn-success glyphicon glyphicon-log-in pull-right action-icon':'btn btn-warning glyphicon glyphicon-log-out pull-right action-icon'}
-                                               onClick={e => this.handleAsistButtonClick(e, infor.id)}></span><p key={index}>{infor.title} on {infor.date} at {infor.price}€</p>
+                                               ></span><p key={index}>{infor.title} on {infor.date} at {infor.price}€</p>
                                           </li> )
             }
             <br/>
@@ -88,6 +88,9 @@ export default class InfoList extends Component {
 }
 
 InfoList.propTypes = {
+  auth: PropTypes.array,
+  idBand: PropTypes.String,
+  selectConcert: PropTypes.func.isRequired,
   info: PropTypes.array,
   band: PropTypes.object.isRequired,
   selectedConcert: PropTypes.func.isRequired,

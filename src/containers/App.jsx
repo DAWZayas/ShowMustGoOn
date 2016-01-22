@@ -67,7 +67,7 @@ class App extends Component {
                         <Link to="/sign-in">Sign-In</Link>
                     </li>
                     <li className={this.props.auth.authenticated?'nav navbar-nav':'hidden'}>
-                        <Link to='/' onClick={e => this.handleSignOutButtonClick(e)}>Sign Out</Link>
+                        <Link to="/" onClick={e => this.handleSignOutButtonClick(e)}>Sign Out</Link>
                     </li>
                   </ul>
                   <ul className="nav navbar-nav">
@@ -103,6 +103,9 @@ class App extends Component {
 
 App.propTypes = {
   // Injected by React RouterConfirmDialog
+  bandSearch: PropTypes.object.isRequired,
+  signOut: PropTypes.object.isRequired,
+  search: PropTypes.array,
   children: PropTypes.node,
   history: PropTypes.object.isRequired,
   auth: PropTypes.object.isRequired

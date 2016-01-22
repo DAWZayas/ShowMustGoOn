@@ -78,7 +78,7 @@ export default class InfoList extends Component {
             </span>
           </div>
             
-          <div className={` ${this.state.editting ? 'hidden' : 'AddPlace'}` }>
+          <div className={` ${this.state.editting||!auth.authenticated ? 'hidden' : 'AddPlace'}` }>
 
             <button className="btn btn-info pull-right" onClick={() => this.handelOnclickAdd() }>AddPlace</button>
           </div>

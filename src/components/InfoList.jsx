@@ -15,7 +15,7 @@ export default class InfoList extends Component {
     for (var i = info.length - 1; i >= 0; i--) {
       if(info[i].id===index){
         selectConcert(index);
-        if(info[i].asistir){msg='Assintance Cancel';}else{msg='Assintance Confirm';}
+        if(info[i].users[auth.id].assist){msg='Assintance Cancel';}else{msg='Assintance Confirm';}
       }
     }
     alert(msg);
@@ -60,7 +60,13 @@ export default class InfoList extends Component {
           <h3></h3>
           <h5>Click on a concert to confirm/cancel your assistance</h5><br/>
             {
-              info.map( (infor, index) => <li className="list-group-item action-element"><span /*className={infor.users[auth.id]===undefined?'hidden':infor.users[auth.id].assist?'btn btn-warning glyphicon glyphicon-log-out pull-right action-icon':'btn btn-success glyphicon glyphicon-log-in pull-right action-icon'}*/ onClick={e => this.handleAsistButtonClick(e, infor.id)}></span><p key={index}>{infor.title} on {infor.date} at {infor.price}€</p></li> )
+              info.map( (infor, index) => <li className="list-group-item action-element">
+                                            <span className={auth.id===null?
+                                              'hidden'
+                                              :infor.users[auth.id]===undefined||!infor.users[auth.id].assist?
+                                                'btn btn-success glyphicon glyphicon-log-in pull-right action-icon':'btn btn-warning glyphicon glyphicon-log-out pull-right action-icon'}
+                                               onClick={e => this.handleAsistButtonClick(e, infor.id)}></span><p key={index}>{infor.title} on {infor.date} at {infor.price}€</p>
+                                          </li> )
             }
             <br/>
           <div className={` ${this.state.editting ? 'input-group '  : 'hidden'}` }>

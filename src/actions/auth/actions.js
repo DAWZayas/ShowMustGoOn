@@ -4,6 +4,7 @@ import { INIT_AUTH, SIGN_IN_SUCCESS, SIGN_OUT_SUCCESS } from './action-types.js'
 function authenticate(provider) {
   return (dispatch, getState) => {
     const { firebase } = getState();
+    dispatch(pushState(null, '/'));
     firebase.authWithOAuthPopup(provider, (error, authData) => {
       if (error) {
         console.error('ERROR @ authWithOAuthPopup :', error); // eslint-disable-line no-console
@@ -46,6 +47,7 @@ export function signOut() {
   return (dispatch, getState) => {
     const { firebase } = getState();
     firebase.unauth();
+    dispatch(pushState(null, '/'));
     dispatch({
       type: SIGN_OUT_SUCCESS
     });

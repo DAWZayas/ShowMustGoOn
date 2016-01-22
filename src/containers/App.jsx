@@ -45,7 +45,7 @@ class App extends Component {
 
 
 <div>
- <nav className="navbar navbar-default">
+ <nav className="navbar navbar-inverse">
         <div className="container-fluid 2">
             <div className="navbar-header">
                 <button type="button" className="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">

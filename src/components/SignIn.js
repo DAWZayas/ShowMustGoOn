@@ -17,8 +17,8 @@ export default class SignIn extends Component {
     this.props.signInWithGithub();
   }
 
-  handlesignInWithTwitterClick() {
-    this.props.signInWithTwitter();
+  handlesignInWithFacebookClick() {
+    this.props.signInWithFacebook();
   }
 
   render() {
@@ -31,7 +31,7 @@ export default class SignIn extends Component {
         </div>
         <div className="modal-body">
           <button className="btn" type="button" onClick={ () => this.handlesignInWithGithubClick()}>GitHub</button>
-          <button className="btn" type="button" onClick={ () => this.handlesignInWithTwitterClick()}>Twitter</button>
+          <button className="btn" type="button" onClick={ () => this.handlesignInWithFacebookClick()}>Facebook</button>
         </div>
       </Modal>
     );
@@ -42,5 +42,5 @@ export default class SignIn extends Component {
 SignIn.propTypes = {
   cancelSignIn: PropTypes.func.isRequired,
   signInWithGithub: PropTypes.func.isRequired,
-  signInWithTwitter: PropTypes.func.isRequired
+  signInWithFacebook: PropTypes.func.isRequired
 };

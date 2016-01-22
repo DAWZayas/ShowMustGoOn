@@ -7,10 +7,16 @@ a {
     text-align: center;
 }
 
-.action-element{
-    color: black;
-    text-decoration: none;
-    text-align: center;
+.action-element {
+  display: none;
+  text-align: center;
+}
+
+.list-group-item :hover .action-element {
+  z-index: 2;
+  color: #fff;
+  background-color: #337ab7;
+  border-color: #337ab7;
 }
 
 
@@ -196,8 +202,8 @@ input {
 
 .list-group-item:hover {
   z-index: 2;
-  color: #fff;
-  background-color: #337ab7;
+  color: black;
+  background-color:#F9F9F9;
   border-color: #337ab7;
 }
 
@@ -206,10 +212,10 @@ input {
 }
 
 .list-group-item a {
-  color: black;
+  color: #544B4B;
 }
 
 .list-group-item a:hover {
   text-decoration: none;
-  color: white;
+  color: #544B4B;
 }

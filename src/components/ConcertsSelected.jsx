@@ -17,7 +17,7 @@ export default class ConcertsSelected extends Component {
         </div>
         <ul className="col-lg-12 hero">
           {selecteds.length===0? <li>none</li> :
-            selecteds.map( (concert, index) =>  <Link key={index} className="list-group-item action-element" to={`/band/${concert.band}`}><p className="pull-left">Band: {concert.bandName}</p><p className="pull-right">Place:{concert.title}</p><p>Date:{concert.date}</p></Link>)
+            selecteds.map( (concert, index) =>  <Link key={index} className="list-group-item action-element" to={`users/${concert.id}`}><p className="pull-left">Band:  {concert.bandName}</p><p className="pull-right">Place:  {concert.title}</p><p>Date:  {concert.date}</p></Link>)
           }
          </ul>
       </div>

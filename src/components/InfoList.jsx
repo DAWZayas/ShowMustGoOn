@@ -18,7 +18,7 @@ export default class InfoList extends Component {
         if(info[i].users[auth.id].assist){msg='Assintance Cancel';}else{msg='Assintance Confirm';}
       }
     }
-    alert(msg);
+    auth.authenticated? alert(msg):'';
   }
 
   handleAddButtonClick() {

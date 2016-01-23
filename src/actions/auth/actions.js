@@ -2,6 +2,16 @@ import { pushState } from 'redux-router';
 import { INIT_AUTH, SIGN_IN_SUCCESS, SIGN_OUT_SUCCESS } from './action-types.js';
 
 function authenticate(provider) {
+  var ref = new Firebase('https://showgoon.firebaseio.com');
+  ref.onAuth(function(authData) {
+    if (authData) {
+      // save the user's profile into the database so we can list users,
+      // use them in Security and Firebase Rules, and show profiles
+      ref.child('users').child(authData.uid).update({
+        provider: authData.provider
+      });
+    }
+  });
   return (dispatch, getState) => {
     const { firebase } = getState();
     dispatch(pushState(null, '/'));
@@ -21,6 +31,7 @@ function authenticate(provider) {
     });
   };
 }
+
 
 export function initAuth() {
   return (dispatch, getState) => {

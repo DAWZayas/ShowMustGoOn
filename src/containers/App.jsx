@@ -74,8 +74,11 @@ class App extends Component {
                     <li className="nav navbar-nav">
                         <Link to="/preferences">Preferences</Link>
                     </li>
+                    <li className="nav navbar-nav">
+                        <Link to="/users">users</Link>
+                    </li>                    
                     <li className={this.props.auth.authenticated?'nav navbar-nav':'hidden'}>
-                        <Link to="/selecteds">Yours Concerts</Link>
+                        <Link to="/selecteds">Your Concerts</Link>
                     </li>
                 </ul>
             </div>

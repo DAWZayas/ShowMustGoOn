@@ -6,20 +6,12 @@ export function selectConcert(idInfo) {
     ref.once('value', function(snapshot){
       let data=snapshot.val();
       if (data===null){data={assist: false};}
+
       firebase.child(`info/${idInfo}/users/${userId}`).update({assist: !data.assist});
+      firebase.child(`users/${userId}/info/${idInfo}`).update({assist: !data.assist});
 
     });
 
   };
 }
 
-
-export function addInfo(title, date, price, band) {
-  return (dispatch, getState) => {
-    const { firebase, auth } = getState();
-    const userId = auth.id;
-    firebase.child('info')
-      .push({title, date, price, band, creator: userId });
-    
-  };
-}

@@ -16,7 +16,11 @@ class App extends Component {
   handleOnChangeTitle() {
     const node = this.refs.title;
     const title =  node.value;
-    const firstLetter = title.toLowerCase();
+
+    function capitaliseFirstLetter(string){
+      return string.charAt(0).toUpperCase() + string.slice(1);
+    }
+    const firstLetter = capitaliseFirstLetter(title);
     this.props.bandSearch(firstLetter);
   }
 

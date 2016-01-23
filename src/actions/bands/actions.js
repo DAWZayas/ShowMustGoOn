@@ -5,10 +5,16 @@ export function setbands(bands) {
   return { type: SET_BANDS, bands};
 }
 
-export function addBand(title, concert) {
+export function addBand(titleLower, concert) {
   return (dispatch, getState) => {
     const { firebase, auth } = getState();
     const user = auth.id;
+    function capitaliseFirstLetter(string){
+      return string.charAt(0).toUpperCase() + string.slice(1);
+    }
+    const title = capitaliseFirstLetter(titleLower);
+ 
+
     firebase.child('bands')
       .push({title, concert, user});
     

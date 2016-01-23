@@ -61,8 +61,10 @@ class App extends Component {
                             search.map( (band, index) =>  <li className="list-group-item" key={index}><a href={`band/${band.id}`}>{band.title}</a></li> )
                           }
                          </ul>
-
                     </li>
+                    <li className={this.props.auth.authenticated?'nav navbar-nav':'hidden'}>
+                        <Link to="/profile">Profile</Link>
+                    </li>                    
                     <li className={this.props.auth.authenticated?'hidden':'nav navbar-nav'}>
                         <Link to="/sign-in">Sign-In</Link>
                     </li>
@@ -77,6 +79,7 @@ class App extends Component {
                     <li className={this.props.auth.authenticated?'nav navbar-nav':'hidden'}>
                         <Link to="/selecteds">Your Concerts</Link>
                     </li>
+
                 </ul>
             </div>
             

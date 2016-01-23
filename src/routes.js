@@ -7,6 +7,7 @@ import BandDetailsContainer from './containers/BandDetailsContainer';
 import ConcertsSelectedsContainer from './containers/ConcertsSelectedsContainer';
 import SignInContainer from './containers/SignInContainer';
 import UsersListContainer from './containers/UsersListContainer';
+import ProfileContainer from './containers/ProfileContainer';
 
 export default (
   <Route path="/" component={App}>
@@ -15,8 +16,8 @@ export default (
    	<Route path="concert/:idConcert" component={ConcertDetailsContainer} />
     <Route path="band/:id" component={BandDetailsContainer} />
     <Route path="users/:id" component={UsersListContainer} />
-    <Route path="sign-in" component={SignInContainer} />    
-
+    <Route path="profile" component={ProfileContainer} />    
+    <Route path="sign-in" component={SignInContainer} />   
     <Redirect path="*" to="/" />
   </Route>
 );

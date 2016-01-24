@@ -7,7 +7,7 @@ export function registerListeners() {
 
     ref.on('value', snapshot => dispatch({
       type: SET_USERS,
-      users: Object.keys(snapshot.val() || []).map( id => ({id, title:snapshot.val()[id].title, info:snapshot.val()[id].info}) )
+      users: Object.keys(snapshot.val() || []).map( id => ({id, title:snapshot.val()[id].title, info:snapshot.val()[id].info, name:snapshot.val()[id].name, age:snapshot.val()[id].age, description:snapshot.val()[id].description}) )
     }));
   };
 }

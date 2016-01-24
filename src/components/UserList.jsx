@@ -17,7 +17,7 @@ export default class UserList extends Component {
         </div>
         <ul className="col-lg-12 hero">
           {users.length===0? <li>none</li> :
-            users.map( (user, index) =>  <Link key={index} className="list-group-item action-element" to='/'><p>name:  {user.id}</p></Link>)
+            users.map( (user, index) =>  <Link key={index} className="list-group-item action-element" to='/'><p>name: {user.name || ''}</p><p>age: {user.age  || ''}</p><p>description: {user.description  || ''}</p></Link>)
           }
          </ul>
       </div>

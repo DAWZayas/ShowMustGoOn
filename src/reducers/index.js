@@ -8,6 +8,7 @@ import auth from './auth';
 import firebase from './firebase';
 import search from './search';
 import users from './users';
+import messages from './messages';
 
 
 const concertApp = combineReducers({
@@ -19,7 +20,8 @@ const concertApp = combineReducers({
   auth,
   firebase,
   users,
-  search
+  search,
+  messages
 });
 
 export default concertApp;

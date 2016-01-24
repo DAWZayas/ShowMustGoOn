@@ -8,6 +8,7 @@ import ConcertsSelectedsContainer from './containers/ConcertsSelectedsContainer'
 import SignInContainer from './containers/SignInContainer';
 import UsersListContainer from './containers/UsersListContainer';
 import ProfileContainer from './containers/ProfileContainer';
+import MessagesContainer from './containers/MessagesContainer';
 
 export default (
   <Route path="/" component={App}>
@@ -18,6 +19,7 @@ export default (
     <Route path="users/:id" component={UsersListContainer} />
     <Route path="profile" component={ProfileContainer} />    
     <Route path="sign-in" component={SignInContainer} />   
+    <Route path="messages" component={MessagesContainer} />
     <Redirect path="*" to="/" />
   </Route>
 );

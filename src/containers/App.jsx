@@ -63,6 +63,9 @@ class App extends Component {
                          </ul>
                     </li>
                     <li className={this.props.auth.authenticated?'nav navbar-nav':'hidden'}>
+                        <Link to="/messages">messages</Link>
+                    </li> 
+                    <li className={this.props.auth.authenticated?'nav navbar-nav':'hidden'}>
                         <Link to="/profile">Profile</Link>
                     </li>                    
                     <li className={this.props.auth.authenticated?'hidden':'nav navbar-nav'}>

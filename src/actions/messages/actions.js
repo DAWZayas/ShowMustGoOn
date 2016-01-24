@@ -1,8 +1,9 @@
 
-export function addToUser(prop) {
+
+export function sendMessage(prop) {
   return (dispatch, getState) => {
     const { firebase, auth } = getState();
     const userId = auth.id;
-      firebase.child(`users/${userId}`).update(prop);
+      firebase.child(`messages/${userId}`).update(prop);
   };
 }

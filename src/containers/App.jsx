@@ -54,6 +54,7 @@ class App extends Component {
                     <li className="hidden">
                         <a href="#page-top"></a>
                     </li>
+                     
                     <li className="search">
                          <input type="text" placeholder="Search..." ref="title" onChange={e => this.handleOnChangeTitle(e)}/>
                          <ul className="results" >
@@ -62,19 +63,29 @@ class App extends Component {
                           }
                          </ul>
                     </li>
-                    <li className={this.props.auth.authenticated?'nav navbar-nav':'hidden'}>
-                        <Link to="/messages">messages</Link>
-                    </li> 
-                    <li className={this.props.auth.authenticated?'nav navbar-nav':'hidden'}>
-                        <Link to="/profile">Profile</Link>
-                    </li>                    
-                    <li className={this.props.auth.authenticated?'hidden':'nav navbar-nav'}>
-                        <Link to="/sign-in">Sign-In</Link>
-                    </li>
-                    <li className={this.props.auth.authenticated?'nav navbar-nav':'hidden'}>
-                        <Link to="/" onClick={e => this.handleSignOutButtonClick(e)}>Sign Out</Link>
-                    </li>
-                  </ul>
+                    
+                  <div className="dropdown collapse navbar-collapse pull-right white">
+                      <span className={this.props.auth.authenticated?" glyphicon glyphicon-user green": "glyphicon glyphicon-user red"}  type="button" data-toggle="dropdown"></span>                    
+
+                        <ul className="dropdown-menu">
+                          <li className={this.props.auth.authenticated?'nav navbar-nav':'hidden'}>
+                              <Link to="/messages">Messages</Link>
+                          </li> 
+                          <li className={this.props.auth.authenticated?'nav navbar-nav':'hidden'}>
+                              <Link to="/profile">Profile</Link>
+                          </li>                    
+                          <li className={this.props.auth.authenticated?'hidden':'nav navbar-nav'}>
+                              
+                              <Link to="/sign-in"><span className="glyphicon glyphicon-off green"/></Link>
+                              
+                          </li>
+                          <li className={this.props.auth.authenticated?'nav navbar-nav':'hidden'}>
+                              <Link to="/" onClick={e => this.handleSignOutButtonClick(e)}>
+                              <span className="glyphicon glyphicon-off red"/></Link>
+                          </li>
+                        </ul>  
+                  </div>
+                </ul>
                   <ul className="nav navbar-nav">
                     <li className="nav navbar-nav">
                         <Link to="/preferences">Preferences</Link>
@@ -84,8 +95,8 @@ class App extends Component {
                     </li>
 
                 </ul>
+
             </div>
-            
         </div>
         
     </nav>

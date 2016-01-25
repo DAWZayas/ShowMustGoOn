@@ -27,7 +27,7 @@ export default class CommentList extends Component {
     this.props.removeComment(idComment);
   } 
 
-  handleEditClick(idComment) {
+  handleEditClick(title, idComment) {
 
     const node = this.refs.com;
 
@@ -36,8 +36,9 @@ export default class CommentList extends Component {
       idComment: idComment
     });
 
+    const { comments } = this.props;
     
-    node.value = idComment; // Necesito el titulo de este comentario.
+    node.value = title; // Necesito el titulo de este comentario.
 
     setTimeout(() => node.focus(), 0);
     setTimeout(() => node.setSelectionRange(0, node.value.length), 0);
@@ -101,7 +102,7 @@ export default class CommentList extends Component {
           {
             comments.map( (comment, index) => <p key={index}>{comment.title}
             <button className={this.state.editing ? 'hidden' : comment.user===auth.id?'btn btn-danger pull-right':'hidden'} type="button" onClick={ () => this.handleRemoveComment(comment.id)}><span className="glyphicon glyphicon-trash" /></button>
-            <button className={this.state.editing ? 'hidden' : comment.user===auth.id?'btn btn-info pull-right':'hidden'} type="button" onClick={ () => this.handleEditClick(comment.id) }><span className="glyphicon glyphicon-edit"/></button>
+            <button className={this.state.editing ? 'hidden' : comment.user===auth.id?'btn btn-info pull-right':'hidden'} type="button" onClick={ () => this.handleEditClick(comment.title, comment.id) }><span className="glyphicon glyphicon-edit"/></button>
             <br/><br/></p> )
           }
           <div className={`input-group ${this.state.editing ? '' : 'hidden'}`}>

@@ -1,18 +1,18 @@
 import React, { Component, PropTypes } from 'react';
+
 export default class Profile extends Component {
 
   constructor(props) {
     super(props);
   }
-  handlePicture() {
+
+ /* handlePicture() {
    
-     var file    = this.refs.img; //sames as here
-
-    
-         this.props.addToUser({picture: file}); //reads the data as a URL
-     
+   var file = this.refs.img; //sames as here
+   this.props.addToUser({picture: file}); //reads the data as a URL
+   
   }
-
+*/
 
 
   handleAddButtonClick() {
@@ -20,21 +20,28 @@ export default class Profile extends Component {
     const node = this.refs.nameUser;
     const node2 = this.refs.age;
     const node3 = this.refs.description;
+    const node4 = this.refs.img;
     const nameUser =  node.value.trim();
     const ageUser =  node2.value.trim();
-    const descriptionUser =  node3.value.trim(); 
+    const descriptionUser =  node3.value.trim();
+    const imageUser = node4.value;
+    
     nameUser !== ''?addToUser({name: nameUser}):'';
     ageUser !== ''?addToUser({age: ageUser}):'';
     descriptionUser !== ''?addToUser({description: descriptionUser}):'';
+    addToUser({img: imageUser});
     node.value = '';
     node2.value = '';
     node3.value = '';
+   
+
   }
 
 
 
   render() {
     const user = this.props.user[0] || {};
+   
 
     return (
      
@@ -43,9 +50,9 @@ export default class Profile extends Component {
           <div className="row">
             <div className="">
               <div className="text-center">
-                <img src="http://lorempixel.com/200/200/people/9/" className="avatar img-circle img-thumbnail" alt="avatar"/>
+                <img src="" className="avatar img-circle img-thumbnail" alt="avatar"/>
                 <h6>Upload a different photo...</h6>
-                <input type="file" ref="img" onChange={e => this.handlePicture(e)} className="text-center"/>
+                <input type="file" ref="img" /*onChange={e => this.handlePicture(e)} */className="text-center"/>
               </div>
             </div>
             <div className="personal-info">

@@ -65,7 +65,7 @@ class App extends Component {
                     </li>
                     
                   <div className="dropdown collapse navbar-collapse pull-right white">
-                      <span className={this.props.auth.authenticated?" glyphicon glyphicon-user green": "glyphicon glyphicon-user red"}  type="button" data-toggle="dropdown"></span>                    
+                      <span className={this.props.auth.authenticated?" glyphicon glyphicon-user white": "glyphicon glyphicon-user orange"} type="button" data-toggle="dropdown"></span>                    
 
                         <ul className="dropdown-menu">
                           <li className={this.props.auth.authenticated?'nav navbar-nav':'hidden'}>
@@ -76,7 +76,7 @@ class App extends Component {
                           </li>                    
                           <li className={this.props.auth.authenticated?'hidden':'nav navbar-nav'}>
                               
-                              <Link to="/sign-in"><span className="glyphicon glyphicon-off green"/></Link>
+                              <Link to="/sign-in">Login</Link>
                               
                           </li>
                           <li className={this.props.auth.authenticated?'nav navbar-nav':'hidden'}>

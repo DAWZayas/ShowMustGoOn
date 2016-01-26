@@ -1,6 +1,6 @@
 import React, { Component, PropTypes } from 'react';
 import ConcertItem from './ConcertItem';
- 
+
 
 export default class ConcertList extends Component {
 
@@ -18,17 +18,7 @@ export default class ConcertList extends Component {
     this.props.unregisterListeners();
   }
 
-  handleSearchButtonClick(event) {
-    const node = this.refs.text;
-    let updateConcerts = this.props.concerts;
-    updateConcerts = updateConcerts.filter( concert => concert.title.toLowerCase().search(event.target.value.toLowerCase()) !== -1);
-    node.value === '' ? this.setState({newConcerts: [] }) : this.setState({newConcerts: updateConcerts});
-  }
 
-
-   handleOnBlur(){
-    setTimeout(() => this.handleVisibility(), 300);
-  }
 
   handleOnChangeTitle() {
 

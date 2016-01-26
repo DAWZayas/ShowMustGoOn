@@ -27,7 +27,7 @@ export default class CommentList extends Component {
     this.props.removeComment(idComment);
   } 
 
-  handleEditClick(title, idComment) {
+   handleEditClick(title, idComment) {
 
     const node = this.refs.com;
 
@@ -36,7 +36,7 @@ export default class CommentList extends Component {
       idComment: idComment
     });
 
-    const { comments } = this.props;
+    
     
     node.value = title; // Necesito el titulo de este comentario.
 

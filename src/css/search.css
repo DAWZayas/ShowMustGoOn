@@ -1,15 +1,16 @@
 html {
-    background-color: #A3BF9A;
+    background-color: #FFEB9E;
 }
 
 body #root{
-    background-color: #A3BF9A;
+    background-color: #FFEB9E;
 }
 a {
     color: black;
     text-decoration: none;
     text-align: center;
 }
+
 
 .white{
     position: relative;
@@ -19,8 +20,8 @@ a {
     color:white;
     font-size:20px;
 }
-.green{
-    color:green;
+.orange{
+    color:#FFA600;
 }
 .red{
     color:red;
@@ -244,11 +245,11 @@ input {
   color: #544B4B;
 }
 html {
-    background-color: #A3BF9A;
+    background-image: url("http://thenextweb.com/wp-content/blogs.dir/1/files/2013/11/concert-audience.jpg");
 }
 
 body #root{
-    background-color: #A3BF9A;
+    background-image: url("http://thenextweb.com/wp-content/blogs.dir/1/files/2013/11/concert-audience.jpg");
 }
 a {
     color: black;
@@ -256,6 +257,10 @@ a {
     text-align: center;
 }
 
+.avatar{
+    max-width: 100px;
+    max-height: 100px;
+}
 
 
 .action-element {

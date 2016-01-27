@@ -14,6 +14,27 @@ export default class Profile extends Component {
   }
 */
 
+cod(im){ 
+    var i=new Image(); 
+    i.onload=function(){ 
+        var canvas=document.createElement('canvas'), 
+        ctx=canvas.getContext('2d'); 
+        canvas.width=300; 
+        canvas.height=400; 
+        ctx.drawImage(im,0,0,300,400);
+        this.props.addToUser({img: canvas.toDataURL().split('base64,')[1]}); 
+         
+    } 
+} 
+
+handlePicture() {
+  debugger
+     var file = document.getElementById('fileToUpload').files[0];
+     if (file) {
+        this.cod(file);
+     }
+}
+
 
   handleAddButtonClick() {
     const { addToUser } = this.props;
@@ -52,7 +73,7 @@ export default class Profile extends Component {
               <div className="text-center">
                 <img src="" className="avatar img-circle img-thumbnail" alt="avatar"/>
                 <h6>Upload a different photo...</h6>
-                <input type="file" ref="img" /*onChange={e => this.handlePicture(e)} */className="text-center"/>
+                <input type="file" ref="img" id="fileToUpload" onChange={e => this.handlePicture(e)} className="text-center"/>
               </div>
             </div>
             <div className="personal-info">

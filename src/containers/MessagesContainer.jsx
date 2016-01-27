@@ -15,9 +15,11 @@ class messagesContainer extends Component {
 
   componentWillMount() {
     this.props.registerListeners();
+    this.props.registerListenersUsers();
   }
   componentWillUnmount() {
     this.props.unregisterListeners();
+    this.props.unregisterListenersUsers();
   }
 
   render() {
@@ -34,7 +36,8 @@ class messagesContainer extends Component {
 function mapStateToProps(state) {
   const auth=state.auth;
   const messages= state.messages || {};
-  return {messages, auth};
+  const users= state.users;
+  return {messages, auth, users};
 }
 
 

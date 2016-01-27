@@ -1,4 +1,4 @@
-import { SET_MESSAGES } from './action-types';
+import { SET_MESSAGES, SET_USERS } from './action-types';
 
 export function registerListeners() {
   return (dispatch, getState) => {
@@ -20,6 +20,30 @@ export function unregisterListeners() {
     dispatch({
       type: SET_MESSAGES,
       messages: []
+    });
+  };
+}
+
+export function registerListenersUsers() {
+  return (dispatch, getState) => {
+    const { firebase } = getState();
+    const ref = firebase.child('users');
+
+    ref.on('value', snapshot => dispatch({
+      type: SET_USERS,
+      users: Object.keys(snapshot.val() || []).map( id => ({id, name:snapshot.val()[id].name, age:snapshot.val()[id].age, description:snapshot.val()[id].description, image:snapshot.val()[id].image}) )
+    }));
+  };
+}
+
+export function unregisterListenersUsers() {
+  return (dispatch, getState) => {
+    const { firebase } = getState();
+    const ref = firebase.child('users');
+    ref.off();
+    dispatch({
+      type: SET_USERS,
+      users: []
     });
   };
 }

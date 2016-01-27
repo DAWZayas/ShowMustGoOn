@@ -32,11 +32,9 @@ class messagesContainer extends Component {
 }
 
 function mapStateToProps(state) {
-  const idInfo = state.router.params.id;
   const auth=state.auth;
-  const idUser=state.auth.id;
   const messages= state.messages || {};
-  return {messages, auth, idInfo};
+  return {messages, auth};
 }
 
 

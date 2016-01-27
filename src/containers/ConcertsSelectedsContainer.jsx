@@ -33,7 +33,7 @@ class ConcertsSelectedsContainer extends Component {
 
 function mapStateToProps(state) {
   const idUser=state.auth.id;
-  const selecteds= state.info.filter(i => i.users[idUser].assist === true) || {};
+  const selecteds= state.info.filter(i => i.users[idUser]? i.users[idUser].assist? true : false : false) || {};
   return {selecteds};
 }
 

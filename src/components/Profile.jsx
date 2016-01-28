@@ -4,24 +4,23 @@ export default class Profile extends Component {
 
   constructor(props) {
     super(props);
+    this.state = {avatarUri: props.user.img};
   }
 
- handlePicture() {
-  const { addToUser } = this.props;
 
-    const imgElem = this.refs.img;
-    const canvas = document.createElement('canvas');
-    canvas.width = imgElem.clientWidth;
-    canvas.height = imgElem.clientHeight;
-    
-    const dataURL = canvas.toDataURL('image/png');
-    const img = dataURL.replace(/^data:image\/(png|jpg);base64,/, '');
-    addToUser({img : img }) ;
+  _handleFileChange(){
+    const {addToUser}=this.props;
+    const fileName = this.refs.avatar.value.split(/(\\|\/)/g).pop();
+    const reader = new FileReader();
+    const file = this.refs.avatar.files[0];
+    reader.onload = (e) => {
+      this.setState({
+        avatarUri: e.target.result
+      });
+      addToUser(e.target.result);
+    };
 
-   /*
-   var file = this.refs.img; //sames as here
-   this.props.addToUser({picture: file}); //reads the data as a URL
-   */
+    reader.readAsDataURL(file);
   }
 
 
@@ -35,8 +34,6 @@ export default class Profile extends Component {
     const nameUser =  node.value.trim();
     const ageUser =  node2.value.trim();
     const descriptionUser =  node3.value.trim();
-    //const imageUser = node4.value;
-    
     nameUser !== ''?addToUser({name: nameUser}):'';
     ageUser !== ''?addToUser({age: ageUser}):'';
     descriptionUser !== ''?addToUser({description: descriptionUser}):'';
@@ -52,7 +49,6 @@ export default class Profile extends Component {
 
   render() {
     const user = this.props.user[0] || {};
-   
 
     return (
      
@@ -61,9 +57,9 @@ export default class Profile extends Component {
           <div className="row">
             <div className="">
               <div className="text-center">
-                <img src="" className="avatar img-circle img-thumbnail" alt="avatar"/>
+                <img ref="avatar" size={200} src={this.state.avatarUri}/>
                 <h6>Upload a different photo...</h6>
-                <input type="file" ref="img" onChange={e => this.handlePicture(e)} className="text-center"/>
+                <input type="file" ref="avatar"  className="text-center"/>
               </div>
             </div>
             <div className="personal-info">

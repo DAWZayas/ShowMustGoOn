@@ -28,8 +28,8 @@ export default class BandItem extends Component {
     });
    }
 
-   handelOnclickRemove(id){
-    this.props.deleteBand(id);
+   handelOnclickRemove(id, title){
+    this.props.deleteBand(id, title);
    }
 
 
@@ -39,7 +39,7 @@ export default class BandItem extends Component {
     return (
         <li className="list-group-item action-element">
           <Link  to={`/band/${band.id}`}{...this.props}>{band.title}</Link>   
-          <span className={auth.authenticated ? 'pull-right glyphicon glyphicon-trash action-icon' : 'hidden'} onClick={() => this.handelOnclickRemove(band.id) }></span>
+          <span className={auth.authenticated ? 'pull-right glyphicon glyphicon-trash action-icon' : 'hidden'} onClick={() => this.handelOnclickRemove(band.id, band.title) }></span>
         </li>
  
     );

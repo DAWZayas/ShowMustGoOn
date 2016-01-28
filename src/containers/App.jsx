@@ -3,6 +3,7 @@ import { Link } from 'react-router';
 import { bandSearch } from '../actions/bandSearch/actions.js';
 import { connect } from 'react-redux';
 import * as authActions from '../actions/auth/index.js';
+import ConfirmDialogContainer from './ConfirmDialogContainer';
 
 
 
@@ -64,8 +65,8 @@ class App extends Component {
                          </ul>
                     </li>
                     
-                  <div className="collapse navbar-collapse pull-right white">
-                      <span className={this.props.auth.authenticated?" glyphicon glyphicon-user white": "glyphicon glyphicon-user orange"} type="button" data-toggle="dropdown"></span>                    
+                  <div className="dropdown collapse navbar-collapse pull-right white">
+                      <span className={this.props.auth.authenticated? 'glyphicon glyphicon-user white': 'glyphicon glyphicon-user orange'} type="button" data-toggle="dropdown"></span>                    
 
                         <ul className="dropdown-menu">
                           <li className={this.props.auth.authenticated?'nav navbar-nav':'hidden'}>
@@ -98,7 +99,9 @@ class App extends Component {
 
             </div>
         </div>
-        
+        <div>
+            <ConfirmDialogContainer/>
+       </div>    
     </nav>
     <header>
         <div className="container-fluid">

@@ -4,6 +4,7 @@ import concerts from './concert';
 import bands from './band';
 import info from './information';
 import comments from './comment';
+import actionsPending from './confirm';
 import auth from './auth';
 import firebase from './firebase';
 import search from './search';
@@ -17,6 +18,7 @@ const concertApp = combineReducers({
   router,
   info,
   comments,
+  actionsPending,
   auth,
   firebase,
   users,

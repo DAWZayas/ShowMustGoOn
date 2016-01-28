@@ -1,4 +1,5 @@
 import { SET_BANDS }from './action-types';
+import { createActionConfirmation } from '../confirm';
 
 
 export function setbands(bands) {
@@ -21,7 +22,7 @@ export function addBand(titleLower, concert) {
   };
 
 }
-export function deleteBand(idBand) {
+export function deleteBand(idBand, bandTitle) {
   return (dispatch, getState) => {
     const { firebase, auth } = getState();
     const user = auth.id;
@@ -29,12 +30,13 @@ export function deleteBand(idBand) {
     ref.once('value', function(snapshot){
       const data = snapshot.val();
       if (data.user===user){
+       dispatch(createActionConfirmation(`Are you sure you want to delete "${bandTitle}"`, () => {
        firebase.child(`bands/${idBand}`).remove();
+       }));
       }else{
-        alert('This is not your Band, Bitch' );
+        alert('This is not your band');
       }
     });
-    
   };
 
 }

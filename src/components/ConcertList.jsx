@@ -58,11 +58,11 @@ export default class ConcertList extends Component {
       <div className="panel container-fluid panel-default">
         <h3>Music Styles</h3>
         <div>   
-          <ul className="list-group">
+          <div>
              {
                concerts.map( (concert, index) =>  <ConcertItem key={index} concert={concert} /> )
              }
-          </ul>
+          </div><br/>
           <div className={auth.authenticated ?'input-group':'hidden'}>
             <input  type="text"  className="form-control" placeholder="Add Concerts" ref="concert" onKeyDown={e => this.handleOnTitleKeyDown(e)} onChange={e => this.handleOnChangeTitle(e)} />
             <span className="input-group-btn">

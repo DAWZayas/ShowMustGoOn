@@ -535,6 +535,11 @@ input {
   text-align: center;
 }
 
+.list-group-item.action-element {
+  background-color: #FFCC66;
+  color: black;
+}
+
 .list-group-item:hover {
   z-index: 2;
   color: black;
@@ -547,15 +552,18 @@ input {
 }
 
 .list-group-item a {
-  color: #544B4B;
+  color: black;
 }
 
-.panel-default{
-  opacity: 0.8;
+.panel.container-fluid.panel-default{
+  color: white;
+  background-color: #505050 ;
+  opacity: 0.7;
+  padding-bottom: 20px;
 }
 
 .list-group-item{
-  background-color: #E0E0E0;
+  color:black;
   border-radius: 0;
 }
 
@@ -563,3 +571,5 @@ input {
   text-decoration: none;
   color: #544B4B;
 }
+
+

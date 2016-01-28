@@ -15,7 +15,7 @@ export default class InfoList extends Component {
     for (var i = info.length - 1; i >= 0; i--) {
       if(info[i].id===index){
         selectConcert(index);
-        if(info[i].users[auth.id].assist){msg='Assintance Cancel';}else{msg='Assintance Confirm';}
+        if(info[i].users[auth.id].assist){msg='Assintance Canceled';}else{msg='Assintance Confirmed';}
       }
     }
     auth.authenticated? alert(msg):'';
@@ -58,7 +58,7 @@ export default class InfoList extends Component {
     return (
       <div className="panel panel-default container-fluid">
           <h3></h3>
-          <h5>Click on a concert to confirm/cancel your assistance</h5><br/>
+          <h3>Click on a concert to confirm/cancel your assistance</h3><br/>
             {
               info.map( (infor, index) => <li onClick={e => this.handleAsistButtonClick(e, infor.id)} className="list-group-item action-element">
                                             <span className={auth.id===null?

@@ -56,7 +56,7 @@ export default class InfoList extends Component {
     
 
     return (
-      <div className="container-fluid">
+      <div className="panel panel-default container-fluid">
           <h3></h3>
           <h5>Click on a concert to confirm/cancel your assistance</h5><br/>
             {

@@ -130,6 +130,11 @@ a:hover { text-decoration: underline }
     margin-right: auto;
 
 }
+
+.container-fluid{
+        padding: 0px;
+    }
+
 @media(min-width:820px) {
     .container-fluid{
         width: 900px;
@@ -545,9 +550,13 @@ input {
   color: #544B4B;
 }
 
+.panel-default{
+  opacity: 0.8;
+}
+
 .list-group-item{
-  border-radius: 8px;
-  background-color: #4E8F5D;
+  background-color: #E0E0E0;
+  border-radius: 0;
 }
 
 .list-group-item a:hover {

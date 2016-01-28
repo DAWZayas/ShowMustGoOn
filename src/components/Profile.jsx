@@ -4,13 +4,16 @@ export default class Profile extends Component {
 
   constructor(props) {
     super(props);
-    this.state = {avatarUri: props.user.img};
+    this.state = {};
+  }
+
+  componentWillReceiveProps(props){
+    props.user[0]!==undefined?this.setState({avatarUri: props.user[0].img}):'';
   }
 
 
   _handleFileChange(){
     const {addToUser}=this.props;
-    const fileName = this.refs.avatar.value.split(/(\\|\/)/g).pop();
     const reader = new FileReader();
     const file = this.refs.avatar.files[0];
     reader.onload = (e) => {
@@ -48,6 +51,7 @@ export default class Profile extends Component {
 
 
   render() {
+
     const user = this.props.user[0] || {};
 
     return (
@@ -57,7 +61,7 @@ export default class Profile extends Component {
           <div className="row">
             <div className="">
               <div className="text-center">
-                <img ref="avatar" size={200} src={this.state.avatarUri}/>
+                <img className="avatar img-circle img-thumbnail" src={this.state.avatarUri}/>
                 <h6>Upload a different photo...</h6>
                 <input type="file" ref="avatar"  className="text-center"/>
               </div>

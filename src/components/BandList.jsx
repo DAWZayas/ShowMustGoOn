@@ -25,7 +25,7 @@ export default class BandList extends Component {
     const { bands, auth } = this.props;
 
     return (
-      <div className="container-fluid">
+      <div className="panel container-fluid panel-default">
           <h3>Bands</h3>
             {
               bands.map( (band, index) =>  <BandItem key={index} band={band} {...this.props}/> )

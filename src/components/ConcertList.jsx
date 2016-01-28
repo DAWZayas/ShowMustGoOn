@@ -55,7 +55,8 @@ export default class ConcertList extends Component {
     const { concerts, auth } = this.props;
 
     return (
-      <div>
+      <div className="panel container-fluid panel-default">
+        <h3>Music Styles</h3>
         <div>   
           <ul className="list-group">
              {

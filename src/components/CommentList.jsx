@@ -100,7 +100,7 @@ export default class CommentList extends Component {
       <div>
           <h3>Comments</h3>
           {
-            comments.map( (comment, index) => <p key={index}>{comment.title}
+            comments.map( (comment, index) => <p className="well" key={index}>{comment.title}
             <button className={this.state.editing ? 'hidden' : comment.user===auth.id?'btn btn-danger pull-right':'hidden'} type="button" onClick={ () => this.handleRemoveComment(comment.id)}><span className="glyphicon glyphicon-trash" /></button>
             <button className={this.state.editing ? 'hidden' : comment.user===auth.id?'btn btn-info pull-right':'hidden'} type="button" onClick={ () => this.handleEditClick(comment.title, comment.id) }><span className="glyphicon glyphicon-edit"/></button>
             <br/><br/></p> )

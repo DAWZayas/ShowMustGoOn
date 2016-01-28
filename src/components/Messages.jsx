@@ -40,7 +40,7 @@ export default class Messages extends Component {
           {messages.length===0? <li>none</li> :
             messages.map( (msg, index) =>  <div>
               <li key={index} className={this.state.open==null||this.state.open===msg.id?'list-group-item action-element':'hidden'} onClick={ () => this.handleUser(msg.id) }><h3>{this.getName(msg.id)!==undefined?this.getName(msg.id):msg.id}</h3></li>
-              <div className={this.state.open===msg.id?'list-group-item':'hidden'} onClick={ () => this.handleUser(msg.id) }>
+              <div className={this.state.open===msg.id?'list-group-item':'hidden'}>
                 <h3>Recived</h3>
                 {msg.recived===undefined? '' :
                   Object.keys(msg.recived).map( (key, index) => <div key={index}>

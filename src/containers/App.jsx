@@ -64,7 +64,7 @@ class App extends Component {
                          </ul>
                     </li>
                     
-                  <div className="dropdown collapse navbar-collapse pull-right white">
+                  <div className="collapse navbar-collapse pull-right white">
                       <span className={this.props.auth.authenticated?" glyphicon glyphicon-user white": "glyphicon glyphicon-user orange"} type="button" data-toggle="dropdown"></span>                    
 
                         <ul className="dropdown-menu">

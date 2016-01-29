@@ -56,7 +56,7 @@ export default class Profile extends Component {
 
     return (
      
-        <div className="container-fluid">
+        <div className=" container-fluid profile">
           <h1 className="page-header">Edit Profile</h1>
           <div className="row">
             <div className="">
@@ -89,7 +89,7 @@ export default class Profile extends Component {
                 </div>
                 <div className="form-group">
                   <label className="control-label"></label>
-                  <div className="">
+                  <div className="btn">
                     <input className="btn btn-primary" value="Save Changes" onClick={() => this.handleAddButtonClick()} type="button"/>
                     <span></span>
                     <input className="btn btn-default" value="Cancel" type="reset"/>

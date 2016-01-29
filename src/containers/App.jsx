@@ -41,7 +41,7 @@ class App extends Component {
  <nav className="navbar navbar-inverse">
         <div className="container-fluid 2">
             <div className="navbar-header">
-                <button type="button" className="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <button type="button" className="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" >
                     <span className="sr-only">Toggle navigation</span>
                     <span className="icon-bar"></span>
                     <span className="icon-bar"></span>
@@ -50,7 +50,7 @@ class App extends Component {
                <Link className="navbar-brand" to="/">ShowMustGoOn</Link>
             </div>
 
-            <div className="collapse navbar-collapse" >
+            <div className="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul className="nav navbar-nav navbar-right">
                     <li className="hidden">
                         <a href="#page-top"></a>
@@ -65,10 +65,6 @@ class App extends Component {
                          </ul>
                     </li>
                     
-                  <div className="dropdown  pull-right white" id="bs-example-navbar-collapse-1">
-                      <span className={this.props.auth.authenticated? 'glyphicon glyphicon-user white': 'glyphicon glyphicon-user orange'} type="button" data-toggle="dropdown"></span>                    
-
-                        <ul className="dropdown-menu">
                           <li className={this.props.auth.authenticated?'nav navbar-nav':'hidden'}>
                               <Link to="/messages">Messages</Link>
                           </li> 
@@ -77,15 +73,13 @@ class App extends Component {
                           </li>                    
                           <li className={this.props.auth.authenticated?'hidden':'nav navbar-nav'}>
                               
-                              <Link to="/sign-in">Login</Link>
+                              <Link to="/sign-in">Sign-in</Link>
                               
                           </li>
                           <li className={this.props.auth.authenticated?'nav navbar-nav':'hidden'}>
                               <Link to="/" onClick={e => this.handleSignOutButtonClick(e)}>
                               <span className="glyphicon glyphicon-off red"/></Link>
                           </li>
-                        </ul>  
-                  </div>
                 </ul>
                   <ul className="nav navbar-nav">
                     <li className="nav navbar-nav">

@@ -33,7 +33,7 @@ export default class Messages extends Component {
      
       <div>
         <div>
-        <h3>messages</h3>
+        <h3>Messages</h3>
         </div>
         <div className="">
           {messages.length===0? <li>none</li> :

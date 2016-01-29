@@ -50,7 +50,7 @@ class App extends Component {
                <Link className="navbar-brand" to="/">ShowMustGoOn</Link>
             </div>
 
-            <div className="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <div className="collapse navbar-collapse" >
                 <ul className="nav navbar-nav navbar-right">
                     <li className="hidden">
                         <a href="#page-top"></a>
@@ -65,7 +65,7 @@ class App extends Component {
                          </ul>
                     </li>
                     
-                  <div className="dropdown collapse navbar-collapse pull-right white">
+                  <div className="dropdown  pull-right white" id="bs-example-navbar-collapse-1">
                       <span className={this.props.auth.authenticated? 'glyphicon glyphicon-user white': 'glyphicon glyphicon-user orange'} type="button" data-toggle="dropdown"></span>                    
 
                         <ul className="dropdown-menu">

@@ -20,7 +20,7 @@ export default class Profile extends Component {
       this.setState({
         avatarUri: e.target.result
       });
-      addToUser(e.target.result);
+      addToUser({img: e.target.result});
     };
 
     reader.readAsDataURL(file);
@@ -63,7 +63,7 @@ export default class Profile extends Component {
               <div className="text-center">
                 <img className="avatar img-circle img-thumbnail" src={this.state.avatarUri}/>
                 <h6>Upload a different photo...</h6>
-                <input type="file" ref="avatar"  className="text-center"/>
+                <input type="file" ref="avatar"  className="text-center" onChange={() => this._handleFileChange()}/>
               </div>
             </div>
             <div className="personal-info">

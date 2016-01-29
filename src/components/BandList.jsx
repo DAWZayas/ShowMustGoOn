@@ -1,10 +1,15 @@
 import React, { Component, PropTypes } from 'react';
 import BandItem from './BandItem';
 
+
 export default class BandList extends Component {
   constructor(props) {
     super(props);
+    this.state={
+      addDisabled: true
+    };
   }
+
 
   handleAddButtonClick() {
   this.setState({
@@ -20,6 +25,21 @@ export default class BandList extends Component {
   }
 }
 
+ handleOnTitleKeyDownEdit(event) {
+    const ENTER_KEY = 13;
+    if (event.keyCode === ENTER_KEY && !this.state.addDisabled) {
+      this.handleAddButtonClick();
+    }
+  }
+
+  handleDisabledOkEdit(){
+    const node = this.refs.band;
+    const title =  node.value.trim();
+
+    this.setState({
+      addDisabled: title.length === 0
+    });
+  }
 
   render() {
     const { bands, auth } = this.props;
@@ -29,12 +49,11 @@ export default class BandList extends Component {
           <h3>Bands</h3>
             {
               bands.map( (band, index) =>  <BandItem key={index} band={band} {...this.props}/> )
-            }
-            <br/>
+            }<br/>
          <div className={auth.authenticated ?'input-group':'hidden'}>
-            <input  type="text"  className="form-control" placeholder="Add bands" ref="band" />
+            <input  type="text"  className="form-control" placeholder="Add bands" ref="band" onChange={e => this.handleDisabledOkEdit(e)} onKeyDown={(e) => this.handleOnTitleKeyDownEdit(e)}/>
             <span className="input-group-btn">
-              <button className="btn btn-info" type="button" onClick={e => this.handleAddButtonClick(e)}><span className="glyphicon glyphicon-plus" /></button>
+              <button disabled={this.state.addDisabled} className="btn btn-info" type="button" onClick={e => this.handleAddButtonClick(e)}><span className="glyphicon glyphicon-plus" /></button>
             </span>
           </div>
          

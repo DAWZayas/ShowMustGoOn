@@ -7,6 +7,7 @@ import init from './utils/init';
 require('./css/search.css');
 require ('./css/sign-in.css');
 require ('./css/style.css');
+require ('./css/spinner.css');
 require('bootstrap/dist/css/bootstrap.min.css');
 global.jQuery = require('jquery/dist/jquery.min.js');
 require('bootstrap/dist/js/bootstrap.min.js');

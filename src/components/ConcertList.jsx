@@ -1,5 +1,6 @@
 import React, { Component, PropTypes } from 'react';
 import ConcertItem from './ConcertItem';
+import Spinner from './Spinner';
 
 
 export default class ConcertList extends Component {
@@ -8,13 +9,20 @@ export default class ConcertList extends Component {
     super(props);
     this.state = {
       newConcerts: [],
-      addDisabled:true
+      addDisabled:true,
+      loading: true
     };
   }
-      componentWillMount() {
+  componentWillMount() {
     this.props.registerListeners();
   }
-    componentWillUnmount() {
+
+  componentWillReceiveProps() {
+
+    this.setState({ loading: false });
+  }
+    
+  componentWillUnmount() {
     this.props.unregisterListeners();
   }
 
@@ -57,12 +65,13 @@ export default class ConcertList extends Component {
     return (
       <div className="panel container-fluid panel-default">
         <h3>Music Styles</h3>
-        <div>   
+        <div>  
+        {this.state.loading? <Spinner /> : ( 
           <div>
              {
                concerts.map( (concert, index) =>  <ConcertItem key={index} concert={concert} /> )
              }
-          </div><br/>
+          </div>)}<br/>
           <div className={auth.authenticated ?'input-group':'hidden'}>
             <input  type="text"  className="form-control" placeholder="Add Concerts" ref="concert" onKeyDown={e => this.handleOnTitleKeyDown(e)} onChange={e => this.handleOnChangeTitle(e)} />
             <span className="input-group-btn">

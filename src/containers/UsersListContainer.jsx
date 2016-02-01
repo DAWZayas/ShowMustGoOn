@@ -2,6 +2,8 @@ import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
 import UserList from '../components/UserList';
 import * as usersActions from '../actions/users';
+import Spinner from '../components/Spinner';
+
 
 
 
@@ -10,12 +12,21 @@ class UsersListContainer extends Component {
 
   constructor(props) {
     super(props);
+    this.state={
+      loading: true
+    };
   }
 
 
   componentWillMount() {
     this.props.registerListeners();
   }
+
+  componentWillReceiveProps() {
+
+    this.setState({ loading: false});
+  }
+
   componentWillUnmount() {
     this.props.unregisterListeners();
   }
@@ -24,7 +35,7 @@ class UsersListContainer extends Component {
     return (
       <div>
  
-        <UserList { ...this.props }/>
+        {this.state.loading?<Spinner /> : (<UserList { ...this.props }/>)}
 
       </div>
     );

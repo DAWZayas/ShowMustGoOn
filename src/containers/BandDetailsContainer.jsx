@@ -2,6 +2,7 @@ import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
 import InfoList from '../components/InfoList';
 import CommentList from '../components/CommentList';
+import Spinner from '../components/Spinner';
 
 
 import * as infoActions from '../actions/information';
@@ -12,12 +13,21 @@ import * as commentsActions from '../actions/comments';
 class BandDetailsContainer extends Component {
   constructor(props) {
     super(props);
+    this.state={
+      loading: true
+    };
   }
 
   componentWillMount() {
     this.props.registerListeners();
     this.props.registerListenersComments();
   }
+
+  componentWillReceiveProps() {
+
+    this.setState({ loading: false });
+  }
+
   componentWillUnmount() {
     this.props.unregisterListeners();
     this.props.unregisterListenersComments();
@@ -26,8 +36,12 @@ class BandDetailsContainer extends Component {
   render() {
     return (
       <div>
-           <InfoList { ...this.props } />
-           <CommentList { ...this.props} />
+      {this.state.loading? <Spinner /> : (
+          <div>
+             <InfoList { ...this.props } />
+             <CommentList { ...this.props} />
+          </div>
+      )}
       </div>
     );
   } 

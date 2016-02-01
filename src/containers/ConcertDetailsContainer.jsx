@@ -2,6 +2,7 @@ import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
 import BandList from '../components/BandList';
 import * as bandsActions from '../actions/bands';
+import Spinner from '../components/Spinner';
 
 
 
@@ -10,11 +11,20 @@ class ConcertDetailsContainer extends Component {
 
   constructor(props) {
     super(props);
+    this.state={
+      loading: true
+    };
   }
 
   componentWillMount() {
     this.props.registerListeners();
   }
+
+  componentWillReceiveProps() {
+
+    this.setState({ loading: false });
+  }
+
   componentWillUnmount() {
     this.props.unregisterListeners();
   }
@@ -22,7 +32,7 @@ class ConcertDetailsContainer extends Component {
   render() {
     return (
       <div className="row">
-             <BandList {...this.props}/>
+      {this.state.loading?<Spinner /> : ( <BandList {...this.props}/>) }         
       </div>
     );
   } 

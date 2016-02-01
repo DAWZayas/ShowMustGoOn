@@ -2,6 +2,7 @@ import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
 import Messages from '../components/Messages';
 import * as messagesActions from '../actions/messages';
+import Spinner from '../components/Spinner';
 
 
 
@@ -10,12 +11,19 @@ class messagesContainer extends Component {
 
   constructor(props) {
     super(props);
+    this.state={
+      loading: true
+    };
   }
 
 
   componentWillMount() {
     this.props.registerListeners();
     this.props.registerListenersUsers();
+  }
+  componentWillReceiveProps() {
+
+    this.setState({ loading: false});
   }
   componentWillUnmount() {
     this.props.unregisterListeners();
@@ -26,7 +34,7 @@ class messagesContainer extends Component {
     return (
       <div>
  
-        <Messages { ...this.props }/>
+        {this.state.loading?<Spinner /> : (<Messages { ...this.props }/>)}
 
       </div>
     );

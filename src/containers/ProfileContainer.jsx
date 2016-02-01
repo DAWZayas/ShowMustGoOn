@@ -2,6 +2,8 @@ import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
 import Profile from '../components/Profile';
 import * as usersActions from '../actions/users';
+import Spinner from '../components/Spinner';
+
 
 
 
@@ -10,11 +12,18 @@ class ProfileContainer extends Component {
 
   constructor(props) {
     super(props);
+    this.state={
+      loading: true
+    };
   }
 
 
   componentWillMount() {
     this.props.registerListeners();
+  }
+  componentWillReceiveProps() {
+
+    this.setState({ loading: false});
   }
   componentWillUnmount() {
     this.props.unregisterListeners();
@@ -24,8 +33,7 @@ class ProfileContainer extends Component {
     return (
       <div>
  
-        <Profile { ...this.props }/>
-
+        {this.state.loading?<Spinner /> : (<Profile { ...this.props }/>)}
       </div>
     );
   } 
@@ -47,4 +55,4 @@ export default connect(
 ProfileContainer.propTypes = {
   registerListeners: PropTypes.func.isRequired,
   unregisterListeners: PropTypes.func.isRequired,
-};
+}

@@ -9,17 +9,19 @@ import SignInContainer from './containers/SignInContainer';
 import UsersListContainer from './containers/UsersListContainer';
 import ProfileContainer from './containers/ProfileContainer';
 import MessagesContainer from './containers/MessagesContainer';
+import CalendarContainer from './containers/CalendarContainer';
 
 export default (
   <Route path="/" component={App}>
-  	<Route path="/preferences" component={ConcertListContainer} />
-  	<Route path="/selecteds" component={ConcertsSelectedsContainer} />
-   	<Route path="concert/:idConcert" component={ConcertDetailsContainer} />
+    <Route path="/preferences" component={ConcertListContainer} />
+    <Route path="/selecteds" component={ConcertsSelectedsContainer} />
+    <Route path="concert/:idConcert" component={ConcertDetailsContainer} />
     <Route path="band/:id" component={BandDetailsContainer} />
     <Route path="users/:id" component={UsersListContainer} />
     <Route path="profile" component={ProfileContainer} />    
     <Route path="sign-in" component={SignInContainer} />   
     <Route path="messages" component={MessagesContainer} />
+    <Route path="calendar" component={CalendarContainer} />
     <Redirect path="*" to="/" />
   </Route>
 );

@@ -26,7 +26,7 @@ h3{
 a:hover { text-decoration: underline }
 
 .container, .main {
-    width: 800px;
+    width: 740px;
     margin-left: auto;
     margin-right: auto;
 
@@ -78,8 +78,7 @@ a {
 }
 
 .avatar{
-    max-width: 100px;
-    max-height: 100px;
+    max-height: 95px;
 }
 
 
@@ -90,6 +89,9 @@ a {
   border-color: #337ab7;
 }
 
+h1{
+  text-align: center;
+}
 
 h3{
     text-align: center;
@@ -103,9 +105,9 @@ a:hover { text-decoration: underline }
     margin-right: auto;
 
 }
-@media(min-width:950px) {
+@media(min-width:820px) {
     .container-fluid{
-        width: 950px;
+        width: 900px;
     }
 
 
@@ -155,7 +157,8 @@ input {
 .panel.container-fluid.panel-default{
   color: white;
   border-width: 0px;
-  background-color: #46849B ;
+  border-radius: 25px 25px 25px 25px; 
+  background-color: #000000 ;
   opacity: 0.8;
   padding-bottom: 20px;
 }
@@ -166,4 +169,15 @@ input {
   border-radius: 0;
 }
  
+
+
+.comments{
+  color: white;
+  border-width: 0px;
+  border-radius: 25px 25px 25px 25px; 
+  background-color: #000000 ;
+  opacity: 0.9;
+  padding-bottom: 10px;
+
+}
 

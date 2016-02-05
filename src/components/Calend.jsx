@@ -24,10 +24,10 @@ export default class Calend extends Component {
     
   }
 
+  componentDidReciveProps(){
 
-
-
-
+    this.forceUpdate();
+  }
 
 
   
@@ -51,7 +51,7 @@ export default class Calend extends Component {
           break;
           
         case 1:
-          if (((anno%100 == 0) && (anno%400 == 0)) || ((anno%100 != 0) && (anno%4 == 0))){
+          if (((anno%100 === 0) && (anno%400 === 0)) || ((anno%100 !== 0) && (anno%4 === 0))){
             return 29;
             break;
           }else{
@@ -73,27 +73,33 @@ export default class Calend extends Component {
       var diasEnMes = this.getDiasPorMes(this.state.month, this.state.year);      
 
       for (var y = 0; y < diaSemana; y++)  {
-        this.state.week1.push('');
+        this.state.week1[y]='';
       }
       
       for (var i = 1; i < diasEnMes + 1; i++) {
-          if (this.state.week1.length < 7) {this.state.week1.push({day: i});}
+        let {info} = this.props;
+        let infoDay = [];
+        info.forEach(
+            (inf) => new Date(inf.date).getDate()===i && new Date(inf.date).getMonth()===this.state.month && new Date(inf.date).getFullYear()===this.state.year?
+                infoDay.push(inf) : ''
+          );
+        let dayPos = i + diaSemana;
+        if (dayPos < 8) {this.state.week1[dayPos]={day: i, infos: infoDay};}
+        else{
+          if (dayPos < 15) {this.state.week2[dayPos]={day: i, infos: infoDay};}
           else{
-            if (this.state.week2.length < 7) {this.state.week2.push({day: i});}
+            if (dayPos < 22) {this.state.week3[dayPos]={day: i, infos: infoDay};}
             else{
-              if (this.state.week3.length < 7) {this.state.week3.push({day: i});}
+              if (dayPos < 29) {this.state.week4[dayPos]={day: i, infos: infoDay};}
               else{
-                if (this.state.week4.length < 7) {this.state.week4.push({day: i});}
+                if (dayPos < 36) {this.state.week5[dayPos]={day: i, infos: infoDay};}
                 else{
-                  if (this.state.week5.length < 7 && i > 7*4 - diaSemana + 1 && this.state.week5.filter((d)=>d.day===i).length===0) {this.state.week5.push({day: i});}
-                  else{
-                    if (this.state.week6.length < 7 && i > 7*5 - diaSemana + 1 && this.state.week6.filter((d)=>d.day===i).length===0) { this.state.week6.push({day: i});}
-                  }
+                  if (dayPos < 43) {this.state.week6[dayPos]={day: i, infos: infoDay};}
                 }
               }
             }
           }
-         
+        }
       }
   }
 
@@ -128,7 +134,10 @@ export default class Calend extends Component {
 
 
   render() {
+    const {bands} = this.props;
     this.cal();
+
+
     return(
       <div>
         <h3>
@@ -140,38 +149,40 @@ export default class Calend extends Component {
             <span className="glyphicon glyphicon-plus" />
           </button>
         </h3>
-        <table className="">
-          <tr><th>sun</th><th>mon</th><th>tue</th><th>wen</th><th>thu</th><th>fri</th><th>sat</th></tr>
+        <table className="calendar container-fluid">
+          <tbody>
+          <tr><td>sun</td><td>mon</td><td>tue</td><td>wen</td><td>thu</td><td>fri</td><td>sat</td></tr>
             <tr>
             {
-              this.state.week1.map( (day, index) =>  <td>{day.day}</td> )
+              this.state.week1.map( (d, index) =>   <td key={index}>{d.day}<br/>{d.infos!==undefined?d.infos.map( (inf) => {return <Link to={`/band/${inf.band}`}>{bands.filter((band)=>band.id===inf.band)[0].title}: {inf.title}</Link>;}):''}</td> )
             }
             </tr>
             <tr>
             {
-              this.state.week2.map( (day, index) =>  <td>{day.day}</td> )
+              this.state.week2.map( (d, index) =>  <td key={index}>{d.day}<br/>{d.infos!==undefined?d.infos.map( (inf) => {return <Link to={`/band/${inf.band}`}>{bands.filter((band)=>band.id===inf.band)[0].title}: {inf.title}</Link>;}):''}</td> )
             }
             </tr>
             <tr>
             {
-              this.state.week3.map( (day, index) =>  <td>{day.day}</td> )
+              this.state.week3.map( (d, index) =>  <td key={index}>{d.day}<br/>{d.infos!==undefined?d.infos.map( (inf) => {return <Link to={`/band/${inf.band}`}>{bands.filter((band)=>band.id===inf.band)[0].title}: {inf.title}</Link>;}):''}</td> )
             }
             </tr>
             <tr>
             {
-              this.state.week4.map( (day, index) =>  <td>{day.day}</td> )
+              this.state.week4.map( (d, index) =>  <td key={index}>{d.day}<br/>{d.infos!==undefined?d.infos.map( (inf) => {return <Link to={`/band/${inf.band}`}>{bands.filter((band)=>band.id===inf.band)[0].title}: {inf.title}</Link>;}):''}</td> )
             }
             </tr>
             <tr>
             {
-              this.state.week5.map( (day, index) =>  <td>{day.day}</td> )
+              this.state.week5.map( (d, index) =>  <td key={index}>{d.day}<br/>{d.infos!==undefined?d.infos.map( (inf) => {return <Link to={`/band/${inf.band}`}>{bands.filter((band)=>band.id===inf.band)[0].title}: {inf.title}</Link>;}):''}</td> )
             }
             </tr>
             <tr>
             {
-              this.state.week6.map( (day, index) =>  <td>{day.day}</td> )
+              this.state.week6.map( (d, index) =>  <td key={index}>{d.day}<br/>{d.infos!==undefined?d.infos.map( (inf) => {return <Link to={`/band/${inf.band}`}>{bands.filter((band)=>band.id===inf.band)[0].title}: {inf.title}</Link>;}):''}</td> )
             }
             </tr>
+          </tbody>
         </table>
 
         

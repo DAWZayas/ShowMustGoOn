@@ -1,4 +1,4 @@
-import { SET_INFO } from './action-types';
+import { SET_INFO, SET_BANDS } from './action-types';
 
 export function registerListeners() {
   return (dispatch, getState) => {
@@ -20,6 +20,32 @@ export function unregisterListeners() {
     dispatch({
       type: SET_INFO,
       info: []
+    });
+  };
+}
+
+
+
+export function registerListenersBand() {
+  return (dispatch, getState) => {
+    const { firebase } = getState();
+    const ref = firebase.child('bands');
+
+    ref.on('value', snapshot => dispatch({
+      type: SET_BANDS,
+      bands: Object.keys(snapshot.val() || []).map( id => ({id, title:snapshot.val()[id].title, concert:snapshot.val()[id].concert}) )
+    }));
+  };
+}
+
+export function unregisterListenersBand() {
+  return (dispatch, getState) => {
+    const { firebase } = getState();
+    const ref = firebase.child('bands');
+    ref.off();
+    dispatch({
+      type: SET_BANDS,
+      bands: []
     });
   };
 }

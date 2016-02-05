@@ -12,20 +12,20 @@ export default class BandList extends Component {
 
 
   handleAddButtonClick() {
-  this.setState({
-    editting: false
-  });
-  const { addBand, idConcert } = this.props;
-  const node = this.refs.band;
-  const title =  node.value.trim();
-  if (title === ''){
-    alert('Missing input'); 
-  }else{    
-    addBand(title, idConcert);
+    this.setState({
+      editting: false
+    });
+    const { addBand, idConcert } = this.props;
+    const node = this.refs.band;
+    const title =  node.value.trim();
+    if (title === ''){
+      alert('Missing input'); 
+    }else{    
+      addBand(title, idConcert);
+    }
   }
-}
 
- handleOnTitleKeyDownEdit(event) {
+  handleOnTitleKeyDownEdit(event) {
     const ENTER_KEY = 13;
     if (event.keyCode === ENTER_KEY && !this.state.addDisabled) {
       this.handleAddButtonClick();

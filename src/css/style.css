@@ -26,7 +26,7 @@ h3{
 a:hover { text-decoration: underline }
 
 .container, .main {
-    width: 740px;
+    width: 900px;
     margin-left: auto;
     margin-right: auto;
 
@@ -100,14 +100,14 @@ h3{
 a:hover { text-decoration: underline }
 
 .container, .main {
-    width: 740px;
+    width: 900px;
     margin-left: auto;
     margin-right: auto;
 
 }
-@media(min-width:820px) {
+@media(min-width:1000px) {
     .container-fluid{
-        width: 900px;
+        width: 1000px;
     }
 
 

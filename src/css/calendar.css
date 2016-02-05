@@ -1,0 +1,23 @@
+td {
+  border: 5px solid black;
+  color: black;
+  line-height: 22px;
+  text-align: center;
+  height: 70px;
+  background-color: #DFD9D9;
+  padding: 3px;
+  width: 15%;
+}
+
+tr:first-child td {
+  font-weight: 700;
+}
+
+
+
+table {
+  border-collapse: separate;
+  color: black;
+  font-size: 13px;
+  width: 100%;
+}

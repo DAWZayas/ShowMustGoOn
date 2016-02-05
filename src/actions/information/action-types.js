@@ -1,4 +1,4 @@
-export const SET_CONCERTS = 'SET_CONCERTS';
+export const SET_BANDS = 'SET_BANDS';
 export const ADD_CONCERT = 'ADD_CONCERT';
 export const ADD_COMMENT = 'ADD_COMMENT';
 export const REMOVE_COMMENT = 'REMOVE_COMMENT';

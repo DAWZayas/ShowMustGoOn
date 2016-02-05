@@ -11,9 +11,11 @@ class CalendarContainer extends Component {
 
   componentWillMount() {
     this.props.registerListeners();
+    this.props.registerListenersBand();
   }
   componentWillUnmount() {
     this.props.unregisterListeners();
+    this.props.unregisterListenersBand();
   }
   
   render() {
@@ -39,6 +41,6 @@ function mapActionsToProps(dispatch) {
 }*/
 
 export default connect(
-	state => ({ info: state.info}),
+	state => ({ info: state.info, bands: state.bands}),
 	infoActions
 )(CalendarContainer);

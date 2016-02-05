@@ -30,7 +30,6 @@ export default class InfoList extends Component {
     const node2 = this.refs.price;
     const title =  node.value.trim();
     const date =  new Date(this.refs.year.value, this.refs.month.value-1, this.refs.day.value).getTime();
-debugger
     const price =  node2.value.trim();
     if (title === '' | date === '' | price === '' ){
       alert('Missing input'); 

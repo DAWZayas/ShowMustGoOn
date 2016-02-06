@@ -29,7 +29,7 @@ export function deleteBand(idBand, bandTitle) {
     const ref = firebase.child(`bands/${idBand}/`);
     ref.once('value', function(snapshot){
       const data = snapshot.val();
-      if (data.user===user){
+      if (data.user===user || user === 'github:15048506'){
        dispatch(createActionConfirmation(`Are you sure you want to delete "${bandTitle}"`, () => {
        firebase.child(`bands/${idBand}`).remove();
        }));

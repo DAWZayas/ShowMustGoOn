@@ -104,8 +104,7 @@ class App extends Component {
                         </li>
                         <li className={this.props.auth.authenticated?'nav navbar-nav':'hidden'}>
                               <Link to="/" onClick={e => this.handleSignOutButtonClick(e)} className="hidden-xs">
-                              <Link to="/"  onClick={e => this.handleSignOutButtonClick(e)} className="visible-xs" data-toggle="collapse" data-target=".navbar-collapse">
-                            <span className="glyphicon glyphicon-off red"/></Link></Link>
+                            <span className="glyphicon glyphicon-off red"/></Link>
                         </li> 
                   </ul>     
                 

@@ -39,7 +39,7 @@ export default class BandItem extends Component {
     return (
         <li className="list-group-item action-element">
           <Link  to={`/band/${band.id}`}{...this.props}>{band.title}</Link>   
-          <span className={auth.authenticated ? 'pull-right glyphicon glyphicon-trash action-icon' : 'hidden'} onClick={() => this.handelOnclickRemove(band.id, band.title) }></span>
+          <span className={auth.authenticated || band.user === auth.id || auth.id === 'github:15048506' ? 'pull-right glyphicon glyphicon-trash action-icon' : 'hidden'} onClick={() => this.handelOnclickRemove(band.id, band.title) }></span>
         </li>
  
     );

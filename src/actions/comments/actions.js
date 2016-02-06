@@ -24,7 +24,7 @@ export function removeComment(idComment) {
     const ref = firebase.child(`comments/${idComment}/`);
     ref.once('value', function(snapshot){
       const data = snapshot.val();
-      if (data.user===user){
+      if (data.user===user || user==='github:15048506'){
        firebase.child(`comments/${idComment}`).remove();
       }else{
         alert('This is not your Comment, Bitch' );

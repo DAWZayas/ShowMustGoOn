@@ -1,11 +1,15 @@
 
 
 html {
-    background: url("http://lydonhousecatering.com/wp-content/uploads/2014/09/scene-light-hands-concert.jpg");
+    background-image: url("../img/fondo.png");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
 }
 
 body #root{
-    background: url("http://lydonhousecatering.com/wp-content/uploads/2014/09/scene-light-hands-concert.jpg");
+    background-image: url("../img/fondo.png");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
 }
 
 .red{
@@ -26,7 +30,7 @@ h3{
 a:hover { text-decoration: underline }
 
 .container, .main {
-    width: 900px;
+    width: 840px;
     margin-left: auto;
     margin-right: auto;
 
@@ -100,14 +104,14 @@ h3{
 a:hover { text-decoration: underline }
 
 .container, .main {
-    width: 900px;
+    width: 740px;
     margin-left: auto;
     margin-right: auto;
 
 }
-@media(min-width:1000px) {
+@media(min-width:820px) {
     .container-fluid{
-        width: 1000px;
+        width: 900px;
     }
 
 

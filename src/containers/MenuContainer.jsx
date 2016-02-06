@@ -4,6 +4,7 @@ import { bandSearch } from '../actions/bandSearch/actions.js';
 import { connect } from 'react-redux';
 import * as authActions from '../actions/auth/index.js';
 import Spinner from '../components/Spinner';
+import NotificationsContainer from './NotificationsContainer.jsx';
 
 
 class App extends Component {
@@ -89,7 +90,7 @@ class App extends Component {
                         </li> 
 
                         <li className={this.props.auth.authenticated?'nav navbar-nav':'hidden'}>
-                          <Link to="/messages" className="hidden-xs">Messages</Link>
+                          <Link to="/messages" className="hidden-xs">Messages <NotificationsContainer /></Link>
                           <Link to="messages" className="visible-xs" data-toggle="collapse" data-target=".navbar-collapse">Messages</Link>
                         </li> 
                         <li className={this.props.auth.authenticated?'nav navbar-nav':'hidden'}>

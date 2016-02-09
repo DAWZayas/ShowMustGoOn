@@ -15,9 +15,15 @@ export function sendMessage(msg, id) {
 
 
 export function readed(id) {
-      const { firebase, auth } = getState();
-      const userId = auth.id; 
-
-      firebase.child(`messages/${userId}/${id}/recived/*`).update({read: true});
-  
+  return (dispatch, getState) => {
+    const { firebase, auth } = getState();
+    const userId = auth.id; 
+    const ref = firebase.child(`messages/${userId}/${id}/recived`);
+    ref.once('value', function(snapshot){
+      snapshot.forEach(function (data){
+        firebase.child(`messages/${userId}/${id}/recived/${data.key()}`).update({read: true});
+      }
+      );
+    });    
+  };
 }

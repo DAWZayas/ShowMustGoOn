@@ -25,10 +25,7 @@ class messagesContainer extends Component {
 
     this.setState({ loading: false});
   }
-  componentWillUnmount() {
-    this.props.unregisterListeners();
-    this.props.unregisterListenersUsers();
-  }
+
 
   render() {
     return (

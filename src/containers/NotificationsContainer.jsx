@@ -15,9 +15,7 @@ class NotificationsContainer extends Component {
    
   }
 
-  componentWillUnmount() {
-    this.props.unregisterListeners();
-  }
+
   
   render() {
     return (

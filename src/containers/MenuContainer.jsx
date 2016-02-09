@@ -3,7 +3,7 @@ import { Link } from 'react-router';
 import { bandSearch } from '../actions/bandSearch/actions.js';
 import { connect } from 'react-redux';
 import * as authActions from '../actions/auth/index.js';
-import Spinner from '../components/Spinner';
+
 import NotificationsContainer from './NotificationsContainer.jsx';
 
 
@@ -75,10 +75,7 @@ class App extends Component {
                           <Link to="selecteds" className="visible-xs" data-toggle="collapse" data-target=".navbar-collapse">Your Concerts</Link>
                       </li>
 
-                       <li className="nav navbar-nav">
-                       <Link to="/calendar" className="hidden-xs">Calendar</Link>
-                        <Link to="calendar" className="visible-xs" data-toggle="collapse" data-target=".navbar-collapse">Calendar</Link>
-                    </li> 
+                        
 
                        <li className="search">
                           <input type="text" placeholder="Search..." ref="title" onChange={e => this.handleOnChangeTitle(e)}/>
@@ -88,6 +85,11 @@ class App extends Component {
                               }
                            </ul>
                         </li> 
+                        
+                        <li className={this.props.auth.authenticated?'nav navbar-nav':'hidden'}>
+                          <Link to="/calendar" className="hidden-xs">Calendar</Link>
+                          <Link to="calendar" className="visible-xs" data-toggle="collapse" data-target=".navbar-collapse">Calendar</Link>
+                      </li>
 
                         <li className={this.props.auth.authenticated?'nav navbar-nav':'hidden'}>
                           <Link to="/messages" className="hidden-xs">Messages <NotificationsContainer /></Link>
@@ -105,7 +107,10 @@ class App extends Component {
                         </li>
                         <li className={this.props.auth.authenticated?'nav navbar-nav':'hidden'}>
                               <Link to="/" onClick={e => this.handleSignOutButtonClick(e)} className="hidden-xs">
-                            <span className="glyphicon glyphicon-off red"/></Link>
+                              <span className="glyphicon glyphicon-off red"/></Link>
+                               <Link to="/" onClick={e => this.handleSignOutButtonClick(e)} className="visible-xs" data-toggle="collapse" data-target=".navbar-collapse">
+                               <span className="glyphicon glyphicon-off red"/>
+                               </Link>
                         </li> 
                   </ul>     
                 

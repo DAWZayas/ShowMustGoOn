@@ -141,12 +141,12 @@ export default class Calend extends Component {
     return(
       <div>
         <h3>
-          <button className="btn btn-info" type="button" onClick={e => this.handleMonthLess(e)}>
-            <span className="glyphicon glyphicon-plus" />
+          <button className="btn btn-warning" type="button" onClick={e => this.handleMonthLess(e)}>
+            <span className="glyphicon glyphicon-chevron-left" />
           </button>
           {this.state.months[this.state.month]} : {this.state.year}
-          <button className="btn btn-info" type="button" onClick={e => this.handleMonthMore(e)}>
-            <span className="glyphicon glyphicon-plus" />
+          <button className="btn btn-warning" type="button" onClick={e => this.handleMonthMore(e)}>
+            <span className="glyphicon glyphicon-chevron-right" />
           </button>
         </h3>
         <table className="calendar container-fluid">

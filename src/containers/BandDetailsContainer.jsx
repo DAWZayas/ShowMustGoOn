@@ -49,9 +49,6 @@ class BandDetailsContainer extends Component {
 
 function mapStateToProps(state) {
   const idBand = state.router.params.id;
- /* for (var i = state.bands.length - 1; i >= 0; i--) {
-    if (state.bands[i].id === id){band = state.bands[i];}
-  }*/
   const auth = state.auth;
   const comments =  state.comments.filter( comment =>  comment.band === idBand);
   const info = state.info.filter(i => idBand === i.band);

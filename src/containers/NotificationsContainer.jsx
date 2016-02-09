@@ -29,12 +29,13 @@ class NotificationsContainer extends Component {
 
 
 function mapStateToProps(state) {
-
-  const receiveds = state.messages.reduce( (sum, user) => sum + Object.keys(user.recived).filter( (key) => user.recived[key].read === false).length, 0);
+  
+  const received = state.messages.reduce( (sum, user) => sum + Object.keys(user.recived).filter( (key) => user.recived[key].read === false).length, 0);
 
 
   return {
-    total: receiveds
+    
+    total: received
   };
 }
 

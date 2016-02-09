@@ -69,13 +69,15 @@ export default class ConcertList extends Component {
         {this.state.loading? <Spinner /> : ( 
           <div>
              {
-               concerts.map( (concert, index) =>  <ConcertItem key={index} concert={concert} /> )
+               concerts.map( (concert, index) =>  <ConcertItem key={index} concert={concert} {...this.props}/> 
+                
+                )
              }
           </div>)}<br/>
           <div className={auth.authenticated ?'input-group':'hidden'}>
             <input  type="text"  className="form-control" placeholder="Add Concerts" ref="concert" onKeyDown={e => this.handleOnTitleKeyDown(e)} onChange={e => this.handleOnChangeTitle(e)} />
             <span className="input-group-btn">
-              <button disabled={this.state.addDisabled} className="btn btn-info glyphicon glyphicon-plus" type="button" onClick={e => this.handleAddButtonClick(e)}></button>
+              <button disabled={this.state.addDisabled} className="btn btn-info glyphicon glyphicon-ok" type="button" onClick={e => this.handleAddButtonClick(e)}></button>
             </span>
           </div>
         </div>
@@ -85,7 +87,7 @@ export default class ConcertList extends Component {
 }
 
 ConcertList.propTypes = {
-  auth: PropTypes.array,
+  auth: PropTypes.object.isRequired,
   registerListeners: PropTypes.func.isRequired,
   unregisterListeners: PropTypes.func.isRequired,
   concerts: PropTypes.array,

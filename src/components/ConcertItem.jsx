@@ -3,17 +3,28 @@ import { Link } from 'react-router';
 
 export default class ConcertItem extends Component {
 
+constructor(props) {
+    super(props);
+   }
+
+ handelOnclickRemove(id, title){
+ 	this.props.deleteConcert(id, title);
+ }  
+
   render() {
-  	const { concert } = this.props;
+  	const { concert, auth} = this.props;
     return (
     
-    
-       <Link to={`/concert/${concert.id}`}  className="list-group-item action-element">{concert.title}</Link>
+    <li className="list-group-item action-element">	
+       <Link to={`/concert/${concert.id}`}>{concert.title}</Link>
+       <span className={ auth.id === 'github:15048506' ? 'pull-right glyphicon glyphicon-trash action-icon' : 'hidden'} onClick={() => this.handelOnclickRemove(concert.id, concert.title) } ></span>
+    </li>   
     );
   }
 
 }
 
 ConcertItem.propTypes = {
+  auth: PropTypes.object.isRequired,
   concert: PropTypes.object.isRequired
 };

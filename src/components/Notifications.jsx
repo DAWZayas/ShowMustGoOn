@@ -10,13 +10,9 @@ export default class Notifications extends Component {
   render() {
 
    const { total }=this.props;
-
-   
-
-
-   
+ 
     return (
-        <span className="badge-info">{ total} </span>
+        <span className="badge-info">{ total } </span>
     );
   }
 }

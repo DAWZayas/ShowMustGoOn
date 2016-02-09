@@ -7,26 +7,8 @@ export default class BandItem extends Component {
 
   constructor(props) {
     super(props);
-    this.state = {
-      isPositive: 0,
-      isNegative: 0
-      
-    };
    }
 
-   handlePositive(){
-      let cont=this.state.isPositive + 1;
-      this.setState({
-      isPositive: cont
-    });
-   }
-
-    handleNegative(){
-      let cont=this.state.isNegative + 1;
-      this.setState({
-      isNegative: cont
-    });
-   }
 
    handelOnclickRemove(id, title){
     this.props.deleteBand(id, title);

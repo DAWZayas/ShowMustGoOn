@@ -63,7 +63,7 @@ export default class BandList extends Component {
 }
 
 BandList.propTypes = {
-  auth: PropTypes.array,
+  auth: PropTypes.object.isRequired,
   addBand:PropTypes.func.isRequired,
   bands: PropTypes.array,
   idConcert: PropTypes.string.isRequired,

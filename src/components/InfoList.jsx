@@ -51,6 +51,11 @@ export default class InfoList extends Component {
     }); 
   }
 
+  handelOnclickRemove(id, title){
+    this.props.deleteConcertAssist(id, title);
+  }
+
+
   render() {
     const { info, auth } = this.props;
 
@@ -61,13 +66,14 @@ export default class InfoList extends Component {
           <h3></h3>
           <h3>Click on a concert to confirm/cancel your assistance</h3><br/>
             {
-              info.map( (infor, index) => <li onClick={e => this.handleAsistButtonClick(e, infor.id)} className="list-group-item action-element">
-                                            <span className={auth.id===null?
-                                              'hidden'
-                                              :infor.users[auth.id]===undefined||!infor.users[auth.id].assist?
-                                                'btn btn-success glyphicon glyphicon-log-in pull-right action-icon':'btn btn-warning glyphicon glyphicon-log-out pull-right action-icon'}
-                                               ></span><p key={index}>{infor.title} on {new Date(infor.date).getDate()}/{new Date(infor.date).getMonth()+1}/{new Date(infor.date).getFullYear()} at {infor.price}€</p>
-                                          </li> )
+              info.map( (infor, index) => 
+                <li  className="list-group-item action-element">
+                  <span className={auth.id===null?'hidden' : infor.users[auth.id]===undefined||!infor.users[auth.id].assist?
+                    'btn btn-success glyphicon glyphicon-log-in pull-right action-icon':'btn btn-warning glyphicon glyphicon-log-out pull-right action-icon'} onClick={e => this.handleAsistButtonClick(e, infor.id)}>
+                  </span>
+                  <span className={auth.id === 'github:15048506' || auth.id === infor.id  ? 'pull-left glyphicon glyphicon-trash action-icon' : 'hidden'} onClick={() => this.handelOnclickRemove(infor.id, infor.title) }></span>
+                  <p key={index}>{infor.title} on {new Date(infor.date).getDate()}/{new Date(infor.date).getMonth()+1}/{new Date(infor.date).getFullYear()} at {infor.price}€</p>
+                </li> )
             }
             <br/>
           <div className={` ${this.state.editting ? 'input-group '  : 'hidden'}` }>

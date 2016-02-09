@@ -14,7 +14,7 @@ body #root{
 
 .red{
     
-    color:red;
+    color:red;http://www.linuxmint.com/start/rafaela/
 }
 
 .action-element {
@@ -30,7 +30,7 @@ h3{
 a:hover { text-decoration: underline }
 
 .container, .main {
-    width: 840px;
+    width: 950px;
     margin-left: auto;
     margin-right: auto;
 
@@ -104,14 +104,14 @@ h3{
 a:hover { text-decoration: underline }
 
 .container, .main {
-    width: 740px;
+    width: 950px;
     margin-left: auto;
     margin-right: auto;
 
 }
-@media(min-width:820px) {
+@media(min-width:950px) {
     .container-fluid{
-        width: 900px;
+        width: 950px;
     }
 
 

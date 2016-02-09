@@ -31,6 +31,6 @@ export default class BandItem extends Component {
 
 BandItem.propTypes = {
   deleteBand: PropTypes.func.isRequired,
-  auth: PropTypes.array,
+  auth: PropTypes.object.isRequired,
   band: PropTypes.object.isRequired
 };

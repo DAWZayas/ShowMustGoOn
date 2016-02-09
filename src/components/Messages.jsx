@@ -10,6 +10,7 @@ export default class Messages extends Component {
 
   handleUser(id){
     this.state.open===id? this.setState({open: null}) : this.setState({open: id});
+    this.props.readed(id);
   }
 
   getName(id){

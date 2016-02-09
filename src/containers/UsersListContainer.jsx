@@ -46,7 +46,7 @@ function mapStateToProps(state) {
   const idInfo = state.router.params.id;
   const auth=state.auth;
   const idUser=state.auth.id;
-  const users= state.users.filter(user => user.info[idInfo].assist === true) || {};
+  const users= state.users.filter(user => {if(user.info[idInfo]!==undefined&&user.info[idInfo].assist === true){return true;}else{return false;}}) || {};
   return {users, auth, idInfo};
 }
 

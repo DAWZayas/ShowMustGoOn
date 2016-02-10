@@ -48,7 +48,7 @@ export default class UserList extends Component {
 
             {users.length===0? <li>none</li> :
             users.map( (user, index) => <div className="">
-            <div key={index} className={auth.id === user.id ? 'hide' : 'list-group-item'}>
+            <div key={index} className='list-group-item'>
 
               <div className="text-center">
                 <div className="pull-left">

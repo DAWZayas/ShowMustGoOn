@@ -13,6 +13,14 @@ export function sendMessage(msg, id) {
 }
 
 
+export function removeAllButtonClick(id){
+  return (dispatch, getState) =>{
+    const{firebase, auth} = getState();
+    const userId = auth.id;
+    firebase.child(`messages/${userId}/${id}/recived/`).remove();
+  };
+}
+
 
 export function readed(id) {
   return (dispatch, getState) => {

@@ -26,19 +26,28 @@ export default class Messages extends Component {
     node.value = '';
   }
 
+  handleRemoveAllButtonClick(id){
+    this.props.removeAllButtonClick(id);
+  }
+
 
   render() {
     
     const { messages } = this.props;
+  const clean = messages.length > 0 ? <button className="btn btn-warning pull-right" onClick={ () => this.handleRemoveAllButtonClick(messages.map.id) }>Clean</button> : null;
+
     return (
      
       <div>
+      {clean}
+      <br/>
         <div>
         <h3>Messages</h3>
         </div>
+
         <div className="">
           {messages.length===0? <li>none</li> :
-            messages.map( (msg, index) =>  <div>
+            messages.map( (msg, index) => <div>
               <li key={index} className={this.state.open==null||this.state.open===msg.id?'list-group-item action-element':'hidden'} onClick={ () => this.handleUser(msg.id) }><h3>{this.getName(msg.id)!==undefined?this.getName(msg.id):msg.id}</h3></li>
               <div className={this.state.open===msg.id?'list-group-item':'hidden'}>
                 <h3 className={msg.recived===undefined?'hidden':''}>Recived</h3>

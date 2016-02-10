@@ -26,15 +26,19 @@ export default class Messages extends Component {
     node.value = '';
   }
 
-  handleRemoveAllButtonClick(id){
-    this.props.removeAllButtonClick(id);
+  handleRemoveAllButtonClick(){
+    this.props.removeAllButtonClick();
+  }
+
+  handleDeleteMessageClick(id){
+    this.props.deleteMessageClick(id);
   }
 
 
   render() {
     
     const { messages } = this.props;
-  const clean = messages.length > 0 ? <button className="btn btn-warning pull-right" onClick={ () => this.handleRemoveAllButtonClick(messages.map.id) }>Clean</button> : null;
+    const clean = messages.length > 0 ? <button className="btn btn-warning pull-right" onClick={ () => this.handleRemoveAllButtonClick() }>Clean</button> : null;
 
     return (
      
@@ -44,11 +48,10 @@ export default class Messages extends Component {
         <div>
         <h3>Messages</h3>
         </div>
-
         <div className="">
-          {messages.length===0? <li>none</li> :
+          {messages.length===0? ' ' :
             messages.map( (msg, index) => <div>
-              <li key={index} className={this.state.open==null||this.state.open===msg.id?'list-group-item action-element':'hidden'} onClick={ () => this.handleUser(msg.id) }><h3>{this.getName(msg.id)!==undefined?this.getName(msg.id):msg.id}</h3></li>
+              <li key={index} className={this.state.open==null||this.state.open===msg.id?'list-group-item action-element':'hidden'} onClick={ () => this.handleUser(msg.id) }><h3>{this.getName(msg.id)!==undefined?this.getName(msg.id):msg.id}</h3></li><span className="btn btn-warning glyphicon glyphicon-remove pull-left" onClick={ () => this.handleDeleteMessageClick(msg.id) }/>
               <div className={this.state.open===msg.id?'list-group-item':'hidden'}>
                 <h3 className={msg.recived===undefined?'hidden':''}>Recived</h3>
                 {msg.recived===undefined? '' :

@@ -1,3 +1,4 @@
+import { createActionConfirmation } from '../confirm';
 
 
 export function sendMessage(msg, id) {
@@ -11,13 +12,29 @@ export function sendMessage(msg, id) {
       firebase.child(`messages/${userId}/${id}/sent`).push(obj);
   };
 }
+export function removeAllButtonClick(){
+     return (dispatch, getState) => {
+    const { firebase, auth } = getState();
+    const userId = auth.id; 
+    const ref = firebase.child(`messages/${userId}`);
+    ref.once('value', function(snapshot){
+       dispatch(createActionConfirmation(`Are you sure you want to clean?`, () => {
+       firebase.child(`messages/${userId}`).remove();
+       }));
+    });
+  };
+}
 
-
-export function removeAllButtonClick(id){
-  return (dispatch, getState) =>{
-    const{firebase, auth} = getState();
-    const userId = auth.id;
-    firebase.child(`messages/${userId}/${id}/recived/`).remove();
+export function deleteMessageClick(messageId){
+  return (dispatch, getState) => {
+    const { firebase, auth } = getState();
+    const user = auth.id;
+    const ref = firebase.child(`messages/${user}`);
+    ref.once('value', function(snapshot){
+       dispatch(createActionConfirmation(`Are you sure you want to delete `, () => {
+       firebase.child(`messages/${user}/${messageId}`).remove();
+       }));
+    });
   };
 }
 

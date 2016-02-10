@@ -41,12 +41,12 @@ export default class Messages extends Component {
             messages.map( (msg, index) =>  <div>
               <li key={index} className={this.state.open==null||this.state.open===msg.id?'list-group-item action-element':'hidden'} onClick={ () => this.handleUser(msg.id) }><h3>{this.getName(msg.id)!==undefined?this.getName(msg.id):msg.id}</h3></li>
               <div className={this.state.open===msg.id?'list-group-item':'hidden'}>
-                <h3>Recived</h3>
+                <h3 className={msg.recived===undefined?'hidden':''}>Recived</h3>
                 {msg.recived===undefined? '' :
                   Object.keys(msg.recived).map( (key, index) => <div key={index}>
                   <p>{new Date(msg.recived[key].time).toLocaleString()}</p><p>{msg.recived[key].msg}</p><br/></div>
                 )}
-                  <h3>Sent</h3>
+                  <h3 className={msg.sent===undefined?'hidden':''}>Sent</h3>
                 {msg.sent===undefined? '' :
                   Object.keys(msg.sent).map( (key, index) => <div key={index}>
                     <p>{new Date(msg.sent[key].time).toLocaleString()}</p><p>{msg.sent[key].msg}</p><br/>

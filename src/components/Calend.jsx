@@ -154,32 +154,32 @@ export default class Calend extends Component {
           <tr><td>sun</td><td>mon</td><td>tue</td><td>wen</td><td>thu</td><td>fri</td><td>sat</td></tr>
             <tr>
             {
-              this.state.week1.map( (d, index) =>   <td key={index}>{d.day}<br/>{d.infos!==undefined?d.infos.map( (inf) => {return <Link to={`/band/${inf.band}`}>{bands.map((band)=>{if(band.id===inf.band)return band.title;})}: {inf.title}</Link>;}):''}</td> )
+              this.state.week1.map( (d, index) =>   <td key={index}><div className="calendNumber"><p>{d.day}</p></div><div className="calendInfo"><br/>{d.infos!==undefined?d.infos.map( (inf) => {return <Link to={`/band/${inf.band}`}>{bands.map((band)=>{if(band.id===inf.band)return band.title;})}: {inf.title}</Link>;}):''}</div></td> )
             }
             </tr>
             <tr>
             {
-              this.state.week2.map( (d, index) =>  <td key={index}>{d.day}<br/>{d.infos!==undefined?d.infos.map( (inf) => {return <Link to={`/band/${inf.band}`}>{bands.map((band)=>{if(band.id===inf.band)return band.title;})}: {inf.title}</Link>;}):''}</td> )
+              this.state.week2.map( (d, index) =>  <td key={index}><div className="calendNumber"><p>{d.day}</p></div><div className="calendInfo"><br/>{d.infos!==undefined?d.infos.map( (inf) => {return <Link to={`/band/${inf.band}`}>{bands.map((band)=>{if(band.id===inf.band)return band.title;})}: {inf.title}</Link>;}):''}</div></td> )
             }
             </tr>
             <tr>
             {
-              this.state.week3.map( (d, index) =>  <td key={index}>{d.day}<br/>{d.infos!==undefined?d.infos.map( (inf) => {return <Link to={`/band/${inf.band}`}>{bands.map((band)=>{if(band.id===inf.band)return band.title;})}: {inf.title}</Link>;}):''}</td> )
+              this.state.week3.map( (d, index) =>  <td key={index}><div className="calendNumber"><p>{d.day}</p></div><div className="calendInfo"><br/>{d.infos!==undefined?d.infos.map( (inf) => {return <Link to={`/band/${inf.band}`}>{bands.map((band)=>{if(band.id===inf.band)return band.title;})}: {inf.title}</Link>;}):''}</div></td> )
             }
             </tr>
             <tr>
             {
-              this.state.week4.map( (d, index) =>  <td key={index}>{d.day}<br/>{d.infos!==undefined?d.infos.map( (inf) => {return <Link to={`/band/${inf.band}`}>{bands.map((band)=>{if(band.id===inf.band)return band.title;})}: {inf.title}</Link>;}):''}</td> )
+              this.state.week4.map( (d, index) =>  <td key={index}><div className="calendNumber"><p>{d.day}</p></div><div className="calendInfo"><br/>{d.infos!==undefined?d.infos.map( (inf) => {return <Link to={`/band/${inf.band}`}>{bands.map((band)=>{if(band.id===inf.band)return band.title;})}: {inf.title}</Link>;}):''}</div></td> )
             }
             </tr>
             <tr>
             {
-              this.state.week5.map( (d, index) =>  <td key={index}>{d.day}<br/>{d.infos!==undefined?d.infos.map( (inf) => {return <Link to={`/band/${inf.band}`}>{bands.map((band)=>{if(band.id===inf.band)return band.title;})}: {inf.title}</Link>;}):''}</td> )
+              this.state.week5.map( (d, index) =>  <td key={index}><div className="calendNumber"><p>{d.day}</p></div><div className="calendInfo"><br/>{d.infos!==undefined?d.infos.map( (inf) => {return <Link to={`/band/${inf.band}`}>{bands.map((band)=>{if(band.id===inf.band)return band.title;})}: {inf.title}</Link>;}):''}</div></td> )
             }
             </tr>
             <tr>
             {
-              this.state.week6.map( (d, index) =>  <td key={index}>{d.day}<br/>{d.infos!==undefined?d.infos.map( (inf) => {return <Link to={`/band/${inf.band}`}>{bands.map((band)=>{if(band.id===inf.band)return band.title;})}: {inf.title}</Link>;}):''}</td> )
+              this.state.week6.map( (d, index) =>  <td key={index}><div className="calendNumber"><p>{d.day}</p></div><div className="calendInfo"><br/>{d.infos!==undefined?d.infos.map( (inf) => {return <Link to={`/band/${inf.band}`}>{bands.map((band)=>{if(band.id===inf.band)return band.title;})}: {inf.title}</Link>;}):''}</div></td> )
             }
             </tr>
           </tbody>

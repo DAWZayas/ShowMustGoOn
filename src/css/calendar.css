@@ -4,7 +4,7 @@ td {
   color:black;
   line-height: 28px;
   text-align: center;
-  height: 100px;
+  height: 130px;
   background-color: #FFB733;
   opacity: 0.7;
   padding: 5px;
@@ -22,4 +22,20 @@ table {
   color: black;
   font-size: 13px;
   width: 100%;
+}
+
+.calendNumber{
+  height: 5%;
+  float: left;
+
+
+}
+
+.calendInfo {
+  font-size: 12px;
+  line-height: 16px;
+  height: 95%;
+  background-color: #FE9431;
+  font-size: 12px;
+
 }

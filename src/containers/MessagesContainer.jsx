@@ -42,7 +42,8 @@ function mapStateToProps(state) {
   const auth=state.auth;
   const messages= state.messages || {};
   const users= state.users;
-  return {messages, auth, users};
+  const newmsg = state.messages.map( (user) => Object.keys(user.recived).map( (key) => {if(user.recived[key].read===false){return user.id}}));
+  return {messages, auth, users, newmsg};
 }
 
 

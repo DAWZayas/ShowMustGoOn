@@ -4,7 +4,7 @@ export default class Profile extends Component {
 
   constructor(props) {
     super(props);
-    this.state = {};
+    this.state = props.user[0]!==undefined?{avatarUri: props.user[0].img}:{};
   }
 
   componentWillReceiveProps(props){

@@ -24,7 +24,7 @@ export function deleteConcert(idConcert, ConcertTitle) {
     const ref = firebase.child(`concerts/${idConcert}/`);
     ref.once('value', function(snapshot){
       const data = snapshot.val();
-      if (user === 'github:15048506'){
+      if (user === 'github:15048506' || data.user === auth.id){
        dispatch(createActionConfirmation(`Are you sure you want to delete "${ConcertTitle}"`, () => {
        firebase.child(`concerts/${idConcert}`).remove();
        }));

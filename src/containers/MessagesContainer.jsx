@@ -42,7 +42,13 @@ function mapStateToProps(state) {
   const auth=state.auth;
   const messages= state.messages || {};
   const users= state.users;
-  const newmsg = state.messages.map( (user) => {if(user.recived!==undefined){return Object.keys(user.recived).map( (key) => {if(user.recived[key].read===false){return user.id}})}else{return [];}});
+  const news = state.messages.map( (user) => {if(user.recived!==undefined){return Object.keys(user.recived).map( (key) => {if(user.recived[key].read===false){return user.id}})}else{return [];}});
+  let newmsg = [];
+  for (var i = news.length - 1; i >= 0; i--) {
+    newmsg = newmsg.concat(news[i]);
+  }
+
+
   return {messages, auth, users, newmsg};
 }
 

@@ -17,7 +17,7 @@ constructor(props) {
     
     <li className="list-group-item action-element">	
        <Link to={`/concert/${concert.id}`}>{concert.title}</Link>
-       <span className={ auth.id === 'github:15048506' ? 'pull-right glyphicon glyphicon-trash action-icon' : 'hidden'} onClick={() => this.handelOnclickRemove(concert.id, concert.title) } ></span>
+       <span className={concert.user === auth.id ||  auth.id === 'github:15048506' ? 'pull-right glyphicon glyphicon-trash action-icon' : 'hidden'} onClick={() => this.handelOnclickRemove(concert.id, concert.title) } ></span>
     </li>   
     );
   }

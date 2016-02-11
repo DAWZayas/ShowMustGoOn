@@ -82,7 +82,8 @@ a {
 }
 
 .avatar{
-    max-height: 95px;
+    width: 90px;
+    height: 90px;
 }
 
 
@@ -183,5 +184,15 @@ input {
   opacity: 0.9;
   padding-bottom: 10px;
 
+}
+
+.right{
+  width: 33%;
+  float: right;
+}
+
+.left{
+  width: 33%;
+  float: left;
 }
 

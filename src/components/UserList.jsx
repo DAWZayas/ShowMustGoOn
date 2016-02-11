@@ -69,7 +69,7 @@ export default class UserList extends Component {
 
               <div className="text-center">
                 <div className="pull-left">
-                <img className="avatar img-circle img-thumbnail" src={user.img}/>
+                <img className="avatar img-circle" src={user.img}/>
                 </div> 
                 <button className={`btn btn-warning pull-right ${this.state.send=== user.id ? 'hidden' : '' }`} type="button" onClick={() => this.handleSendMessageClick(user.id)}><span className="glyphicon glyphicon-envelope card" /></button>
               

@@ -5,7 +5,8 @@ export default class UserList extends Component {
   constructor(props) {
     super(props);
     this.state={
-      send:false
+      send:false,
+      addDisabled: true
       
     };
   }
@@ -35,6 +36,22 @@ export default class UserList extends Component {
     });
   }
 
+  handleOnTitleKeyDownEdit(event, id) {
+    const ENTER_KEY = 13;
+    if (event.keyCode === ENTER_KEY && !this.state.addDisabled) {
+      this.handleSendClick(id);
+    }
+  }
+
+  handleDisabledOkEdit(id){ 
+    const node = this.refs[id];
+    const title =  node.value.trim();
+
+    this.setState({
+      addDisabled: title.length === 0
+    });
+  }
+
   render() {
     const { users, auth } = this.props;
     
@@ -48,7 +65,7 @@ export default class UserList extends Component {
 
             {users.length===0? <li>none</li> :
             users.map( (user, index) => <div className="">
-            <div key={index} className='list-group-item'>
+            <div key={index} className={auth.id === user.id ? 'hidden' : 'list-group-item'}>
 
               <div className="text-center">
                 <div className="pull-left">
@@ -56,12 +73,12 @@ export default class UserList extends Component {
                 </div> 
                 <button className={`btn btn-warning pull-right ${this.state.send=== user.id ? 'hidden' : '' }`} type="button" onClick={() => this.handleSendMessageClick(user.id)}><span className="glyphicon glyphicon-envelope card" /></button>
               
-                <p>Name: {user.name || ''}</p><p>Age: {user.age  || 'no data'}</p><p>  Description: {user.description  || ''}</p>
+                <p><b>Name:</b> {user.name || ''}</p><p><b>Age:</b> {user.age  || 'no data'}</p><p><b>Description:</b> {user.description  || ''}</p>
               </div>
               <div className={`input-group ${this.state.send === user.id  ? '' : 'hidden'}`}>
-                <input  type="text"  className="form-control" placeholder="Send a message" ref={`${user.id}`} />
+                <input  type="text"  className="form-control" placeholder="Send a message" ref={`${user.id}`} onChange={()=> this.handleDisabledOkEdit(user.id)} onKeyDown={ e => this.handleOnTitleKeyDownEdit(e, user.id)} />
                 <span className="input-group-btn">
-                  <button className="btn btn-warning " type="button" onClick={() => this.handleSendClick(user.id)}><span className="glyphicon glyphicon-arrow-right" /></button>
+                  <button disabled={this.state.addDisabled} className="btn btn-warning " type="button" onClick={() => this.handleSendClick(user.id)}><span className="glyphicon glyphicon-arrow-right" /></button>
                   <button className="btn btn-warning" type="button" onClick={() => this.handleCancelMessage()}><span className="glyphicon glyphicon-minus" /></button>
                 </span>
               </div>
@@ -76,4 +93,3 @@ export default class UserList extends Component {
 UserList.propTypes = {
   users: PropTypes.array,
 };
-

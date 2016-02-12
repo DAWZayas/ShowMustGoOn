@@ -1,4 +1,4 @@
-import React, { Component, PropTypes } from 'react';
+import React, { Component } from 'react';
 
 
 export default class Notifications extends Component {
@@ -16,11 +16,3 @@ export default class Notifications extends Component {
     );
   }
 }
-
-Notifications.propTypes = {
- 
-};
-
-Notifications.defaultProps = {
- 
-};

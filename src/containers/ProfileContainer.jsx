@@ -55,4 +55,4 @@ export default connect(
 ProfileContainer.propTypes = {
   registerListeners: PropTypes.func.isRequired,
   unregisterListeners: PropTypes.func.isRequired,
-}
+};

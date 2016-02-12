@@ -1,5 +1,4 @@
 import React, { Component, PropTypes } from 'react';
-import { Link } from 'react-router';
 export default class UserList extends Component {
 
   constructor(props) {

@@ -31,10 +31,27 @@ export default class InfoList extends Component {
     const title =  node.value.trim();
     const date =  new Date(this.refs.year.value, this.refs.month.value-1, this.refs.day.value).getTime();
     const price =  node2.value.trim();
-    if (title === '' | date === '' | price === '' ){
-      alert('Missing input'); 
-    }else{    
-      addInfo(title, date, price, idBand);
+
+
+    function haveNumber(text){
+      const number='0123456789';
+       for(var i=0; i<text.length; i++){
+          if (number.indexOf(text.charAt(i), 0)!==-1){
+             return 1;
+          }
+       }
+       return 0;
+    }
+
+  
+    if(haveNumber(title)===1){
+      alert('Place can not contain numbers');
+    }else{
+      if (title === '' | date === '' | price === '' ){
+        alert('Missing input'); 
+      }else{    
+        addInfo(title, date, price, idBand);
+      }
     }
 
     node.value = '';

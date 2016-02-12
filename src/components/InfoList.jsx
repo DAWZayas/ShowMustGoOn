@@ -43,14 +43,36 @@ export default class InfoList extends Component {
        return 0;
     }
 
+    function haveLetter(number){
+      const letters='abcdefghijklmnñopqrstuvwxyzABCDEFGHIJKLMNÑOPQRSTUVWXYZ';
+      
+       for(var i=0; i<number.length; i++){
+          if (letters.indexOf(number.charAt(i), 0)!==-1){
+             return 1;
+          }
+       }
+       return 0;
+    }
+
   
     if(haveNumber(title)===1){
       alert('Place can not contain numbers');
     }else{
-      if (title === '' | date === '' | price === '' ){
-        alert('Missing input'); 
-      }else{    
-        addInfo(title, date, price, idBand);
+      if(haveLetter(this.refs.year.value)===1 || 
+         haveLetter(this.refs.month.value )   || 
+         haveLetter(this.refs.day.value)      || 
+         haveLetter(price)){
+        alert('Date or the price can not contain letters');
+      }else{
+        if (title === '' | date === '' | price === '' ){
+          alert('Missing input'); 
+        }else{
+          if(date < Date.now()){
+            alert('La fecha por encima');
+          }else{    
+          addInfo(title, date, price, idBand);
+          }
+        }
       }
     }
 
@@ -93,10 +115,10 @@ export default class InfoList extends Component {
             <br/>
           <div className={` ${this.state.editting ? 'input-group '  : 'hidden'}` }>
             <input  type="text"  className="form-control" placeholder="Add place" ref="place" />
-            <input  type="number"  className="form-control" placeholder="Add day" ref="day" />
-            <input  type="number"  className="form-control" placeholder="Add month" ref="month" />
-            <input  type="number"  className="form-control" placeholder="Add year(yyyy)" ref="year" />
-            <input  type="number"  className="form-control" placeholder="Add price" ref="price" />
+            <input  type="text"  className="form-control" placeholder="Add day" ref="day" />
+            <input  type="text"  className="form-control" placeholder="Add month" ref="month" />
+            <input  type="text"  className="form-control" placeholder="Add year(yyyy)" ref="year" />
+            <input  type="text"  className="form-control" placeholder="Add price" ref="price" />
             <span className="input-group-btn">
               <button className="btn btn-info" type="button" onClick={e => this.handleAddButtonClick(e)}><span className="glyphicon glyphicon-plus" /></button>
             </span>

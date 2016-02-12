@@ -65,17 +65,17 @@ class App extends Component {
                         <a href="#page-top"></a>
                     </li>
                 </ul>
-                  <ul className="nav navbar-nav" >
+                  <ul className="nav navbar-left" >
                       <li className="nav navbar-nav">
                           <Link to="/preferences" className="hidden-xs">Preferences</Link>
                           <Link to="/preferences" className="visible-xs" data-toggle="collapse" data-target=".navbar-collapse">Preferences</Link>
                       </li>                    
                       <li className={this.props.auth.authenticated?'nav navbar-nav':'hidden'}>
-                          <Link to="/selecteds" className="hidden-xs">Your Concerts</Link>
-                          <Link to="selecteds" className="visible-xs" data-toggle="collapse" data-target=".navbar-collapse">Your Concerts</Link>
+                          <Link to="/selecteds" className="hidden-xs">Selecteds</Link>
+                          <Link to="selecteds" className="visible-xs" data-toggle="collapse" data-target=".navbar-collapse">Selecteds</Link>
                       </li>
-
-                        
+                  </ul>
+                  <ul className="nav navbar-nav centre">     
 
                        <li className="search">
                           <input type="text" placeholder="Search..." ref="title" onChange={e => this.handleOnChangeTitle(e)}/>
@@ -85,19 +85,20 @@ class App extends Component {
                               }
                            </ul>
                         </li> 
-                        
+                  </ul>
+                  <ul className="nav navbar-right">
                         <li className={this.props.auth.authenticated?'nav navbar-nav':'hidden'}>
-                          <Link to="/calendar" className="hidden-xs">Calendar</Link>
-                          <Link to="calendar" className="visible-xs" data-toggle="collapse" data-target=".navbar-collapse">Calendar</Link>
-                      </li>
+                          <Link to="/calendar" className="hidden-xs"><span className="glyphicon glyphicon-calendar"/></Link>
+                          <Link to="calendar" className="visible-xs" data-toggle="collapse" data-target=".navbar-collapse"><span className="glyphicon glyphicon-calendar"/></Link>
+                        </li>
 
                         <li className={this.props.auth.authenticated?'nav navbar-nav':'hidden'}>
-                          <Link to="/messages" className="hidden-xs">Messages <NotificationsContainer /></Link>
-                          <Link to="messages" className="visible-xs" data-toggle="collapse" data-target=".navbar-collapse">Messages</Link>
+                          <Link to="/messages" className="hidden-xs"><span className="glyphicon glyphicon-envelope"/> <NotificationsContainer /></Link>
+                          <Link to="messages" className="visible-xs" data-toggle="collapse" data-target=".navbar-collapse"><span className="glyphicon glyphicon-envelope"/> <NotificationsContainer /></Link>
                         </li> 
                         <li className={this.props.auth.authenticated?'nav navbar-nav':'hidden'}>
-                          <Link to="/profile" className="hidden-xs">Profile</Link>
-                          <Link to="profile" className="visible-xs" data-toggle="collapse" data-target=".navbar-collapse">Profile</Link>
+                          <Link to="/profile" className="hidden-xs"><span className="glyphicon glyphicon-user"/></Link>
+                          <Link to="profile" className="visible-xs" data-toggle="collapse" data-target=".navbar-collapse"><span className="glyphicon glyphicon-user"/></Link>
 
                         </li>                    
                         <li className={this.props.auth.authenticated?'hidden':'nav navbar-nav'}>
@@ -107,10 +108,10 @@ class App extends Component {
                         </li>
                         <li className={this.props.auth.authenticated?'nav navbar-nav':'hidden'}>
                               <Link to="/" onClick={e => this.handleSignOutButtonClick(e)} className="hidden-xs">
-                              <span className="glyphicon glyphicon-off red"/></Link>
-                               <Link to="/" onClick={e => this.handleSignOutButtonClick(e)} className="visible-xs" data-toggle="collapse" data-target=".navbar-collapse">
-                               <span className="glyphicon glyphicon-off red"/>
-                               </Link>
+                                <span className="glyphicon glyphicon-off red"/></Link>
+                              <Link to="/" onClick={e => this.handleSignOutButtonClick(e)} className="visible-xs" data-toggle="collapse" data-target=".navbar-collapse">
+                                <span className="glyphicon glyphicon-off red"/>
+                              </Link>
                         </li> 
                   </ul>     
                 

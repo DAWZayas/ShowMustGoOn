@@ -13,6 +13,7 @@ td {
 
 tr:first-child td {
   font-weight: 700;
+  height: 40px;
 } 
 
 

@@ -86,7 +86,7 @@ export default class InfoList extends Component {
                   <span className={auth.id===null?'hidden' : infor.users[auth.id]===undefined||!infor.users[auth.id].assist?
                     'btn btn-success glyphicon glyphicon-log-in pull-right action-icon':'btn btn-warning glyphicon glyphicon-log-out pull-right action-icon'} onClick={e => this.handleAsistButtonClick(e, infor.id)}>
                   </span>
-                  <span className={auth.id === infor.creator || auth.id === 'github:15048506'  ? 'pull-left glyphicon glyphicon-trash action-icon' : 'hidden'} onClick={() => this.handelOnclickRemove(infor.id, infor.title) }></span>
+                  <span className={auth.id === infor.creator || auth.id === 'github:15048506'  ? 'pull-left glyphicon glyphicon-trash action-icon trash' : 'hidden'} onClick={() => this.handelOnclickRemove(infor.id, infor.title) }></span>
                   <p key={index}>{infor.title} on {new Date(infor.date).getDate()}/{new Date(infor.date).getMonth()+1}/{new Date(infor.date).getFullYear()} at {infor.price}€</p>
                 </li> )
             }

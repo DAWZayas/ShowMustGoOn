@@ -174,7 +174,10 @@ input {
   border-radius: 0;
 }
  
-
+.pull-left.glyphicon.glyphicon-trash.action-icon.trash{
+  position: relative;
+  top: 7px;
+}
 
 .comments{
   color: white;
@@ -196,3 +199,19 @@ input {
   float: left;
 }
 
+.nav.navbar-right{
+  position: relative;
+  top: 5px;
+}
+
+
+.nav.navbar-nav.centre{
+  position: relative;
+  left: 5px;
+}
+
+
+.nav.navbar-left{
+  position: relative;
+  top: 5px;
+}

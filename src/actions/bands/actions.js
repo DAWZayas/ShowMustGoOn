@@ -30,13 +30,34 @@ export function deleteBand(idBand, bandTitle) {
     ref.once('value', function(snapshot){
       const data = snapshot.val();
       if (data.user===user || user === 'github:15048506'){
-       dispatch(createActionConfirmation(`Are you sure you want to delete "${bandTitle}"`, () => {
-       firebase.child(`bands/${idBand}`).remove();
-       }));
+        infoInBand(idBand, getState, (exists) => {
+          if (!exists) {
+            dispatch(createActionConfirmation(`Are you sure you want to delete "${bandTitle}"`, () => {
+              firebase.child(`bands/${idBand}`).remove();
+            }))
+          }
+          else{alert('band is not empty');}           
+        });
       }else{
         alert('This is not your band');
       }
     });
   };
 
+}
+
+function infoInBand(idBand, getState, cbk){
+  const { firebase } = getState();
+  const ref = firebase.child(`info`);
+  
+  ref.once('value', function(snapshot){
+    let exists = false;
+    snapshot.forEach(info => { 
+      if (info.val().band===idBand) {
+        exists = true;
+        return;
+      }
+    });
+    cbk(exists)
+  });
 }

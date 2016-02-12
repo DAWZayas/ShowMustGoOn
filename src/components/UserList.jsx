@@ -19,6 +19,8 @@ export default class UserList extends Component {
       send:false
     });
 
+    node.value = '';
+
   }
   handleCancelMessage(){
 

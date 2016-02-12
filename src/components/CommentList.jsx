@@ -38,7 +38,7 @@ export default class CommentList extends Component {
 
     
     
-    node.value = title; // Necesito el titulo de este comentario.
+    node.value = title;
 
     setTimeout(() => node.focus(), 0);
     setTimeout(() => node.setSelectionRange(0, node.value.length), 0);

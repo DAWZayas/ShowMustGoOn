@@ -96,11 +96,11 @@ export default class InfoList extends Component {
 
 
   render() {
-    const { info, auth } = this.props;
+    const { info, auth, band } = this.props;
 
     return (
       <div className="panel panel-default container-fluid">
-          <h3></h3>
+          <h1>{band[0].title}</h1>
           <h3>Click on a concert to confirm/cancel your assistance</h3><br/>
             {
               info.map( (infor, index) => 

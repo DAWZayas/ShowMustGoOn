@@ -7,6 +7,7 @@ import Spinner from '../components/Spinner';
 
 import * as infoActions from '../actions/information';
 import * as commentsActions from '../actions/comments';
+import * as bandsActions from '../actions/bands';
 
 
 
@@ -21,6 +22,7 @@ class BandDetailsContainer extends Component {
   componentWillMount() {
     this.props.registerListeners();
     this.props.registerListenersComments();
+
   }
 
   componentWillReceiveProps() {
@@ -52,15 +54,16 @@ function mapStateToProps(state) {
   const auth = state.auth;
   const comments =  state.comments.filter( comment =>  comment.band === idBand);
   const info = state.info.filter(i => idBand === i.band);
+  const band = state.bands.filter(band => idBand===band.id)
 
 
-  return { idBand, info, comments, auth};
+  return { idBand, info, comments, auth, band};
 }
 
 
 export default connect(
   mapStateToProps,
-  Object.assign( {}, infoActions, commentsActions)
+  Object.assign( {}, infoActions, commentsActions, bandsActions)
 )(BandDetailsContainer);
 
 BandDetailsContainer.propTypes = {

@@ -44,3 +44,8 @@ export default connect(
 	state => ({ info: state.info, bands: state.bands}),
 	infoActions
 )(CalendarContainer);
+
+CalendarContainer.propTypes = {
+  registerListeners: PropTypes.func.isRequired,
+  unregisterListeners: PropTypes.func.isRequired
+};

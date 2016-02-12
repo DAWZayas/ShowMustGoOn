@@ -69,7 +69,6 @@ export default class Calend extends Component {
 
         
       var diaSemana = new Date(this.state.year, this.state.month, 1).getDay();
-      var s= new Date(this.state.year, this.state.month, 1).getDay();
       var diasEnMes = this.getDiasPorMes(this.state.month, this.state.year);      
 
       for (var y = 0; y < diaSemana; y++)  {
@@ -194,4 +193,6 @@ export default class Calend extends Component {
 
 
 Calend.propTypes = {
+    bands: PropTypes.array,
+    info: PropTypes.array
 };

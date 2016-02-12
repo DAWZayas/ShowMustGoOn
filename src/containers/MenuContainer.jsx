@@ -65,7 +65,7 @@ class App extends Component {
                         <a href="#page-top"></a>
                     </li>
                 </ul>
-                  <ul className="nav navbar-left" >
+                  <ul className="nav navbar-nav" >
                       <li className="nav navbar-nav">
                           <Link to="/preferences" className="hidden-xs">Preferences</Link>
                           <Link to="/preferences" className="visible-xs" data-toggle="collapse" data-target=".navbar-collapse">Preferences</Link>

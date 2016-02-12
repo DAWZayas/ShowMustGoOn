@@ -1,15 +1,21 @@
 
 
 html {
+   
     background-image: url("../img/fondo.png");
     background-repeat: no-repeat;
     background-attachment: fixed;
+  
+    background-position:center;
 }
 
 body #root{
+    
     background-image: url("../img/fondo.png");
     background-repeat: no-repeat;
     background-attachment: fixed;
+
+    background-position:center;
 }
 
 .red{
@@ -210,3 +216,4 @@ input {
   background-color: #4098C3;
   border-color: #4098C3
 }
+

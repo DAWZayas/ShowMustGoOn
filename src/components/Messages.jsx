@@ -50,7 +50,7 @@ export default class Messages extends Component {
         <div className="">
           {messages.length===0? <p className="text-center"><br/>No messages at the moment</p> :
             messages.map( (msg, index) =>  <div>
-              <li key={index} className={this.state.open==null||this.state.open===msg.id? this.props.newmsg.indexOf(msg.id) !== -1 ? 'list-group-item action-element active' : 'list-group-item action-element':'hidden'} ><span className="pull-right glyphicon glyphicon-trash action-icon" onClick={ () => this.handleDeleteMessageClick(msg.id) }></span><h3 onClick={ () => this.handleUser(msg.id) }>{this.getName(msg.id)!==undefined?this.getName(msg.id):msg.id}</h3></li>
+              <li key={index} className={this.state.open==null||this.state.open===msg.id? this.props.newmsg.indexOf(msg.id) !== -1 ? 'list-group-item action-element new' : 'list-group-item action-element':'hidden'} ><span className="pull-right glyphicon glyphicon-trash action-icon" onClick={ () => this.handleDeleteMessageClick(msg.id) }></span><h3 onClick={ () => this.handleUser(msg.id) }>{this.getName(msg.id)!==undefined?this.getName(msg.id):msg.id}</h3></li>
               <div className={this.state.open===msg.id?'list-group-item':'hidden'}>
                 <h3 className={msg.recived===undefined?'hidden':''}>Recived</h3>
                 {msg.recived===undefined? '' :

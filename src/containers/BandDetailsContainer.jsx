@@ -56,8 +56,7 @@ function mapStateToProps(state) {
   const auth = state.auth;
   const comments =  state.comments.filter( comment =>  comment.band === idBand);
   const info = state.info.filter(i => idBand === i.band);
-  const band = state.bands.filter(band => idBand===band.id)s
-
+  const band = state.bands.filter(band => idBand===band.id);
 
   return { idBand, info, comments, auth, band};
 }

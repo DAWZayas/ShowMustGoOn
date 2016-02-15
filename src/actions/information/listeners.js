@@ -26,7 +26,7 @@ export function unregisterListeners() {
 
 
 
-export function registerListenersBandz() {
+export function registerListenersBand() {
   return (dispatch, getState) => {
     const { firebase } = getState();
     const ref = firebase.child('bands');

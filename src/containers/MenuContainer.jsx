@@ -71,8 +71,8 @@ class App extends Component {
                           <Link to="/preferences" className="visible-xs" data-toggle="collapse" data-target=".navbar-collapse">Preferences</Link>
                       </li>                    
                       <li className={this.props.auth.authenticated?'nav navbar-nav':'hidden'}>
-                          <Link to="/selecteds" className="hidden-xs">Selecteds</Link>
-                          <Link to="selecteds" className="visible-xs" data-toggle="collapse" data-target=".navbar-collapse">Selecteds</Link>
+                          <Link to="/selecteds" className="hidden-xs">Selected</Link>
+                          <Link to="selecteds" className="visible-xs" data-toggle="collapse" data-target=".navbar-collapse">Selected</Link>
                       </li>
                   </ul>
                   <ul className="nav navbar-nav centre">     
@@ -87,7 +87,7 @@ class App extends Component {
                         </li> 
                   </ul>
                   <ul className="nav navbar-right">
-                        <li className={this.props.auth.authenticated?'nav navbar-nav':'hidden'}>
+                        <li className='nav navbar-nav' >
                           <Link to="/calendar" className="hidden-xs"><span className="glyphicon glyphicon-calendar"/></Link>
                           <Link to="calendar" className="visible-xs" data-toggle="collapse" data-target=".navbar-collapse"><span className="glyphicon glyphicon-calendar"/></Link>
                         </li>

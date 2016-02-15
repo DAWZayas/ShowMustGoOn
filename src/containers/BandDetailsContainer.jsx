@@ -7,7 +7,7 @@ import Spinner from '../components/Spinner';
 
 import * as infoActions from '../actions/information';
 import * as commentsActions from '../actions/comments';
-import * as bandsActions from '../actions/bands';
+
 
 
 
@@ -21,6 +21,7 @@ class BandDetailsContainer extends Component {
 
   componentWillMount() {
     this.props.registerListeners();
+    this.props.registerListenersBand();
     this.props.registerListenersComments();
 
   }
@@ -32,6 +33,7 @@ class BandDetailsContainer extends Component {
 
   componentWillUnmount() {
     this.props.unregisterListeners();
+    this.props.unregisterListenersBand();
     this.props.unregisterListenersComments();
   }
   
@@ -63,7 +65,7 @@ function mapStateToProps(state) {
 
 export default connect(
   mapStateToProps,
-  Object.assign( {}, infoActions, commentsActions, bandsActions)
+  Object.assign( {}, infoActions, commentsActions)
 )(BandDetailsContainer);
 
 BandDetailsContainer.propTypes = {

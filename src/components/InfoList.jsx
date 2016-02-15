@@ -100,7 +100,7 @@ export default class InfoList extends Component {
 
     return (
       <div className="panel panel-default container-fluid">
-          <h1>{band[0].title}</h1>
+          <h1>{band[0]!==undefined?band[0].title:''}</h1>
           <h3>Click on a concert to confirm/cancel your assistance</h3><br/>
             {
               info.map( (infor, index) => 

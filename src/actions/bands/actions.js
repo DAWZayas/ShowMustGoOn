@@ -34,7 +34,7 @@ export function deleteBand(idBand, bandTitle) {
           if (!exists) {
             dispatch(createActionConfirmation(`Are you sure you want to delete "${bandTitle}"`, () => {
               firebase.child(`bands/${idBand}`).remove();
-            }))
+            }));
           }
           else{alert('band is not empty');}           
         });
@@ -58,6 +58,6 @@ function infoInBand(idBand, getState, cbk){
         return;
       }
     });
-    cbk(exists)
+    cbk(exists);
   });
 }

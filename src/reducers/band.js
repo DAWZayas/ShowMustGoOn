@@ -1,6 +1,5 @@
 import { SET_BANDS } from '../actions/bands';
 
-
 function setBands(state, bands) {
 
   return bands.slice();

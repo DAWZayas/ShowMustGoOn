@@ -3,8 +3,6 @@ import { connect } from 'react-redux';
 import * as messagesActions from '../actions/messages';
 import Notifications from '../components/Notifications';
 
-
-
 class NotificationsContainer extends Component {
   constructor(props) {
     super(props);
@@ -15,8 +13,6 @@ class NotificationsContainer extends Component {
    
   }
 
-
-  
   render() {
     return (
       <Notifications {...this.props} />
@@ -24,19 +20,15 @@ class NotificationsContainer extends Component {
   } 
 }
 
-
-
 function mapStateToProps(state) {
   
   const received = state.messages.reduce( function (sum, user){ if(user.recived===undefined){let n = 0; return sum+n;}else{let n = Object.keys(user.recived).filter( (key) => user.recived[key].read === false).length;return sum+n;}}, 0);
-
 
   return {
     
     total: received
   };
 }
-
 
 export default connect(
   mapStateToProps,

@@ -4,11 +4,8 @@ import InfoList from '../components/InfoList';
 import CommentList from '../components/CommentList';
 import Spinner from '../components/Spinner';
 
-
 import * as infoActions from '../actions/information';
 import * as commentsActions from '../actions/comments';
-
-
 
 
 class BandDetailsContainer extends Component {
@@ -71,5 +68,7 @@ BandDetailsContainer.propTypes = {
   registerListenersComments: PropTypes.func.isRequired,
   unregisterListenersComments: PropTypes.func.isRequired,
   registerListeners: PropTypes.func.isRequired,
-  unregisterListeners: PropTypes.func.isRequired
+  unregisterListeners: PropTypes.func.isRequired,
+  registerListenersBand: PropTypes.func.isRequired,
+  unregisterListenersBand: PropTypes.func.isRequired
 };

@@ -24,17 +24,17 @@ export default class SignIn extends Component {
   render() {
     const { isOpen } = this.state;
     return (
-       <Modal isOpen={isOpen} onRequestHide={() => this.handleCancelClick()} backdrop keyboard>
-        <div className="modal-header">
-          <ModalClose onClick={() => this.handleCancelClick()}/>
-          <h4 className="modal-title" >Sign in</h4>
-        </div>
-        <div className="modal-body">
-          <button className="btn btn-github btn-block btn-social" type="button" onClick={ () => this.handlesignInWithGithubClick()}>GitHub</button>
-          <button className="btn btn-facebook btn-block btn-social" type="button" onClick={ () => this.handlesignInWithFacebookClick()}>Facebook</button>
-        </div>
-      </Modal>
-    );
+     <Modal isOpen={isOpen} onRequestHide={() => this.handleCancelClick()} backdrop keyboard>
+       <div className="modal-header">
+         <ModalClose onClick={() => this.handleCancelClick()}/>
+         <h4 className="modal-title" >Sign in</h4>
+       </div>
+       <div className="modal-body">
+         <button className="btn btn-github btn-block btn-social" type="button" onClick={ () => this.handlesignInWithGithubClick()}>GitHub</button>
+         <button className="btn btn-facebook btn-block btn-social" type="button" onClick={ () => this.handlesignInWithFacebookClick()}>Facebook</button>
+       </div>
+     </Modal>
+     );
   }
 
 }

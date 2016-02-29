@@ -1,12 +1,9 @@
 import {  SET_COMMENTS } from '../actions/comments';
 
-
 function setComments(state, comments) {
 
   return comments.slice();
 }
-
-
 
 export default function commentsReducer(state = [], action) {
   switch (action.type) {

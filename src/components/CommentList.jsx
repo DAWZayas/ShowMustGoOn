@@ -27,7 +27,7 @@ export default class CommentList extends Component {
     this.props.removeComment(idComment);
   } 
 
-   handleEditClick(title, idComment) {
+  handleEditClick(title, idComment) {
 
     const node = this.refs.com;
 
@@ -42,7 +42,7 @@ export default class CommentList extends Component {
 
     setTimeout(() => node.focus(), 0);
     setTimeout(() => node.setSelectionRange(0, node.value.length), 0);
-   
+    
   }
 
   handleOkClick() {
@@ -52,7 +52,7 @@ export default class CommentList extends Component {
     this.setState({
       editing: false
     });
-     editComment(title, this.state.idComment);
+    editComment(title, this.state.idComment);
   }
 
   handleCancelEdit(){
@@ -100,29 +100,29 @@ export default class CommentList extends Component {
 
     return (
       <div>
-          <h3>Comments</h3>
-          {
-              comments.map( (comment, index) => <p className="well" key={index}>{comment.title}
+        <h3>Comments</h3>
+        {
+          comments.map( (comment, index) => <p className="well" key={index}>{comment.title}
             <button className={this.state.editing ? 'hidden' : comment.user===auth.id || auth.id === 'github:15048506' ?'btn btn-danger pull-right':'hidden'} type="button" onClick={ () => this.handleRemoveComment(comment.id)}><span className="glyphicon glyphicon-trash" /></button>
             <button className={this.state.editing ? 'hidden' : comment.user===auth.id?'btn btn-info pull-right':'hidden'} type="button" onClick={ () => this.handleEditClick(comment.title, comment.id) }><span className="glyphicon glyphicon-edit"/></button>
             <br/><br/></p> )
-          }
-          <div className={`input-group ${this.state.editing ? '' : 'hidden'}`}>
-            <input className="form-control" type="text" ref="com" placeholder="Edit Comment" onKeyDown={(e) => this.handleOnTitleKeyDownEdit(e)} onChange={(e) => this.handleDisabledOkEdit(e)}/>
-            <span className="input-group-btn">
-              <button disabled={this.state.addDisabled} className="btn btn-success" type="button" onClick={(e) => this.handleOkClick(e)} ><span className="glyphicon glyphicon-ok" /></button>
-              <button className="btn btn-danger glyphicon glyphicon-remove" type="button"onClick={() => this.handleCancelEdit()}></button>
-            </span>
-          </div>
-          <div className={this.state.editing? 'hidden' : 'input-group'}>
-            <input  type="text"  className="form-control" placeholder="Add Comments" ref="comment" onKeyDown={(e) => this.handleOnTitleKeyDownAdd(e)} onChange={(e) => this.handleDisabledOk(e)}/>
-            <span className="input-group-btn">
-              <button disabled={this.state.addDisabled} className="btn btn-info" type="button" onClick={e => this.handleAddButtonClick(e)}><span className="glyphicon glyphicon-plus" /></button>
-            </span>
-          </div>
+        }
+        <div className={`input-group ${this.state.editing ? '' : 'hidden'}`}>
+          <input className="form-control" type="text" ref="com" placeholder="Edit Comment" onKeyDown={(e) => this.handleOnTitleKeyDownEdit(e)} onChange={(e) => this.handleDisabledOkEdit(e)}/>
+          <span className="input-group-btn">
+            <button disabled={this.state.addDisabled} className="btn btn-success" type="button" onClick={(e) => this.handleOkClick(e)} ><span className="glyphicon glyphicon-ok" /></button>
+            <button className="btn btn-danger glyphicon glyphicon-remove" type="button"onClick={() => this.handleCancelEdit()}></button>
+          </span>
+        </div>
+        <div className={this.state.editing? 'hidden' : 'input-group'}>
+          <input  type="text"  className="form-control" placeholder="Add Comments" ref="comment" onKeyDown={(e) => this.handleOnTitleKeyDownAdd(e)} onChange={(e) => this.handleDisabledOk(e)}/>
+          <span className="input-group-btn">
+          <button disabled={this.state.addDisabled} className="btn btn-info" type="button" onClick={e => this.handleAddButtonClick(e)}><span className="glyphicon glyphicon-plus" /></button>
+          </span>
+        </div>
       </div>
-    );
-  }
+      );
+}
 }
 
 CommentList.propTypes = {

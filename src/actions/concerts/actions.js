@@ -11,7 +11,7 @@ export function addConcert(title) {
     const { firebase, auth } = getState();
     const user = auth.id;
     firebase.child('concerts')
-      .push({title, user});
+    .push({title, user});
     
   };
 }
@@ -26,10 +26,10 @@ export function deleteConcert(idConcert, ConcertTitle) {
       const data = snapshot.val();
       if (user === 'github:15048506' || data.user === auth.id){
        dispatch(createActionConfirmation(`Are you sure you want to delete "${ConcertTitle}"`, () => {
-       firebase.child(`concerts/${idConcert}`).remove();
+         firebase.child(`concerts/${idConcert}`).remove();
        }));
-      }
-    });
+     }
+   });
   };
 
 }

@@ -1,11 +1,8 @@
 import { SET_INFO } from '../actions/information';
 
-
 function setInfo(state, info) {
   return info.slice();
 }
-
-
 
 export default function infoReducer(state = [], action) {
 	switch (action.type) {

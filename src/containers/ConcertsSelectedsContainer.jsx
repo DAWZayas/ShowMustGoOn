@@ -4,9 +4,6 @@ import ConcertsSelected from '../components/ConcertsSelected';
 import * as selectedsActions from '../actions/selecteds';
 import Spinner from '../components/Spinner';
 
-
-
-
 class ConcertsSelectedsContainer extends Component {
 
   constructor(props) {
@@ -33,9 +30,7 @@ class ConcertsSelectedsContainer extends Component {
   render() {
     return (
       <div>
- 
         {this.state.loading?<Spinner /> : ( <ConcertsSelected {...this.props}/>) } 
-
       </div>
     );
   } 
@@ -46,7 +41,6 @@ function mapStateToProps(state) {
   const selecteds= state.info.filter(i => i.users[idUser]? i.users[idUser].assist? true : false : false) || {};
   return {selecteds};
 }
-
 
 export default connect(
   mapStateToProps,

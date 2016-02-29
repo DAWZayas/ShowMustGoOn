@@ -3,7 +3,6 @@ import { connect } from 'react-redux';
 import Calend from '../components/Calend';
 import * as infoActions from '../actions/information';
 
- 
 class CalendarContainer extends Component {
   constructor(props) {
     super(props);
@@ -21,13 +20,11 @@ class CalendarContainer extends Component {
   render() {
     return (
       <div>
-           <Calend { ...this.props} />
+        <Calend { ...this.props} />
       </div>
     );
   } 
 }
-
-
 
 /*function mapStateToProps(state) {
   return {
@@ -47,5 +44,7 @@ export default connect(
 
 CalendarContainer.propTypes = {
   registerListeners: PropTypes.func.isRequired,
-  unregisterListeners: PropTypes.func.isRequired
+  unregisterListeners: PropTypes.func.isRequired,
+  registerListenersBand: PropTypes.func.isRequired,
+  unregisterListenersBand: PropTypes.func.isRequired
 };

@@ -26,10 +26,10 @@ export function removeComment(idComment) {
       const data = snapshot.val();
       if (data.user===user || user==='github:15048506'){
        firebase.child(`comments/${idComment}`).remove();
-      }else{
-        alert('This is not your Comment, Bitch' );
-      }
-    });
+     }else{
+      alert('This is not your Comment, Bitch' );
+    }
+  });
     
   };
 
@@ -39,7 +39,7 @@ export function editComment(title, idComment) {
   return (dispatch, getState) => {
     const { firebase } = getState();
     firebase.child(`comments/${idComment}`)
-      .update({title});
+    .update({title});
     
   };
 }

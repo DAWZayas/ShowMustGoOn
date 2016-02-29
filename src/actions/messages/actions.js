@@ -8,18 +8,18 @@ export function sendMessage(msg, id) {
     const time = Date.now();
     let obj = {time: time, msg: msg}; 
     let obj2 = {time: time, msg: msg, read:false}; 
-      firebase.child(`messages/${id}/${userId}/recived`).push(obj2);
-      firebase.child(`messages/${userId}/${id}/sent`).push(obj);
+    firebase.child(`messages/${id}/${userId}/recived`).push(obj2);
+    firebase.child(`messages/${userId}/${id}/sent`).push(obj);
   };
 }
 export function removeAllButtonClick(){
-     return (dispatch, getState) => {
-    const { firebase, auth } = getState();
-    const userId = auth.id; 
-       dispatch(createActionConfirmation(`Are you sure you want to clean?`, () => {
-       firebase.child(`messages/${userId}`).remove();
-       }));
-  };
+ return (dispatch, getState) => {
+  const { firebase, auth } = getState();
+  const userId = auth.id; 
+  dispatch(createActionConfirmation(`Are you sure you want to clean?`, () => {
+   firebase.child(`messages/${userId}`).remove();
+ }));
+};
 }
 
 export function deleteMessageClick(messageId){

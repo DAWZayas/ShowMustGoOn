@@ -4,10 +4,6 @@ import UserList from '../components/UserList';
 import * as usersActions from '../actions/users';
 import Spinner from '../components/Spinner';
 
-
-
-
-
 class UsersListContainer extends Component {
 
   constructor(props) {
@@ -16,7 +12,6 @@ class UsersListContainer extends Component {
       loading: true
     };
   }
-
 
   componentWillMount() {
     this.props.registerListeners();
@@ -49,7 +44,6 @@ function mapStateToProps(state) {
   const users= state.users.filter(user => {if(user.info!==undefined&&user.id!==idUser&&user.info[idInfo]!==undefined&&user.info[idInfo].assist === true){return true;}else{return false;}}) || {};
   return {users, auth, idInfo};
 }
-
 
 export default connect(
   mapStateToProps,

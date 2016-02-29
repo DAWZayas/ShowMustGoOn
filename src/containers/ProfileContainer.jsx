@@ -4,10 +4,6 @@ import Profile from '../components/Profile';
 import * as usersActions from '../actions/users';
 import Spinner from '../components/Spinner';
 
-
-
-
-
 class ProfileContainer extends Component {
 
   constructor(props) {
@@ -16,7 +12,6 @@ class ProfileContainer extends Component {
       loading: true
     };
   }
-
 
   componentWillMount() {
     this.props.registerListeners();
@@ -45,7 +40,6 @@ function mapStateToProps(state) {
   const user= state.users.filter(user => user.id === idUser) || {};
   return {user, auth};
 }
-
 
 export default connect(
   mapStateToProps,

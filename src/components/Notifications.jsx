@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, PropTypes } from 'react';
 
 
 export default class Notifications extends Component {
@@ -9,10 +9,14 @@ export default class Notifications extends Component {
 
   render() {
 
-   const { total }=this.props;
+   const { total } = this.props;
  
     return (
         <span className="badge">{ total } </span>
     );
   }
 }
+
+Notifications.propTypes = {
+  total: PropTypes.array,
+};

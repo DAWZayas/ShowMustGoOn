@@ -46,19 +46,18 @@ export default class BandList extends Component {
 
     return (
       <div className="panel container-fluid panel-default">
-          <h3>Bands</h3>
-            {
-              bands.map( (band, index) =>  <BandItem key={index} band={band} {...this.props}/> )
-            }<br/>
-         <div className={auth.authenticated ?'input-group':'hidden'}>
-            <input  type="text"  className="form-control" placeholder="Add bands" ref="band" onChange={e => this.handleDisabledOkEdit(e)} onKeyDown={(e) => this.handleOnTitleKeyDownEdit(e)}/>
-            <span className="input-group-btn">
-              <button disabled={this.state.addDisabled} className="btn btn-info" type="button" onClick={e => this.handleAddButtonClick(e)}><span className="glyphicon glyphicon-plus" /></button>
-            </span>
-          </div>
-         
+        <h3>Bands</h3>
+        {
+          bands.map( (band, index) =>  <BandItem key={index} band={band} {...this.props}/> )
+        }<br/>
+        <div className={auth.authenticated ?'input-group':'hidden'}>
+          <input  type="text"  className="form-control" placeholder="Add bands" ref="band" onChange={e => this.handleDisabledOkEdit(e)} onKeyDown={(e) => this.handleOnTitleKeyDownEdit(e)}/>
+          <span className="input-group-btn">
+          <button disabled={this.state.addDisabled} className="btn btn-info" type="button" onClick={e => this.handleAddButtonClick(e)}><span className="glyphicon glyphicon-plus" /></button>
+          </span>
+        </div>
       </div>
-    );
+      );
   }
 }
 

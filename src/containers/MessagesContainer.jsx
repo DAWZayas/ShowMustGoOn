@@ -5,8 +5,6 @@ import * as messagesActions from '../actions/messages';
 import Spinner from '../components/Spinner';
 
 
-
-
 class messagesContainer extends Component {
 
   constructor(props) {
@@ -16,7 +14,6 @@ class messagesContainer extends Component {
     };
   }
 
-
   componentWillMount() {
     this.props.registerListeners();
     this.props.registerListenersUsers();
@@ -25,7 +22,6 @@ class messagesContainer extends Component {
 
     this.setState({ loading: false});
   }
-
 
   render() {
     return (
@@ -47,11 +43,8 @@ function mapStateToProps(state) {
   for (var i = news.length - 1; i >= 0; i--) {
     newmsg = newmsg.concat(news[i]);
   }
-
-
   return {messages, auth, users, newmsg};
 }
-
 
 export default connect(
   mapStateToProps,
@@ -60,5 +53,5 @@ export default connect(
 
 messagesContainer.propTypes = {
   registerListeners: PropTypes.func.isRequired,
-  unregisterListeners: PropTypes.func.isRequired,
+  registerListenersUsers: PropTypes.func.isRequired
 };

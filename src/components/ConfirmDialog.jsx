@@ -27,18 +27,18 @@ export default class ConfirmDialog extends Component {
           <h4 className="modal-title">Confirm Dialog</h4>
         </div>
         <div className="modal-body">
-          <p>{msg}</p>
+         <p>{msg}</p>
         </div>
         <div className="modal-footer">
           <button className="btn btn-default" ref="cancelButton" onClick={() => this.handleCancelClick()}>
-            Cancel
+           Cancel
           </button>
           <button className="btn btn-danger" onClick={() => this.handleConfirmClick()}>
-            Do it!
-          </button>
+          Do it!
+        </button>
         </div>
       </Modal>
-    );
+      );
   }
 }
 

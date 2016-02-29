@@ -1,6 +1,5 @@
 import { SET_CONCERTS } from '../actions';
 
-
 function setConcerts(state, concerts) {
   return concerts.slice();
 }

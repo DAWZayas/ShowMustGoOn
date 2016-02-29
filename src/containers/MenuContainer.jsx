@@ -3,9 +3,7 @@ import { Link } from 'react-router';
 import { bandSearch } from '../actions/bandSearch/actions.js';
 import { connect } from 'react-redux';
 import * as authActions from '../actions/auth/index.js';
-
 import NotificationsContainer from './NotificationsContainer.jsx';
-
 
 class App extends Component {
 
@@ -22,8 +20,6 @@ class App extends Component {
     this.setState({ loading: false });
   }
 
-
-
   handleOnChangeTitle() {
     const node = this.refs.title;
     const title =  node.value;
@@ -38,8 +34,6 @@ class App extends Component {
   handleSignOutButtonClick(){
     this.props.signOut();
   }
-
-
 
   render() {
     const { search } = this.props;
@@ -87,7 +81,7 @@ class App extends Component {
                         </li> 
                   </ul>
                   <ul className="nav navbar-right">
-                        <li className='nav navbar-nav' >
+                        <li className="nav navbar-nav">
                           <Link to="/calendar" className="hidden-xs"><span className="glyphicon glyphicon-calendar"/></Link>
                           <Link to="calendar" className="visible-xs" data-toggle="collapse" data-target=".navbar-collapse"><span className="glyphicon glyphicon-calendar"/></Link>
                         </li>

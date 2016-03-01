@@ -1,5 +1,5 @@
 {
-   "firebase": "showmustgoon",
+   "firebase": "showgoon",
    "public": "dist",
    "ignore": [
      "firebase.json",

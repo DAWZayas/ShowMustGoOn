@@ -21,6 +21,26 @@
       auth.authenticated? alert(msg):'';
     }
 
+      haveNumber(text){
+        const number='0123456789';
+        for(var i=0; i<text.length; i++){
+          if (number.indexOf(text.charAt(i), 0)!==-1){
+           return 1;
+         }
+       }
+       return 0;
+     }
+
+      haveLetter(number){
+      const letters='abcdefghijklmnñopqrstuvwxyzABCDEFGHIJKLMNÑOPQRSTUVWXYZ';
+      
+      for(var i=0; i<number.length; i++){
+        if (letters.indexOf(number.charAt(i), 0)!==-1){
+         return 1;
+       }
+     }
+     return 0;
+   }
     handleAddButtonClick() {
       this.setState({
         editting: false
@@ -32,55 +52,33 @@
       const date =  new Date(this.refs.year.value, this.refs.month.value-1, this.refs.day.value).getTime();
       const price =  node2.value.trim();
 
+       if(this.haveNumber(title)===1){
+        alert('Place can not contain numbers');
+      }else{
+        if(this.haveLetter(this.refs.year.value)  ===1 || 
+           this.haveLetter(this.refs.month.value )===1 || 
+           this.haveLetter(this.refs.day.value)   ===1 || 
+           this.haveLetter(price)                 ===1    ){
 
-      function haveNumber(text){
-        const number='0123456789';
-        for(var i=0; i<text.length; i++){
-          if (number.indexOf(text.charAt(i), 0)!==-1){
-           return 1;
-         }
-       }
-       return 0;
-     }
-
-     function haveLetter(number){
-      const letters='abcdefghijklmnñopqrstuvwxyzABCDEFGHIJKLMNÑOPQRSTUVWXYZ';
-      
-      for(var i=0; i<number.length; i++){
-        if (letters.indexOf(number.charAt(i), 0)!==-1){
-         return 1;
-       }
-     }
-     return 0;
-   }
-
-
-   if(haveNumber(title)===1){
-    alert('Place can not contain numbers');
-  }else{
-    if(haveLetter(this.refs.year.value)===1 || 
-     haveLetter(this.refs.month.value )   || 
-     haveLetter(this.refs.day.value)      || 
-     haveLetter(price)){
-      alert('Date or the price can not contain letters');
-  }else{
-    if (title === '' | date === '' | price === '' ){
-      alert('Missing input'); 
-    }else{
-      if(date < Date.now()){
-        alert('La fecha por encima');
-      }else{    
-        addInfo(title, date, price, idBand);
+           alert('Date or the price can not contain letters');
+      }else{
+        if (title === '' | date === '' | price === '' ){
+          alert('Missing input'); 
+        }else{
+          if(date < Date.now()){
+            alert('Date Previous');
+          }else{    
+            addInfo(title, date, price, idBand);
+          }
+        }
       }
     }
-  }
-}
 
-node.value = '';
-node2.value = '';
-this.refs.year.value='';
-this.refs.month.value='';
-this.refs.day.value='';
+    node.value = '';
+    node2.value = '';
+    this.refs.year.value='';
+    this.refs.month.value='';
+    this.refs.day.value='';
 }
 
 handelOnclickAdd(){

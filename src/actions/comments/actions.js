@@ -1,5 +1,5 @@
 import { SET_COMMENTS }from './action-types';
-
+import alertify from 'alertifyjs/build/alertify.min.js';
 
 export function setcomments(comments) {
   return { type: SET_COMMENTS, comments};
@@ -27,7 +27,7 @@ export function removeComment(idComment) {
       if (data.user===user || user==='github:15048506'){
        firebase.child(`comments/${idComment}`).remove();
      }else{
-      alert('This is not your Comment, Bitch' );
+      alertify.error('This is not your Comment' );
     }
   });
     

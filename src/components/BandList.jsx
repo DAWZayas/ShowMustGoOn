@@ -1,6 +1,6 @@
 import React, { Component, PropTypes } from 'react';
 import BandItem from './BandItem';
-
+import alertify from 'alertifyjs/build/alertify.min.js';
 
 export default class BandList extends Component {
   constructor(props) {
@@ -19,7 +19,7 @@ export default class BandList extends Component {
     const node = this.refs.band;
     const title =  node.value.trim();
     if (title === ''){
-      alert('Missing input'); 
+      alertify.error('Missing input'); 
     }else{    
       addBand(title, idConcert);
     }

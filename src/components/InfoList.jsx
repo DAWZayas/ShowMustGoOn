@@ -1,5 +1,5 @@
   import React, { Component, PropTypes } from 'react';
-
+  import alertify from 'alertifyjs/build/alertify.min.js';
   export default class InfoList extends Component {
 
     constructor(props) {
@@ -18,7 +18,7 @@
           if(info[i].users[auth.id].assist){msg='Assintance Canceled';}else{msg='Assintance Confirmed';}
         }
       }
-      auth.authenticated? alert(msg):'';
+      auth.authenticated? alertify.error(msg):'';
     }
 
       haveNumber(text){
@@ -53,20 +53,20 @@
       const price =  node2.value.trim();
 
        if(this.haveNumber(title)===1){
-        alert('Place can not contain numbers');
+        alertify.error('Place can not contain numbers');
       }else{
         if(this.haveLetter(this.refs.year.value)  ===1 || 
            this.haveLetter(this.refs.month.value )===1 || 
            this.haveLetter(this.refs.day.value)   ===1 || 
            this.haveLetter(price)                 ===1    ){
 
-           alert('Date or the price can not contain letters');
+           alertify.error('Date or the price can not contain letters');
       }else{
         if (title === '' | date === '' | price === '' ){
-          alert('Missing input'); 
+          alertify.error('Missing input'); 
         }else{
           if(date < Date.now()){
-            alert('Date Previous');
+            alertify.error('Date Previous');
           }else{    
             addInfo(title, date, price, idBand);
           }

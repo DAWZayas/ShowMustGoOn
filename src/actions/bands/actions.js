@@ -1,6 +1,6 @@
 import { SET_BANDS }from './action-types';
 import { createActionConfirmation } from '../confirm';
-
+import alertify from 'alertifyjs/build/alertify.min.js';
 
 export function setbands(bands) {
   return { type: SET_BANDS, bands};
@@ -36,10 +36,10 @@ export function deleteBand(idBand, bandTitle) {
               firebase.child(`bands/${idBand}`).remove();
             }));
           }
-          else{alert('band is not empty');}           
+          else{alertify.error(`band is not empty`);}         
         });
       }else{
-        alert('This is not your band');
+        alertify.error('This is not your band');
       }
     });
   };

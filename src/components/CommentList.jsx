@@ -1,5 +1,5 @@
 import React, { Component, PropTypes } from 'react';
-
+import alertify from 'alertifyjs/build/alertify.min.js';
 export default class CommentList extends Component {
 
   constructor(props) {
@@ -16,7 +16,7 @@ export default class CommentList extends Component {
     const comment =  node.value.trim();
     addComments(idBand, comment);
     node.value = '';
-    if (!auth.authenticated) {alert('You need to log in to comment');}
+    if (!auth.authenticated) {alertify.error('You need to log in to comment');}
 
     this.setState({
       addDisabled:true

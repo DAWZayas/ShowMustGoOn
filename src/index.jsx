@@ -12,6 +12,8 @@ require ('./css/spinner.css');
 require('bootstrap/dist/css/bootstrap.min.css');
 global.jQuery = require('jquery/dist/jquery.min.js');
 require('bootstrap/dist/js/bootstrap.min.js');
+require('alertifyjs/build/css/alertify.min.css');
+require('alertifyjs/build/css/themes/default.min.css');
 
 
 const store = init();

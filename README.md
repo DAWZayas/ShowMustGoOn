@@ -1,7 +1,7 @@
 
 ShowMustGoOn
 
-<a href="https://showgoon.firebaseapp.com/" target="Showmustgoon">got to app</a>
+<a href="http://mobiletest.me/nokia_lumia_920_emulator/?u=http://showgoon.firebaseapp.com" target="Showmustgoon">got to app</a>
 
 This app it is going to be a seeker of concerts, in relation with your preferences and zones.
 

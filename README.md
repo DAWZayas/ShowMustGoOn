@@ -1,7 +1,7 @@
 
 ShowMustGoOn
 
-<a href="https://showmustgoon.firebaseapp.com/" target="Showmustgoon">got to app</a>
+<a href="https://showgoon.firebaseapp.com/" target="Showmustgoon">got to app</a>
 
 This app it is going to be a seeker of concerts, in relation with your preferences and zones.
 
